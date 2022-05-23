@@ -1,6 +1,6 @@
 package com.tta.app.model;
 
-public class Wood {
+public class Blade {
 
 	private Double speed;
 	private Double control;
@@ -10,7 +10,7 @@ public class Wood {
 	private Double weight;
 	private Double price;
 	
-	public Wood() {
+	public Blade() {
 		super();
 	}
 

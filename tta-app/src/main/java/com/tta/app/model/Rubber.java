@@ -1,14 +1,14 @@
 package com.tta.app.model;
 
-public class Tire {
+public class Rubber {
 	
 	private Double speed;
 	private Double control;
-	private Double stickness;
+	private Double tackiness;
 	private Double weight;
 	private Double price;
 	
-	public Tire() {
+	public Rubber() {
 		super();
 	}
 
@@ -28,12 +28,12 @@ public class Tire {
 		this.control = control;
 	}
 
-	public Double getStickness() {
-		return stickness;
+	public Double getTackiness() {
+		return tackiness;
 	}
 
-	public void setStickness(Double stickness) {
-		this.stickness = stickness;
+	public void setTackiness(Double stickness) {
+		this.tackiness = stickness;
 	}
 
 	public Double getWeight() {

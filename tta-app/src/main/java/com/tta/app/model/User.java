@@ -1,11 +1,13 @@
 package com.tta.app.model;
 
+import com.tta.app.model.enums.Playstyle;
+
 public class User {
 	
 	private String email;
 	private String password;
 	private String experience;
-	private String playstyle;
+	private Playstyle playstyle;
 	private Double budget;
 	
 	public User() {
@@ -36,11 +38,11 @@ public class User {
 		this.experience = experience;
 	}
 
-	public String getPlaystyle() {
+	public Playstyle getPlaystyle() {
 		return playstyle;
 	}
 
-	public void setPlaystyle(String playstyle) {
+	public void setPlaystyle(Playstyle playstyle) {
 		this.playstyle = playstyle;
 	}
 

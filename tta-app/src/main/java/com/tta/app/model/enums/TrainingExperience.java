@@ -4,7 +4,7 @@ public enum TrainingExperience {
 
 	ABSOLUTE_BEGINNER,
 	BEGINNER,
-	HOBBYST,
+	HOBBYIST,
 	INTERMEDIATE,
 	SEMI_PRO,
 	PRO

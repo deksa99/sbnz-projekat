@@ -2,35 +2,35 @@ package com.tta.app.model;
 
 public class Racket {
 	
-	private Wood wood;
-	private Tire fhTire;
-	private Tire bhTire;
+	private Blade wood;
+	private Rubber fhTire;
+	private Rubber bhTire;
 
 	public Racket() {
 		super();
 	}
 
-	public Wood getWood() {
+	public Blade getWood() {
 		return wood;
 	}
 
-	public void setWood(Wood wood) {
+	public void setWood(Blade wood) {
 		this.wood = wood;
 	}
 
-	public Tire getFhTire() {
+	public Rubber getFhTire() {
 		return fhTire;
 	}
 
-	public void setFhTire(Tire fhTire) {
+	public void setFhTire(Rubber fhTire) {
 		this.fhTire = fhTire;
 	}
 
-	public Tire getBhTire() {
+	public Rubber getBhTire() {
 		return bhTire;
 	}
 
-	public void setBhTire(Tire bhTire) {
+	public void setBhTire(Rubber bhTire) {
 		this.bhTire = bhTire;
 	}
 	
