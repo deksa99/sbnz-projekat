@@ -23,5 +23,4 @@ public class TtaAppApplication {
 		kScanner.start(10_000);
 		return kContainer;
 	}
-
 }
