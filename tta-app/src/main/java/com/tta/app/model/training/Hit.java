@@ -1,4 +1,4 @@
-package com.tta.app.model;
+package com.tta.app.model.training;
 
 import com.tta.app.model.enums.HitResult;
 

@@ -1,4 +1,4 @@
-package com.tta.app.model;
+package com.tta.app.model.racket;
 
 public class Rubber {
 	

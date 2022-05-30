@@ -1,10 +1,12 @@
-package com.tta.app.model;
+package com.tta.app.model.training;
 
 import java.util.List;
 
+import com.tta.app.model.User;
 import com.tta.app.model.enums.RacketOrientation;
 import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.enums.TrainingType;
+import com.tta.app.model.racket.Racket;
 
 public class Training {
 	
