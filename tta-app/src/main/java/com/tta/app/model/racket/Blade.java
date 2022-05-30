@@ -1,5 +1,8 @@
 package com.tta.app.model.racket;
 
+import com.tta.app.model.enums.Grip;
+import com.tta.app.model.enums.GripType;
+
 public class Blade {
 
 	private Double speed;
@@ -9,6 +12,8 @@ public class Blade {
 	private Double consistency;
 	private Double weight;
 	private Double price;
+	private Grip grip;
+	private GripType gripType;
 	
 	public Blade() {
 		super();
@@ -69,6 +74,21 @@ public class Blade {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
+	public Grip getGrip() {
+		return grip;
+	}
+
+	public void setGrip(Grip grip) {
+		this.grip = grip;
+	}
+
+	public GripType getGripType() {
+		return gripType;
+	}
+
+	public void setGripType(GripType gripType) {
+		this.gripType = gripType;
+	}
 	
 }
