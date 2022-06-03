@@ -2,33 +2,34 @@
 <template>
 <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-body text-start">
-            <form>
+
+        <form id="registration-form" @submit.prevent="register">
+            <div class="modal-body text-start">
                 <div class="form-group">
-                    <input type="text" class="form-control" v-model="user.firstName" v-bind:class="{'is-invalid': invalidFirstName}" placeholder="First name">
-                    <div class="invalid-feedback">Invalid first name.</div>
+                    <input type="text" class="form-control" v-model="user.firstName" placeholder="First name" required>
+                    <div class="invalid-feedback">Невалидно име.</div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" v-model="user.lastName" v-bind:class="{'is-invalid': invalidLastName}" placeholder="Last name">
-                    <div class="invalid-feedback">Invalid last name.</div>
+                    <input type="text" class="form-control" v-model="user.lastName" placeholder="Last name" required>
+                    <div class="invalid-feedback">Невалидно презиме.</div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" v-model="user.email" v-bind:class="{'is-invalid': invalidEmail}" placeholder="Email">
-                    <div class="invalid-feedback">Invalid email.</div>
+                    <input type="text" class="form-control" v-model="user.email" v-bind:class="{'is-invalid': invalidEmail}" placeholder="Email" required>
+                    <div class="invalid-feedback">Невалидан имејл.</div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" v-model="user.password" v-bind:class="{'is-invalid': invalidPassword}" placeholder="Password">
-                    <div class="invalid-feedback">Invalid password.</div>
+                    <input type="password" class="form-control" v-model="user.password" placeholder="Password" required>
+                <div class="invalid-feedback">Невалидна лозинка.</div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" v-model="confirmPassword" v-bind:class="{'is-invalid': invalidConfirmPassword}" placeholder="Confirm password">
-                    <div class="invalid-feedback">Passwords do not match.</div>
+                    <input type="password" class="form-control" v-model="confirmPassword" placeholder="Confirm password" required>
+                    <div class="invalid-feedback">Лозинке се не поклапају.</div>
                 </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="register">Региструј се</button>
-        </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"> Региструј се</button>
+            </div>
+        </form>
     </div>
 </div>
 </template>
@@ -41,26 +42,49 @@ export default {
     data() {
         return {
             user: {
-                email: "",
-                password: "",
                 firstName: "",
-                lastName: ""
+                lastName: "",
+                email: "",
+                password: ""
             },
 
             confirmPassword: "",
-
-            invalidFirstName: "",
-            invalidLastName: "",
-            invalidEmail: "",
-            invalidPassword: "",
-            invalidConfirmPassword: ""
+            invalidEmail: false
         }
     },
 
     methods: {
         register() {
-            return;
-        }
+            this.resetInvalidStates();
+
+            if (this.validate()) {
+                console.log("regsitration success");
+            }
+        },
+
+        validate() {
+
+            let form = document.getElementById("registration-form");
+            form.classList.add("was_validated");
+            if (!form.checkValidity())
+                return false;
+
+            if (!this.user.email.match('^(.+)@(.+)$')) {
+                this.invalidEmail = true;
+                return false;
+            }
+
+            return true;
+        },
+
+        resetInvalidStates() {
+            this.invalidEmail = false;
+
+            let elements = document.querySelectorAll(".form-group input");
+            elements.forEach(el => el.classList.remove("is-invalid"));
+            let form = document.getElementById("registration-form");
+            form.classList.remove("was_validated");
+        },
     }
 
 };
