@@ -1,6 +1,6 @@
 package com.tta.app.model.enums;
 
-public enum TrainingType {
+public enum HitType {
 
 	HIT,
 	FLICK,

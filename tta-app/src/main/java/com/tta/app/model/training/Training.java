@@ -5,13 +5,13 @@ import java.util.List;
 import com.tta.app.model.User;
 import com.tta.app.model.enums.RacketOrientation;
 import com.tta.app.model.enums.TrainingLevel;
-import com.tta.app.model.enums.TrainingType;
+import com.tta.app.model.enums.HitType;
 import com.tta.app.model.racket.Racket;
 
 public class Training {
 	
 	private RacketOrientation racketOrientation;
-	private TrainingType type;
+	private HitType type;
 	private TrainingLevel level;
 	
 	private String ballType;
@@ -34,11 +34,11 @@ public class Training {
 		this.racketOrientation = racketOrientation;
 	}
 
-	public TrainingType getType() {
+	public HitType getType() {
 		return type;
 	}
 
-	public void setType(TrainingType type) {
+	public void setType(HitType type) {
 		this.type = type;
 	}
 
