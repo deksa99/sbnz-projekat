@@ -4,6 +4,7 @@ import com.tta.app.model.enums.HitResult;
 
 public class Hit {
 	
+	private Long trainingId;
 	private Double angle;
 	private Double speed;
 	private Double startPosition;
@@ -53,6 +54,16 @@ public class Hit {
 
 	public void setResult(HitResult result) {
 		this.result = result;
+	}
+
+	public Long getTrainingId() {
+		return trainingId;
+		
+	}
+
+	public void setTrainingId(Long trainingId) {
+		this.trainingId = trainingId;
+		
 	}
 	
 	

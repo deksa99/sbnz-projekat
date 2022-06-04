@@ -1,80 +1,80 @@
-name,price,speed,control,stiffness,weight,hardness,consistency
-Andro CSV OFF+,60,9,8.9,5.4,82,5.8,7.8
-Andro Temper Tech ALL+,51,7.9,9.5,6.3,70,6.1,9.1
-Andro Temper Tech OFF+,80,9.5,9.2,7.3,85,8.1,9.4
-Andro Temper Tech OFF-,45,8.5,9.3,4.9,80,6,9.8
-Andro Treiber K,114,8.8,9.5,4.8,90,5.4,9.3
-Andro Treiber Z,125,9.4,9.3,5.8,88,6.2,9.1
-Butterfly Amultart ZL Carbon,230,9.5,8.7,6.8,88,7.5,9.5
-Butterfly Balsa Carbo X5,85,8.3,8.5,4.7,70,4.3,7.9
-Butterfly Boll TriCarbon,115,9.7,7.1,8.2,95,9,8.3
-Butterfly Garaydia ZLC,240,9.4,8.7,6.9,89,6.6,8.6
-Butterfly Gergely Carbon,300,9.1,8,8.7,93,7.7,9.5
-Butterfly Innerforce AL,150,8.4,9.2,3.3,90,3.8,10
-Butterfly Innerforce ALC,235,8.8,9.1,5.4,90,5.8,9.8
-Butterfly Innerforce T5000,150,9.3,8.2,6.9,90,8,9.5
-Butterfly Joo Se Hyuk,175,7.3,8.6,6.1,90,6.2,8
-Butterfly Jun Mizutani Super ZLC,400,9.5,9,6.2,90,6.3,9.8
-Butterfly Korbel SK7,80,8.4,8.5,6.2,95,5.2,9.5
-Butterfly Michael Maze,100,8.7,8.8,4.7,85,5.1,9
-Butterfly Petr Korbel,73,8.3,8.7,4.8,89,5.4,8.8
-Butterfly Primorac,75,7.7,8.8,4.5,90,5,8.5
-Butterfly Primorac Carbon TAMCA 5000,108,9.3,7.5,7.3,92,8,9.3
-Butterfly Sardius,135,9.5,7.2,8.5,90,8.8,8.4
-Butterfly Schlager Carbon,300,9.5,7.4,8.6,95,8.9,9.3
-Butterfly Tiago Apolonia ZLC,260,9,9.4,4.3,90,5,10
-Butterfly Timo Boll ALC,185,8.9,8.7,5.8,90,6.2,9.3
-Butterfly Timo Boll Spirit,135,8.5,8.5,5.5,89,6,9.3
-Butterfly Timo Boll ZLF,250,8.8,9.3,5.2,86,5.5,9.7
-Butterfly Viscaria,185,9,8.8,5.2,90,5.6,9.1
-Butterfly Zhang Jike,125,8.1,7.3,3.5,90,3.5,4.8
-Donic Appelgren Allplay,28,6.8,8.7,3.6,85,4.1,8.5
-Donic Ovtcharov Carbospeed,75,9.6,8.2,7.7,85,7.9,9.3
-Donic Ovtcharov No. 1 Senso,220,8.7,9.5,2.7,86,3.8,9.3
-Donic Persson Powerplay,48,8.5,8.5,5.5,94,6.6,10
-Donic Waldner Black Devil Carbon Balsa,57,9.4,8,7.4,80,7.4,9.1
-Donic Waldner OFF World Champion 89,145,8.8,9.4,6,85,5.3,9.3
-Donic Waldner Senso Carbon,50,8.3,8.8,5.3,80,5.6,8.8
-Donic Waldner Ultra Senso Carbon,61,8.4,8.6,5.3,80,5.7,9
-Friendship/729 Bomb,18,8.5,8.5,5.1,85,5.9,8.8
-JOOLA Kool,255,9.6,7.7,8.8,80,7.1,8.8
-JOOLA MC1,99,9.6,8.9,6.1,80,6.5,9.1
-KTL (LKT) Instinct,16,6.7,8.8,4.2,74,4.5,6.3
-Nittaku Acoustic,165,8.6,9.2,4.3,85,4.9,9.5
-Nittaku Adelie,147,8.6,9.4,3.8,85,5.2,8.8
-Nittaku Latika,74,8.4,8.9,4.5,88,5.1,9.1
-Nittaku Ludeack,100,8.5,9.3,4.8,85,5.7,9.6
-Nittaku Violin,165,8.3,9,3.2,85,5,9.6
-Sanwei FEXTRA 7,20,8.5,9.3,4.6,88,5.4,8.1
-Stiga Allround Classic,46,6.7,8.9,3.2,85,4.5,8.6
-Stiga Allround NCT,52,7.5,9.3,4.8,83,5,8.8
-Stiga Clipper,70,8.6,8.5,5.8,98,5.7,7.6
-Stiga Clipper CR (WRB),77,9,8.6,6.3,95,6.3,9.2
-Stiga Offensive Classic (OC),48,7.6,8.3,3.7,90,5.4,7.9
-Stiga Rosewood NCT V,115,8.9,8.9,5.8,93,6.7,10
-Stiga Rosewood NCT VII,140,9.1,8.7,6.1,97,6.9,9.8
-Stiga Rosewood XO,130,9.2,8.6,5.4,79,7,9.5
-Stiga Titanium,113,8.9,8.4,6.8,98,5.4,9.4
-Tibhar Cedric Nuytinck,115,8.4,9.2,2.3,85,1.3,9.4
-Tibhar Samsonov Force Pro Black Edition,52,9.1,9,4.8,89,5.1,9.3
-Tibhar Stratus Power Wood,35,8.9,9.3,4.9,85,5.4,9.1
-Xiom Hayabusa ZXi,205,9.6,8.8,7.1,85,7.2,9.4
-Xiom ICE CREAM AZXi,158,8.9,9.6,4.7,88,6,9.8
-Xiom Offensive S,37,8.4,9.1,4.6,87,5.4,9.6
-Xiom Vega Pro,180,8.6,9.4,4.4,90,4,9.4
-Xiom Zetro Quad,90,9,9,5.9,92,4.9,9.5
-Yasaka Dynamix 17,73,9.5,9.1,8.3,90,8.7,9.4
-Yasaka Extra Special,41,8.8,8.9,5.4,88,6.2,8.6
-Yasaka Gatien Extra,38,7.6,8.9,3.7,84,4.6,9.2
-Yasaka Goiabao 5,52,9.3,9.2,6.2,86,7.3,9.7
-Yasaka Ma Lin Soft Carbon,50,7.7,8.3,4.7,89,4.5,6.9
-Yasaka Sweden Classic,40,6.7,9.2,2.8,82,3.5,6.2
-Yasaka Sweden Extra,43,7.9,9.2,3.7,84,4.8,9.4
-Yinhe MC-2,45,8.2,9.3,4,88,4.2,9.5
-Yinhe N-9,15,9.1,9.1,6.6,86,7.2,8.8
-Yinhe T-11,25,9.5,8.7,7,70,7.1,8.3
-Yinhe T-11+,42,9.3,8.9,7.2,70,7.1,8.8
-Yinhe T-8,28,9.3,8.6,6.6,86,6.8,8.7
-Yinhe T-8S,48,9.3,9.2,6,86,6,10
-Yinhe Venus V-14,46,9,9,5.6,87,5.6,9.8
-Yinhe Venus V-14 PRO,60,9.1,9.1,6.1,85,6.6,9.2
+name,price,speed,control,stiffness,weight,hardness,consistency,penhold,fl,st,an
+Andro CSV OFF+,60,9,8.9,5.4,82,5.8,7.8,n,y,y,n
+Andro Temper Tech ALL+,51,7.9,9.5,6.3,70,6.1,9.1,n,y,y,y
+Andro Temper Tech OFF+,80,9.5,9.2,7.3,85,8.1,9.4,n,y,y,y
+Andro Temper Tech OFF-,45,8.5,9.3,4.9,80,6,9.8,n,y,y,n
+Andro Treiber K,114,8.8,9.5,4.8,90,5.4,9.3,n,y,y,y
+Andro Treiber Z,125,9.4,9.3,5.8,88,6.2,9.1,n,y,y,n
+Butterfly Amultart ZL Carbon,230,9.5,8.7,6.8,88,7.5,9.5,y,y,y,n
+Butterfly Balsa Carbo X5,85,8.3,8.5,4.7,70,4.3,7.9,,,,
+Butterfly Boll TriCarbon,115,9.7,7.1,8.2,95,9,8.3,,,,
+Butterfly Garaydia ZLC,240,9.4,8.7,6.9,89,6.6,8.6,,,,
+Butterfly Gergely Carbon,300,9.1,8,8.7,93,7.7,9.5,,,,
+Butterfly Innerforce AL,150,8.4,9.2,3.3,90,3.8,10,,,,
+Butterfly Innerforce ALC,235,8.8,9.1,5.4,90,5.8,9.8,,,,
+Butterfly Innerforce T5000,150,9.3,8.2,6.9,90,8,9.5,,,,
+Butterfly Joo Se Hyuk,175,7.3,8.6,6.1,90,6.2,8,,,,
+Butterfly Jun Mizutani Super ZLC,400,9.5,9,6.2,90,6.3,9.8,,,,
+Butterfly Korbel SK7,80,8.4,8.5,6.2,95,5.2,9.5,,,,
+Butterfly Michael Maze,100,8.7,8.8,4.7,85,5.1,9,,,,
+Butterfly Petr Korbel,73,8.3,8.7,4.8,89,5.4,8.8,,,,
+Butterfly Primorac,75,7.7,8.8,4.5,90,5,8.5,,,,
+Butterfly Primorac Carbon TAMCA 5000,108,9.3,7.5,7.3,92,8,9.3,,,,
+Butterfly Sardius,135,9.5,7.2,8.5,90,8.8,8.4,,,,
+Butterfly Schlager Carbon,300,9.5,7.4,8.6,95,8.9,9.3,,,,
+Butterfly Tiago Apolonia ZLC,260,9,9.4,4.3,90,5,10,,,,
+Butterfly Timo Boll ALC,185,8.9,8.7,5.8,90,6.2,9.3,,,,
+Butterfly Timo Boll Spirit,135,8.5,8.5,5.5,89,6,9.3,,,,
+Butterfly Timo Boll ZLF,250,8.8,9.3,5.2,86,5.5,9.7,,,,
+Butterfly Viscaria,185,9,8.8,5.2,90,5.6,9.1,,,,
+Butterfly Zhang Jike,125,8.1,7.3,3.5,90,3.5,4.8,,,,
+Donic Appelgren Allplay,28,6.8,8.7,3.6,85,4.1,8.5,,,,
+Donic Ovtcharov Carbospeed,75,9.6,8.2,7.7,85,7.9,9.3,,,,
+Donic Ovtcharov No. 1 Senso,220,8.7,9.5,2.7,86,3.8,9.3,,,,
+Donic Persson Powerplay,48,8.5,8.5,5.5,94,6.6,10,,,,
+Donic Waldner Black Devil Carbon Balsa,57,9.4,8,7.4,80,7.4,9.1,,,,
+Donic Waldner OFF World Champion 89,145,8.8,9.4,6,85,5.3,9.3,,,,
+Donic Waldner Senso Carbon,50,8.3,8.8,5.3,80,5.6,8.8,,,,
+Donic Waldner Ultra Senso Carbon,61,8.4,8.6,5.3,80,5.7,9,,,,
+Friendship/729 Bomb,18,8.5,8.5,5.1,85,5.9,8.8,,,,
+JOOLA Kool,255,9.6,7.7,8.8,80,7.1,8.8,,,,
+JOOLA MC1,99,9.6,8.9,6.1,80,6.5,9.1,,,,
+KTL (LKT) Instinct,16,6.7,8.8,4.2,74,4.5,6.3,,,,
+Nittaku Acoustic,165,8.6,9.2,4.3,85,4.9,9.5,,,,
+Nittaku Adelie,147,8.6,9.4,3.8,85,5.2,8.8,,,,
+Nittaku Latika,74,8.4,8.9,4.5,88,5.1,9.1,,,,
+Nittaku Ludeack,100,8.5,9.3,4.8,85,5.7,9.6,,,,
+Nittaku Violin,165,8.3,9,3.2,85,5,9.6,,,,
+Sanwei FEXTRA 7,20,8.5,9.3,4.6,88,5.4,8.1,,,,
+Stiga Allround Classic,46,6.7,8.9,3.2,85,4.5,8.6,,,,
+Stiga Allround NCT,52,7.5,9.3,4.8,83,5,8.8,,,,
+Stiga Clipper,70,8.6,8.5,5.8,98,5.7,7.6,,,,
+Stiga Clipper CR (WRB),77,9,8.6,6.3,95,6.3,9.2,,,,
+Stiga Offensive Classic (OC),48,7.6,8.3,3.7,90,5.4,7.9,,,,
+Stiga Rosewood NCT V,115,8.9,8.9,5.8,93,6.7,10,,,,
+Stiga Rosewood NCT VII,140,9.1,8.7,6.1,97,6.9,9.8,,,,
+Stiga Rosewood XO,130,9.2,8.6,5.4,79,7,9.5,,,,
+Stiga Titanium,113,8.9,8.4,6.8,98,5.4,9.4,,,,
+Tibhar Cedric Nuytinck,115,8.4,9.2,2.3,85,1.3,9.4,,,,
+Tibhar Samsonov Force Pro Black Edition,52,9.1,9,4.8,89,5.1,9.3,,,,
+Tibhar Stratus Power Wood,35,8.9,9.3,4.9,85,5.4,9.1,,,,
+Xiom Hayabusa ZXi,205,9.6,8.8,7.1,85,7.2,9.4,,,,
+Xiom ICE CREAM AZXi,158,8.9,9.6,4.7,88,6,9.8,,,,
+Xiom Offensive S,37,8.4,9.1,4.6,87,5.4,9.6,,,,
+Xiom Vega Pro,180,8.6,9.4,4.4,90,4,9.4,,,,
+Xiom Zetro Quad,90,9,9,5.9,92,4.9,9.5,,,,
+Yasaka Dynamix 17,73,9.5,9.1,8.3,90,8.7,9.4,,,,
+Yasaka Extra Special,41,8.8,8.9,5.4,88,6.2,8.6,,,,
+Yasaka Gatien Extra,38,7.6,8.9,3.7,84,4.6,9.2,,,,
+Yasaka Goiabao 5,52,9.3,9.2,6.2,86,7.3,9.7,,,,
+Yasaka Ma Lin Soft Carbon,50,7.7,8.3,4.7,89,4.5,6.9,,,,
+Yasaka Sweden Classic,40,6.7,9.2,2.8,82,3.5,6.2,,,,
+Yasaka Sweden Extra,43,7.9,9.2,3.7,84,4.8,9.4,,,,
+Yinhe MC-2,45,8.2,9.3,4,88,4.2,9.5,,,,
+Yinhe N-9,15,9.1,9.1,6.6,86,7.2,8.8,,,,
+Yinhe T-11,25,9.5,8.7,7,70,7.1,8.3,,,,
+Yinhe T-11+,42,9.3,8.9,7.2,70,7.1,8.8,,,,
+Yinhe T-8,28,9.3,8.6,6.6,86,6.8,8.7,,,,
+Yinhe T-8S,48,9.3,9.2,6,86,6,10,,,,
+Yinhe Venus V-14,46,9,9,5.6,87,5.6,9.8,,,,
+Yinhe Venus V-14 PRO,60,9.1,9.1,6.1,85,6.6,9.2,,,,
