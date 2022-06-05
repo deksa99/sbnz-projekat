@@ -1,1 +1,107 @@
 package sbnz.tta.rules.racket;
+
+import com.tta.app.model.racket.RacketParams;
+import com.tta.app.model.racket.RacketForm;
+import com.tta.app.model.racket.Situation;
+import com.tta.app.model.enums.RacketOrientation;
+import com.tta.app.model.enums.HitType;
+import com.tta.app.model.enums.Playstyle;
+
+rule "Calculate style points"
+    when
+        $rf: RacketForm($s: situations, $id: id)
+        $rp: RacketParams(formId == $id)
+        $points: Number() from accumulate (
+            Situation(
+                response in (HitType.FLICK, HitType.LOOP, HitType.HIT),
+                $c: coef
+            ) from $s,
+            init( double total = 0.0; ),
+            action( total += $c * 100; ),
+            reverse( total -= $c * 100; ),
+            result( total )
+        )
+         $n: Number() from accumulate (
+            $sit: Situation(
+                $c: coef
+            ) from $s,
+            count($sit)
+        )
+    then
+    System.out.println("Izracunati poeni treninga");
+    modify($rp) {
+        setStylePoints((int)Math.round((double)$points / $n.doubleValue()));
+    }
+end
+
+rule "Set DEFENSIVE playstyle"
+    when
+        $rf: RacketForm($id: id)
+        $rp: RacketParams(stylePoints <= 30, formId == $id)
+    then
+    System.out.println("Postavljen odrambeni stil");
+    modify($rp) {
+        setPlaystyle(Playstyle.DEFENSIVE);
+    }
+end
+
+rule "Set ALLROUND playstyle"
+    when
+        $rf: RacketForm($id: id)
+        $rp: RacketParams(stylePoints > 30 && <= 70, formId == $id)
+    then
+    System.out.println("Postavljen svestrani stil");
+    modify($rp) {
+        setPlaystyle(Playstyle.ALLROUND);
+    }
+end
+
+rule "Set OFFENSIVE playstyle"
+    when
+        $rf: RacketForm($id: id)
+        $rp: RacketParams(stylePoints > 70, formId == $id)
+    then
+    System.out.println("Postavljen napadacki stil");
+    modify($rp) {
+        setPlaystyle(Playstyle.OFFENSIVE);
+    }
+end
+
+rule "Set DEFENSIVE playstyle params"
+    when
+        $rf: RacketForm($id: id)
+        $rp: RacketParams(playstyle == Playstyle.DEFENSIVE, formId == $id)
+    then
+    System.out.println("Postavljeni parametri za odrambeni stil");
+    modify($rp) {
+        setRubberSpin(new Range(null, 6.5)),
+        setRubberSpeed(new Range(null, 6.5)),
+        setBladeSpeed(new Range(null, 6.5))
+    }
+end
+
+rule "Set ALLROUND playstyle params"
+    when
+        $rf: RacketForm($id: id)
+        $rp: RacketParams(playstyle == Playstyle.ALLROUND, formId == $id)
+    then
+    System.out.println("Postavljeni parametri za svestrani stil");
+    modify($rp) {
+        setRubberSpin(new Range(6.5, 8.5)),
+        setRubberSpeed(new Range(6.5, 8.5)),
+        setBladeSpeed(new Range(6.5, 8.5))
+    }
+end
+
+rule "Set OFFENSIVE playstyle params"
+    when
+        $rf: RacketForm($id: id)
+        $rp: RacketParams(playstyle == Playstyle.OFFENSIVE, formId == $id)
+    then
+    System.out.println("Postavljeni parametri za napadacki stil");
+    modify($rp) {
+        setRubberSpin(new Range(8.5, null)),
+        setRubberSpeed(new Range(8.5, null)),
+        setBladeSpeed(new Range(8.5, null))
+    }
+end

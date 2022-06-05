@@ -7,8 +7,8 @@ import com.tta.app.model.enums.GripType;
 
 rule "Set racket grip"
 	when
-		$rf: RacketForm($grip: grip)
-        $rp: RacketParams()
+		$rf: RacketForm($grip: grip, $id: id)
+        $rp: RacketParams(formId == $id)
 	then
 		System.out.println("Postavljen hvat reketa na " + $grip);
 		modify($rp) {
@@ -18,8 +18,8 @@ end
 
 rule "Set SHAKEHAND grip types"
 	when
-		$rf: RacketForm(grip == Grip.SHAKEHAND, $gripType: gripType)
-        $rp: RacketParams()
+		$rf: RacketForm(grip == Grip.SHAKEHAND, $gripType: gripType, $id: id)
+        $rp: RacketParams(formId == $id)
 	then
 		System.out.println("Postavljena varijanta hvata reketa na " + $gripType + " za SHAKEHAND stil drzanja");
 		modify($rp) {
@@ -29,8 +29,8 @@ end
 
 rule "Set PENHOLD grip types"
 	when
-		$rf: RacketForm(grip == Grip.PENHOLD)
-        $rp: RacketParams()
+		$rf: RacketForm(grip == Grip.PENHOLD, $id: id)
+        $rp: RacketParams(formId == $id)
 	then
 		System.out.println("Postavljena varijanta hvata reketa na NULL za SHAKEHAND stil drzanja");
 		modify($rp) {
