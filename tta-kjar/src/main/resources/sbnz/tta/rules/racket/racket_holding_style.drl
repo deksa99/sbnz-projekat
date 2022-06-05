@@ -1,1 +1,39 @@
 package sbnz.tta.rules.racket;
+
+import com.tta.app.model.racket.RacketParams;
+import com.tta.app.model.racket.RacketForm;
+import com.tta.app.model.enums.Grip;
+import com.tta.app.model.enums.GripType;
+
+rule "Set racket grip"
+	when
+		$rf: RacketForm($grip: grip)
+        $rp: RacketParams()
+	then
+		System.out.println("Postavljen hvat reketa na " + $grip);
+		modify($rp) {
+			setGrip($grip);
+		}
+end
+
+rule "Set SHAKEHAND grip types"
+	when
+		$rf: RacketForm(grip == Grip.SHAKEHAND, $gripType: gripType)
+        $rp: RacketParams()
+	then
+		System.out.println("Postavljena varijanta hvata reketa na " + $gripType + " za SHAKEHAND stil drzanja");
+		modify($rp) {
+			setGripType($gripType);
+		}
+end
+
+rule "Set PENHOLD grip types"
+	when
+		$rf: RacketForm(grip == Grip.PENHOLD)
+        $rp: RacketParams()
+	then
+		System.out.println("Postavljena varijanta hvata reketa na NULL za SHAKEHAND stil drzanja");
+		modify($rp) {
+			setGripType(null);
+		}
+end
