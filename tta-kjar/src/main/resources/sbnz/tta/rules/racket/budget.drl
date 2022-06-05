@@ -64,7 +64,7 @@ rule "Determine budget range for maxBudget between [0, 200]"
 			setMaxBladePrice(0.5 * $max),
 			setMinRubberPrice(0.25 * $min),
 			setMaxRubberPrice(0.25 * $max);
-		};
+		}
 end
 
 rule "Determine budget range for maxBudget between (200, 400]"
@@ -78,7 +78,7 @@ rule "Determine budget range for maxBudget between (200, 400]"
 			setMaxBladePrice(0.6 * $max),
 			setMinRubberPrice(0.2 * $min),
 			setMaxRubberPrice(0.2 * $max);
-		};
+		}
 end
 
 rule "Determine budget range for maxBudget between (400, 1000]"
@@ -92,6 +92,6 @@ rule "Determine budget range for maxBudget between (400, 1000]"
 			setMaxBladePrice(0.7 * $max),
 			setMinRubberPrice(0.15 * $min),
 			setMaxRubberPrice(0.15 * $max);
-		};
+		}
 end
 

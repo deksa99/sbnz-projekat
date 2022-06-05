@@ -1,1 +1,42 @@
 package sbnz.tta.rules.racket;
+
+import com.tta.app.model.racket.RacketParams;
+import com.tta.app.model.racket.RacketForm;
+import com.tta.app.model.common.Range;
+import com.tta.app.model.enums.TrainingExperience;
+
+rule "Update control range for ABSOLUTE_BEGINNER"
+    salience 0
+	when
+		$rf: RacketForm(trainingExperience == TrainingExperience.ABSOLUTE_BEGINNER)
+        $rp: RacketParams()
+	then
+		System.out.println("Postavljena kontrola reketa za ABSOLUTE_BEGINNER");
+		modify($rp) {
+			setControlRange(new Range(8.0, null));
+		}
+end
+
+rule "Update control range for BEGINNER"
+    salience 0
+	when
+		$rf: RacketForm(trainingExperience == TrainingExperience.BEGINNER)
+        $rp: RacketParams()
+	then
+		System.out.println("Postavljena kontrola reketa za BEGINNER");
+		modify($rp) {
+			setControlRange(new Range(7.5, null));
+		}
+end
+
+rule "Update control range for everyone else"
+    salience 100
+	when
+		$rf: RacketForm()
+        $rp: RacketParams()
+	then
+		System.out.println("Postavljena kontrola reketa za svakog drugog");
+		modify($rp) {
+			setControlRange(new Range(null, null));
+		}
+end

@@ -1,5 +1,6 @@
 package com.tta.app.model.racket;
 
+import com.tta.app.model.common.Range;
 import com.tta.app.model.enums.Grip;
 import com.tta.app.model.enums.GripType;
 
@@ -11,6 +12,7 @@ public class RacketParams {
 	private Double maxBladePrice;
 	private Double maxRubberPrice;
 	private Integer stylePoints;
+	private Range controlRange;
 	private Grip grip;
 	private GripType gripType;
 	
@@ -67,6 +69,14 @@ public class RacketParams {
 	}
 	public void setMinRubberPrice(Double minRubberPrice) {
 		this.minRubberPrice = minRubberPrice;
+		
+	}
+	public Range getControlRange() {
+		return controlRange;
+		
+	}
+	public void setControlRange(Range controlRange) {
+		this.controlRange = controlRange;
 		
 	}
 	
