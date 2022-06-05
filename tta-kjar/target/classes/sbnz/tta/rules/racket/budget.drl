@@ -33,65 +33,39 @@ rule "Validate max budget >= 0"
 		}
 end
 
-rule "Validate min budget < 1000"
-	when
-		$rf: RacketForm(budget!.minBudget >= 1000)
-	then
-		System.out.println("Maksimalni budzet je veci ili jednak 1000");
-		modify($rf) {
-			setBudget(null);
-		}
-end
-
-rule "Validate max budget <= 1000"
-	when
-		$rf: RacketForm(budget!.maxBudget > 1000)
-	then
-		System.out.println("Maksimalni budzet je veci od 1000");
-		modify($rf) {
-			setBudget(null);
-		}
-end
-
 rule "Determine budget range for maxBudget between [0, 200]"
 	when
-		$rf: RacketForm(budget!.maxBudget <= 200 && budget!.maxBudget > 0, $min: budget.minBudget, $max: budget.maxBudget)
-		$rp: RacketParams()
-	then 
+		$rf: RacketForm(budget!.maxBudget <= 200 && budget!.maxBudget > 0, $min: budget.minBudget, $max: budget.maxBudget, $id: id)
+		$rp: RacketParams(formId == $id)
+	then
 		System.out.println("Odredjen budzet za 0-200: min: " + $min + ", max: " + $max);
 		modify($rp) {
-			setMinBladePrice(0.5 * $min),
-			setMaxBladePrice(0.5 * $max),
-			setMinRubberPrice(0.25 * $min),
-			setMaxRubberPrice(0.25 * $max);
+			setBladePrice(new Range(0.5 * $min, 0.5 * $max)),
+			setRubberPrice(new Range(0.25 * $min, 0.25 * $max))
 		}
 end
 
 rule "Determine budget range for maxBudget between (200, 400]"
 	when
-		$rf: RacketForm(budget!.maxBudget <= 400 && budget!.maxBudget > 200, $min: budget.minBudget, $max: budget.maxBudget)
-		$rp: RacketParams()
+		$rf: RacketForm(budget!.maxBudget <= 400 && budget!.maxBudget > 200, $min: budget.minBudget, $max: budget.maxBudget, $id: id)
+		$rp: RacketParams(formId == $id)
 	then 
 		System.out.println("Odredjen budzet za 200-400: min: " + $min + ", max: " + $max);
 		modify($rp) {
-			setMinBladePrice(0.6 * $min),
-			setMaxBladePrice(0.6 * $max),
-			setMinRubberPrice(0.2 * $min),
-			setMaxRubberPrice(0.2 * $max);
+			setBladePrice(new Range(0.6 * $min, 0.6 * $max)),
+			setRubberPrice(new Range(0.2 * $min, 0.2 * $max))
 		}
 end
 
-rule "Determine budget range for maxBudget between (400, 1000]"
+rule "Determine budget range for maxBudget between (400, inf)"
 	when
-		$rf: RacketForm(budget!.maxBudget <= 1000 && budget!.maxBudget > 400, $min: budget.minBudget, $max: budget.maxBudget)
-		$rp: RacketParams()
+		$rf: RacketForm(budget!.maxBudget > 400, $min: budget.minBudget, $max: budget.maxBudget, $id: id)
+		$rp: RacketParams(formId == $id)
 	then
 		System.out.println("Odredjen budzet za 400-1000: min: " + $min + ", max: " + $max);
 		modify($rp) {
-			setMinBladePrice(0.7 * $min),
-			setMaxBladePrice(0.7 * $max),
-			setMinRubberPrice(0.15 * $min),
-			setMaxRubberPrice(0.15 * $max);
+			setBladePrice(new Range(0.68 * $min, 0.68 * $max)),
+			setRubberPrice(new Range(0.17 * $min, 0.17 * $max))
 		}
 end
 

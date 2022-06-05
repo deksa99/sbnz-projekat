@@ -1,42 +1,28 @@
 package com.tta.app.model.racket;
 
+import java.util.UUID;
+
 import com.tta.app.model.common.Range;
 import com.tta.app.model.enums.Grip;
 import com.tta.app.model.enums.GripType;
 
 public class RacketParams {
 	
-	private Double minControl;
-	private Double minBladePrice;
-	private Double minRubberPrice;
-	private Double maxBladePrice;
-	private Double maxRubberPrice;
-	private Integer stylePoints;
+	private UUID formId;
+	private Range bladePrice;
+	private Range rubberPrice;
 	private Range controlRange;
+	private Integer stylePoints;
 	private Grip grip;
 	private GripType gripType;
 	
 	public RacketParams() {
 		super();
+		this.bladePrice = new Range();
+		this.rubberPrice = new Range();
+		this.controlRange = new Range();
 	}
-	public Double getMinControl() {
-		return minControl;
-	}
-	public void setMinControl(Double minControl) {
-		this.minControl = minControl;
-	}
-	public Double getMaxBladePrice() {
-		return maxBladePrice;
-	}
-	public void setMaxBladePrice(Double maxBladePrice) {
-		this.maxBladePrice = maxBladePrice;
-	}
-	public Double getMaxRubberPrice() {
-		return maxRubberPrice;
-	}
-	public void setMaxRubberPrice(Double maxRubberPrice) {
-		this.maxRubberPrice = maxRubberPrice;
-	}
+
 	public Integer getStylePoints() {
 		return stylePoints;
 	}
@@ -55,22 +41,6 @@ public class RacketParams {
 	public void setGripType(GripType gripType) {
 		this.gripType = gripType;
 	}
-	public Double getMinBladePrice() {
-		return minBladePrice;
-		
-	}
-	public void setMinBladePrice(Double minBladePrice) {
-		this.minBladePrice = minBladePrice;
-		
-	}
-	public Double getMinRubberPrice() {
-		return minRubberPrice;
-		
-	}
-	public void setMinRubberPrice(Double minRubberPrice) {
-		this.minRubberPrice = minRubberPrice;
-		
-	}
 	public Range getControlRange() {
 		return controlRange;
 		
@@ -79,6 +49,28 @@ public class RacketParams {
 		this.controlRange = controlRange;
 		
 	}
-	
+	public Range getBladePrice() {
+		return bladePrice;
+	}
+
+	public void setBladePrice(Range bladePrice) {
+		this.bladePrice = bladePrice;
+	}
+
+	public Range getRubberPrice() {
+		return rubberPrice;
+	}
+
+	public void setRubberPrice(Range rubberPrice) {
+		this.rubberPrice = rubberPrice;
+	}
+
+	public UUID getFormId() {
+		return formId;
+		
+	}
+	public void setFormId(UUID formId) {
+		this.formId = formId;	
+	}
 	
 }

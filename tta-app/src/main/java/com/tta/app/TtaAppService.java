@@ -16,7 +16,6 @@ import com.tta.app.model.racket.Rubber;
 
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-import org.kie.api.runtime.ObjectFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,7 +123,7 @@ public class TtaAppService {
 
 	public RacketParams getRecommendation(RacketForm form) {
 		RacketParams rp = new RacketParams();
-		
+		rp.setFormId(form.getId());
 		KieSession kieSession = kieContainer.newKieSession();
 		kieSession.insert(form);
 		kieSession.insert(rp);
