@@ -5,6 +5,7 @@ import com.tta.app.model.enums.GripType;
 
 public class Blade {
 
+	private String name;
 	private Double speed;
 	private Double control;
 	private Double stiffness;
@@ -18,6 +19,22 @@ public class Blade {
 	public Blade() {
 		super();
 	}
+
+	public Blade(Double speed, Double control, Double stiffness, Double hardness, Double consistency, Double weight,
+			Double price, Grip grip, GripType gripType) {
+		super();
+		this.speed = speed;
+		this.control = control;
+		this.stiffness = stiffness;
+		this.hardness = hardness;
+		this.consistency = consistency;
+		this.weight = weight;
+		this.price = price;
+		this.grip = grip;
+		this.gripType = gripType;
+	}
+
+
 
 	public Double getSpeed() {
 		return speed;
@@ -89,6 +106,16 @@ public class Blade {
 
 	public void setGripType(GripType gripType) {
 		this.gripType = gripType;
+	}
+
+	public String getName() {
+		return name;
+		
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		
 	}
 	
 }

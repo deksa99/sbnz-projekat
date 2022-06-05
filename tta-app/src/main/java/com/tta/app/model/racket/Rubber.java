@@ -2,6 +2,7 @@ package com.tta.app.model.racket;
 
 public class Rubber {
 	
+	private String name;
 	private Double speed;
 	private Double spin;
 	private Double control;
@@ -77,6 +78,16 @@ public class Rubber {
 
 	public void setConsistency(Double consistency) {
 		this.consistency = consistency;
+	}
+
+	public String getName() {
+		return name;
+		
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		
 	}
 
 }

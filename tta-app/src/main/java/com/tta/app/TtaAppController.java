@@ -1,8 +1,13 @@
 package com.tta.app;
 
+import java.util.List;
+
 import com.tta.app.model.User;
+import com.tta.app.model.racket.Blade;
 import com.tta.app.model.racket.Racket;
 import com.tta.app.model.racket.RacketForm;
+import com.tta.app.model.racket.RacketParams;
+import com.tta.app.model.racket.Rubber;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,20 +37,31 @@ public class TtaAppController {
 		return updated;
 	}
 	
-	@RequestMapping(value = "/get-recommendation", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<Racket> getRecommendation(@RequestBody(required = true) RacketForm form) {
-		var r = new Racket();
-		return ResponseEntity.ok(r);
+	// TODO change RacketParams to Racket
+	@RequestMapping(value = "/recommendation", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<RacketParams> getRecommendation(@RequestBody(required = true) RacketForm form) {
+		RacketParams rp = appService.getRecommendation(form);
+		return ResponseEntity.ok(rp);
 	}
 	
-	@RequestMapping(value = "/get-history-recommendation/{userId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/history-recommendation/{userId}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Racket> getHistoryRecommendation(@PathVariable(required = true) Long userId) {
-		var r = new Racket();
+		Racket r = new Racket();
 		return ResponseEntity.ok(r);
 	}
 	
 	@RequestMapping(value = "/hit", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<String> addHit(@RequestBody(required = true) RacketForm form) {
 		return ResponseEntity.ok("OPAA");
+	}
+	
+	@RequestMapping(value = "/blades", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<Blade>> getBlades() {
+		return ResponseEntity.ok(appService.loadBlades());
+	}
+	
+	@RequestMapping(value = "/rubbers", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<Rubber>> getRubbers() {
+		return ResponseEntity.ok(appService.loadRubbers());
 	}
 }

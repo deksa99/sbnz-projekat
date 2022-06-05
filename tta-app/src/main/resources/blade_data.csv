@@ -1,0 +1,168 @@
+Name,Price,Speed,Control,Stiffness,Weight,Hardness,Consistency,Grip,GripType
+Andro CSV OFF+,60,9,8.9,5.4,82,5.8,7.8,SHAKEHAND,FL
+Andro CSV OFF+,60,9,8.9,5.4,82,5.8,7.8,SHAKEHAND,ST
+Andro Temper Tech ALL+,51,7.9,9.5,6.3,70,6.1,9.1,SHAKEHAND,FL
+Andro Temper Tech ALL+,51,7.9,9.5,6.3,70,6.1,9.1,SHAKEHAND,ST
+Andro Temper Tech ALL+,51,7.9,9.5,6.3,70,6.1,9.1,SHAKEHAND,ST
+Andro Temper Tech OFF+,80,9.5,9.2,7.3,85,8.1,9.4,SHAKEHAND,FL
+Andro Temper Tech OFF+,80,9.5,9.2,7.3,85,8.1,9.4,SHAKEHAND,ST
+Andro Temper Tech OFF+,80,9.5,9.2,7.3,85,8.1,9.4,SHAKEHAND,ST
+Andro Temper Tech OFF-,45,8.5,9.3,4.9,80,6,9.8,SHAKEHAND,FL
+Andro Temper Tech OFF-,45,8.5,9.3,4.9,80,6,9.8,SHAKEHAND,ST
+Andro Treiber K,114,8.8,9.5,4.8,90,5.4,9.3,SHAKEHAND,FL
+Andro Treiber K,114,8.8,9.5,4.8,90,5.4,9.3,SHAKEHAND,ST
+Andro Treiber K,114,8.8,9.5,4.8,90,5.4,9.3,SHAKEHAND,ST
+Andro Treiber Z,125,9.4,9.3,5.8,88,6.2,9.1,SHAKEHAND,FL
+Andro Treiber Z,125,9.4,9.3,5.8,88,6.2,9.1,SHAKEHAND,ST
+Butterfly Amultart ZL Carbon,230,9.5,8.7,6.8,88,7.5,9.5,PENHOLD,
+Butterfly Amultart ZL Carbon,230,9.5,8.7,6.8,88,7.5,9.5,SHAKEHAND,FL
+Butterfly Amultart ZL Carbon,230,9.5,8.7,6.8,88,7.5,9.5,SHAKEHAND,ST
+Butterfly Balsa Carbo X5,85,8.3,8.5,4.7,70,4.3,7.9,SHAKEHAND,ST
+Butterfly Boll TriCarbon,115,9.7,7.1,8.2,95,9,8.3,SHAKEHAND,FL
+Butterfly Garaydia ZLC,240,9.4,8.7,6.9,89,6.6,8.6,PENHOLD,
+Butterfly Garaydia ZLC,240,9.4,8.7,6.9,89,6.6,8.6,SHAKEHAND,FL
+Butterfly Garaydia ZLC,240,9.4,8.7,6.9,89,6.6,8.6,SHAKEHAND,ST
+Butterfly Garaydia ZLC,240,9.4,8.7,6.9,89,6.6,8.6,SHAKEHAND,ST
+Butterfly Gergely Carbon,300,9.1,8,8.7,93,7.7,9.5,SHAKEHAND,FL
+Butterfly Gergely Carbon,300,9.1,8,8.7,93,7.7,9.5,SHAKEHAND,ST
+Butterfly Innerforce AL,150,8.4,9.2,3.3,90,3.8,10,PENHOLD,
+Butterfly Innerforce AL,150,8.4,9.2,3.3,90,3.8,10,SHAKEHAND,FL
+Butterfly Innerforce ALC,235,8.8,9.1,5.4,90,5.8,9.8,PENHOLD,
+Butterfly Innerforce ALC,235,8.8,9.1,5.4,90,5.8,9.8,SHAKEHAND,FL
+Butterfly Innerforce ALC,235,8.8,9.1,5.4,90,5.8,9.8,SHAKEHAND,ST
+Butterfly Innerforce ALC,235,8.8,9.1,5.4,90,5.8,9.8,SHAKEHAND,ST
+Butterfly Innerforce T5000,150,9.3,8.2,6.9,90,8,9.5,SHAKEHAND,FL
+Butterfly Innerforce T5000,150,9.3,8.2,6.9,90,8,9.5,SHAKEHAND,ST
+Butterfly Joo Se Hyuk,175,7.3,8.6,6.1,90,6.2,8,SHAKEHAND,FL
+Butterfly Joo Se Hyuk,175,7.3,8.6,6.1,90,6.2,8,SHAKEHAND,ST
+Butterfly Jun Mizutani Super ZLC,400,9.5,9,6.2,90,6.3,9.8,SHAKEHAND,FL
+Butterfly Jun Mizutani Super ZLC,400,9.5,9,6.2,90,6.3,9.8,SHAKEHAND,ST
+Butterfly Jun Mizutani Super ZLC,400,9.5,9,6.2,90,6.3,9.8,SHAKEHAND,ST
+Butterfly Korbel SK7,80,8.4,8.5,6.2,95,5.2,9.5,SHAKEHAND,FL
+Butterfly Korbel SK7,80,8.4,8.5,6.2,95,5.2,9.5,SHAKEHAND,ST
+Butterfly Korbel SK7,80,8.4,8.5,6.2,95,5.2,9.5,SHAKEHAND,ST
+Butterfly Michael Maze,100,8.7,8.8,4.7,85,5.1,9,SHAKEHAND,FL
+Butterfly Petr Korbel,73,8.3,8.7,4.8,89,5.4,8.8,SHAKEHAND,FL
+Butterfly Petr Korbel,73,8.3,8.7,4.8,89,5.4,8.8,SHAKEHAND,ST
+Butterfly Primorac,75,7.7,8.8,4.5,90,5,8.5,SHAKEHAND,FL
+Butterfly Primorac,75,7.7,8.8,4.5,90,5,8.5,SHAKEHAND,ST
+Butterfly Primorac Carbon TAMCA 5000,108,9.3,7.5,7.3,92,8,9.3,SHAKEHAND,FL
+Butterfly Primorac Carbon TAMCA 5000,108,9.3,7.5,7.3,92,8,9.3,SHAKEHAND,ST
+Butterfly Sardius,135,9.5,7.2,8.5,90,8.8,8.4,PENHOLD,
+Butterfly Sardius,135,9.5,7.2,8.5,90,8.8,8.4,SHAKEHAND,FL
+Butterfly Schlager Carbon,300,9.5,7.4,8.6,95,8.9,9.3,SHAKEHAND,ST
+Butterfly Tiago Apolonia ZLC,260,9,9.4,4.3,90,5,10,SHAKEHAND,FL
+Butterfly Tiago Apolonia ZLC,260,9,9.4,4.3,90,5,10,SHAKEHAND,ST
+Butterfly Tiago Apolonia ZLC,260,9,9.4,4.3,90,5,10,SHAKEHAND,ST
+Butterfly Timo Boll ALC,185,8.9,8.7,5.8,90,6.2,9.3,PENHOLD,
+Butterfly Timo Boll ALC,185,8.9,8.7,5.8,90,6.2,9.3,SHAKEHAND,FL
+Butterfly Timo Boll ALC,185,8.9,8.7,5.8,90,6.2,9.3,SHAKEHAND,ST
+Butterfly Timo Boll ALC,185,8.9,8.7,5.8,90,6.2,9.3,SHAKEHAND,ST
+Butterfly Timo Boll Spirit,135,8.5,8.5,5.5,89,6,9.3,SHAKEHAND,FL
+Butterfly Timo Boll Spirit,135,8.5,8.5,5.5,89,6,9.3,SHAKEHAND,ST
+Butterfly Timo Boll Spirit,135,8.5,8.5,5.5,89,6,9.3,SHAKEHAND,ST
+Butterfly Timo Boll ZLF,250,8.8,9.3,5.2,86,5.5,9.7,PENHOLD,
+Butterfly Timo Boll ZLF,250,8.8,9.3,5.2,86,5.5,9.7,SHAKEHAND,FL
+Butterfly Viscaria,185,9,8.8,5.2,90,5.6,9.1,PENHOLD,
+Butterfly Viscaria,185,9,8.8,5.2,90,5.6,9.1,SHAKEHAND,FL
+Butterfly Zhang Jike,125,8.1,7.3,3.5,90,3.5,4.8,SHAKEHAND,FL
+Donic Appelgren Allplay,28,6.8,8.7,3.6,85,4.1,8.5,SHAKEHAND,ST
+Donic Ovtcharov Carbospeed,75,9.6,8.2,7.7,85,7.9,9.3,SHAKEHAND,FL
+Donic Ovtcharov Carbospeed,75,9.6,8.2,7.7,85,7.9,9.3,SHAKEHAND,ST
+Donic Ovtcharov No. 1 Senso,220,8.7,9.5,2.7,86,3.8,9.3,SHAKEHAND,FL
+Donic Persson Powerplay,48,8.5,8.5,5.5,94,6.6,10,SHAKEHAND,FL
+Donic Persson Powerplay,48,8.5,8.5,5.5,94,6.6,10,SHAKEHAND,ST
+Donic Persson Powerplay,48,8.5,8.5,5.5,94,6.6,10,SHAKEHAND,ST
+Donic Waldner Black Devil Carbon Balsa,57,9.4,8,7.4,80,7.4,9.1,SHAKEHAND,FL
+Donic Waldner OFF World Champion 89,145,8.8,9.4,6,85,5.3,9.3,SHAKEHAND,FL
+Donic Waldner OFF World Champion 89,145,8.8,9.4,6,85,5.3,9.3,SHAKEHAND,ST
+Donic Waldner Senso Carbon,50,8.3,8.8,5.3,80,5.6,8.8,SHAKEHAND,FL
+Donic Waldner Ultra Senso Carbon,61,8.4,8.6,5.3,80,5.7,9,SHAKEHAND,FL
+Donic Waldner Ultra Senso Carbon,61,8.4,8.6,5.3,80,5.7,9,SHAKEHAND,ST
+Friendship/729 Bomb,18,8.5,8.5,5.1,85,5.9,8.8,SHAKEHAND,FL
+JOOLA Kool,255,9.6,7.7,8.8,80,7.1,8.8,SHAKEHAND,FL
+JOOLA MC1,99,9.6,8.9,6.1,80,6.5,9.1,SHAKEHAND,FL
+KTL (LKT) Instinct,16,6.7,8.8,4.2,74,4.5,6.3,SHAKEHAND,FL
+Nittaku Acoustic,165,8.6,9.2,4.3,85,4.9,9.5,PENHOLD,
+Nittaku Acoustic,165,8.6,9.2,4.3,85,4.9,9.5,SHAKEHAND,FL
+Nittaku Acoustic,165,8.6,9.2,4.3,85,4.9,9.5,SHAKEHAND,ST
+Nittaku Adelie,147,8.6,9.4,3.8,85,5.2,8.8,PENHOLD,
+Nittaku Adelie,147,8.6,9.4,3.8,85,5.2,8.8,SHAKEHAND,FL
+Nittaku Adelie,147,8.6,9.4,3.8,85,5.2,8.8,SHAKEHAND,ST
+Nittaku Latika,74,8.4,8.9,4.5,88,5.1,9.1,PENHOLD,
+Nittaku Latika,74,8.4,8.9,4.5,88,5.1,9.1,SHAKEHAND,ST
+Nittaku Ludeack,100,8.5,9.3,4.8,85,5.7,9.6,PENHOLD,
+Nittaku Ludeack,100,8.5,9.3,4.8,85,5.7,9.6,SHAKEHAND,ST
+Nittaku Violin,165,8.3,9,3.2,85,5,9.6,PENHOLD,
+Nittaku Violin,165,8.3,9,3.2,85,5,9.6,SHAKEHAND,ST
+Sanwei FEXTRA 7,20,8.5,9.3,4.6,88,5.4,8.1,SHAKEHAND,FL
+Sanwei FEXTRA 7,20,8.5,9.3,4.6,88,5.4,8.1,SHAKEHAND,ST
+Stiga Allround Classic,46,6.7,8.9,3.2,85,4.5,8.6,PENHOLD,
+Stiga Allround Classic,46,6.7,8.9,3.2,85,4.5,8.6,SHAKEHAND,FL
+Stiga Allround NCT,52,7.5,9.3,4.8,83,5,8.8,PENHOLD,
+Stiga Allround NCT,52,7.5,9.3,4.8,83,5,8.8,SHAKEHAND,FL
+Stiga Clipper,70,8.6,8.5,5.8,98,5.7,7.6,PENHOLD,
+Stiga Clipper,70,8.6,8.5,5.8,98,5.7,7.6,SHAKEHAND,FL
+Stiga Clipper CR (WRB),77,9,8.6,6.3,95,6.3,9.2,PENHOLD,
+Stiga Clipper CR (WRB),77,9,8.6,6.3,95,6.3,9.2,SHAKEHAND,FL
+Stiga Offensive Classic (OC),48,7.6,8.3,3.7,90,5.4,7.9,PENHOLD,
+Stiga Offensive Classic (OC),48,7.6,8.3,3.7,90,5.4,7.9,SHAKEHAND,ST
+Stiga Rosewood NCT V,115,8.9,8.9,5.8,93,6.7,10,PENHOLD,
+Stiga Rosewood NCT V,115,8.9,8.9,5.8,93,6.7,10,SHAKEHAND,FL
+Stiga Rosewood NCT VII,140,9.1,8.7,6.1,97,6.9,9.8,PENHOLD,
+Stiga Rosewood NCT VII,140,9.1,8.7,6.1,97,6.9,9.8,SHAKEHAND,FL
+Stiga Rosewood XO,130,9.2,8.6,5.4,79,7,9.5,SHAKEHAND,FL
+Stiga Titanium,113,8.9,8.4,6.8,98,5.4,9.4,PENHOLD,
+Stiga Titanium,113,8.9,8.4,6.8,98,5.4,9.4,SHAKEHAND,FL
+Stiga Titanium,113,8.9,8.4,6.8,98,5.4,9.4,SHAKEHAND,ST
+Tibhar Cedric Nuytinck,115,8.4,9.2,2.3,85,1.3,9.4,SHAKEHAND,FL
+Tibhar Cedric Nuytinck,115,8.4,9.2,2.3,85,1.3,9.4,SHAKEHAND,ST
+Tibhar Samsonov Force Pro Black Edition,52,9.1,9,4.8,89,5.1,9.3,PENHOLD,
+Tibhar Samsonov Force Pro Black Edition,52,9.1,9,4.8,89,5.1,9.3,SHAKEHAND,FL
+Tibhar Stratus Power Wood,35,8.9,9.3,4.9,85,5.4,9.1,PENHOLD,
+Tibhar Stratus Power Wood,35,8.9,9.3,4.9,85,5.4,9.1,SHAKEHAND,FL
+Tibhar Stratus Power Wood,35,8.9,9.3,4.9,85,5.4,9.1,SHAKEHAND,ST
+Xiom Hayabusa ZXi,205,9.6,8.8,7.1,85,7.2,9.4,PENHOLD,
+Xiom Hayabusa ZXi,205,9.6,8.8,7.1,85,7.2,9.4,SHAKEHAND,FL
+Xiom ICE CREAM AZXi,158,8.9,9.6,4.7,88,6,9.8,PENHOLD,
+Xiom ICE CREAM AZXi,158,8.9,9.6,4.7,88,6,9.8,SHAKEHAND,ST
+Xiom Offensive S,37,8.4,9.1,4.6,87,5.4,9.6,SHAKEHAND,FL
+Xiom Offensive S,37,8.4,9.1,4.6,87,5.4,9.6,SHAKEHAND,ST
+Xiom Vega Pro,180,8.6,9.4,4.4,90,4,9.4,SHAKEHAND,ST
+Xiom Zetro Quad,90,9,9,5.9,92,4.9,9.5,PENHOLD,
+Xiom Zetro Quad,90,9,9,5.9,92,4.9,9.5,SHAKEHAND,FL
+Xiom Zetro Quad,90,9,9,5.9,92,4.9,9.5,SHAKEHAND,ST
+Yasaka Dynamix 17,73,9.5,9.1,8.3,90,8.7,9.4,PENHOLD,
+Yasaka Dynamix 17,73,9.5,9.1,8.3,90,8.7,9.4,SHAKEHAND,ST
+Yasaka Extra Special,41,8.8,8.9,5.4,88,6.2,8.6,PENHOLD,
+Yasaka Extra Special,41,8.8,8.9,5.4,88,6.2,8.6,SHAKEHAND,FL
+Yasaka Extra Special,41,8.8,8.9,5.4,88,6.2,8.6,SHAKEHAND,ST
+Yasaka Gatien Extra,38,7.6,8.9,3.7,84,4.6,9.2,SHAKEHAND,FL
+Yasaka Gatien Extra,38,7.6,8.9,3.7,84,4.6,9.2,SHAKEHAND,ST
+Yasaka Goiabao 5,52,9.3,9.2,6.2,86,7.3,9.7,PENHOLD,
+Yasaka Goiabao 5,52,9.3,9.2,6.2,86,7.3,9.7,SHAKEHAND,FL
+Yasaka Goiabao 5,52,9.3,9.2,6.2,86,7.3,9.7,SHAKEHAND,ST
+Yasaka Ma Lin Soft Carbon,50,7.7,8.3,4.7,89,4.5,6.9,PENHOLD,
+Yasaka Ma Lin Soft Carbon,50,7.7,8.3,4.7,89,4.5,6.9,SHAKEHAND,FL
+Yasaka Ma Lin Soft Carbon,50,7.7,8.3,4.7,89,4.5,6.9,SHAKEHAND,ST
+Yasaka Sweden Classic,40,6.7,9.2,2.8,82,3.5,6.2,PENHOLD,
+Yasaka Sweden Classic,40,6.7,9.2,2.8,82,3.5,6.2,SHAKEHAND,FL
+Yasaka Sweden Classic,40,6.7,9.2,2.8,82,3.5,6.2,SHAKEHAND,ST
+Yasaka Sweden Extra,43,7.9,9.2,3.7,84,4.8,9.4,PENHOLD,
+Yasaka Sweden Extra,43,7.9,9.2,3.7,84,4.8,9.4,SHAKEHAND,FL
+Yasaka Sweden Extra,43,7.9,9.2,3.7,84,4.8,9.4,SHAKEHAND,ST
+Yinhe MC-2,45,8.2,9.3,4,88,4.2,9.5,SHAKEHAND,FL
+Yinhe N-9,15,9.1,9.1,6.6,86,7.2,8.8,SHAKEHAND,FL
+Yinhe N-9,15,9.1,9.1,6.6,86,7.2,8.8,SHAKEHAND,ST
+Yinhe T-11,25,9.5,8.7,7,70,7.1,8.3,PENHOLD,
+Yinhe T-11,25,9.5,8.7,7,70,7.1,8.3,SHAKEHAND,FL
+Yinhe T-11+,42,9.3,8.9,7.2,70,7.1,8.8,PENHOLD,
+Yinhe T-11+,42,9.3,8.9,7.2,70,7.1,8.8,SHAKEHAND,FL
+Yinhe T-8,28,9.3,8.6,6.6,86,6.8,8.7,PENHOLD,
+Yinhe T-8,28,9.3,8.6,6.6,86,6.8,8.7,SHAKEHAND,FL
+Yinhe T-8S,48,9.3,9.2,6,86,6,10,PENHOLD,
+Yinhe T-8S,48,9.3,9.2,6,86,6,10,SHAKEHAND,FL
+Yinhe Venus V-14,46,9,9,5.6,87,5.6,9.8,PENHOLD,
+Yinhe Venus V-14,46,9,9,5.6,87,5.6,9.8,SHAKEHAND,FL
+Yinhe Venus V-14 PRO,60,9.1,9.1,6.1,85,6.6,9.2,PENHOLD,
+Yinhe Venus V-14 PRO,60,9.1,9.1,6.1,85,6.6,9.2,SHAKEHAND,FL
