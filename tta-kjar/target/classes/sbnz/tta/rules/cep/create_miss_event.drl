@@ -1,0 +1,21 @@
+package sbnz.tta.rules.cep;
+
+import com.tta.app.model.events.HitEvent;
+import com.tta.app.model.events.MissEvent;
+import com.tta.app.model.enums.HitResult;
+import com.tta.app.model.training.Training;
+
+rule "Create miss event when hit result is not good"
+
+    when
+    	$tr: Training($id: id)
+    	$hit: HitEvent( trainingId == $id, missProcessed == false, hitResult != HitResult.GOOD)
+    then
+        modify($hit) {
+            setMissProcessed(true);
+        }
+
+        MissEvent missEvent = new MissEvent($id);
+        insert(missEvent);
+        System.out.println("Kreiran dogadjaj: PROMASAJ");
+end

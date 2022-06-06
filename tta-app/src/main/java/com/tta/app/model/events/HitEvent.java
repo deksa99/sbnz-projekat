@@ -27,6 +27,7 @@ public class HitEvent implements Serializable {
 	// Pomocni atributi
 	private boolean badAngleProcessed = false;
 	private boolean badSpeedProcessed = false;
+	private boolean missProcessed = false;
 	
 	public HitEvent() {
 		super();
@@ -84,6 +85,16 @@ public class HitEvent implements Serializable {
 	}
 	public void setBadSpeedProcessed(boolean badSpeedProcessed) {
 		this.badSpeedProcessed = badSpeedProcessed;
+	}
+
+	public boolean isMissProcessed() {
+		return missProcessed;
+		
+	}
+
+	public void setMissProcessed(boolean missProcessed) {
+		this.missProcessed = missProcessed;
+		
 	}
 	
 }
