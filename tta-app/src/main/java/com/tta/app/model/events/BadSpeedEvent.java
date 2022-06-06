@@ -2,6 +2,7 @@ package com.tta.app.model.events;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 import org.kie.api.definition.type.PropertyReactive;
 import org.kie.api.definition.type.Role;
@@ -17,11 +18,12 @@ public class BadSpeedEvent implements Serializable {
 	
 	private Date timestamp;
 	private String message;
+	private Double speed;
 	private Boolean processed = false;
-	private Long trainingId;
+	private UUID trainingId;
 	
 	
-	public BadSpeedEvent(Long trainingId) {
+	public BadSpeedEvent(UUID trainingId) {
 		super();
 		this.trainingId = trainingId;
 		this.timestamp = new Date();
@@ -45,11 +47,17 @@ public class BadSpeedEvent implements Serializable {
 	public void setProcessed(Boolean processed) {
 		this.processed = processed;
 	}
-	public Long getTrainingId() {
+	public UUID getTrainingId() {
 		return trainingId;
 	}
-	public void setTrainingId(Long trainingId) {
+	public void setTrainingId(UUID trainingId) {
 		this.trainingId = trainingId;
+	}
+	public Double getSpeed() {
+		return speed;
+	}
+	public void setSpeed(Double speed) {
+		this.speed = speed;
 	}
 	
 }

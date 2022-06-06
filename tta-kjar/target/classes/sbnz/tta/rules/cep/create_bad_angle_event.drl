@@ -20,10 +20,10 @@ rule "Bad angle event for EASY | delta = 10"
         BadAngleEvent badAngleEvent = new BadAngleEvent($id);
         badAngleEvent.setAngle($delta);
         insert(badAngleEvent);
-        System.out.println("Kreiran dogadjaj za los ugao za EASY nivo");
+        System.out.println("Kreiran dogadjaj: EASY | LOS UGAO");
 end
 
-rule "Bad angle event for MEDIUM | delta = 10"
+rule "Bad angle event for MEDIUM | delta = 5"
 
     when
     	$tr: Training(level == TrainingLevel.MEDIUM, $id: id)
@@ -36,10 +36,10 @@ rule "Bad angle event for MEDIUM | delta = 10"
         BadAngleEvent badAngleEvent = new BadAngleEvent($id);
         badAngleEvent.setAngle($delta);
         insert(badAngleEvent);
-        System.out.println("Kreiran dogadjaj za los ugao za MEDIUM nivo");
+        System.out.println("Kreiran dogadjaj: MEDIUM | LOS UGAO");
 end
 
-rule "Bad angle event for HARD | delta = 10"
+rule "Bad angle event for HARD | delta = 2"
 
     when
     	$tr: Training(level == TrainingLevel.HARD, $id: id)
@@ -52,5 +52,5 @@ rule "Bad angle event for HARD | delta = 10"
         BadAngleEvent badAngleEvent = new BadAngleEvent($id);
         badAngleEvent.setAngle($delta);
         insert(badAngleEvent);
-        System.out.println("Kreiran dogadjaj za los ugao za BEGINNER nivo");
+        System.out.println("Kreiran dogadjaj: HARD | LOS UGAO");
 end

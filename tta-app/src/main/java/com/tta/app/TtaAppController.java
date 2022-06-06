@@ -1,7 +1,6 @@
 package com.tta.app;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.tta.app.model.User;
 import com.tta.app.model.events.HitEvent;
@@ -10,7 +9,6 @@ import com.tta.app.model.racket.Racket;
 import com.tta.app.model.racket.RacketForm;
 import com.tta.app.model.racket.RacketParams;
 import com.tta.app.model.racket.Rubber;
-import com.tta.app.model.training.Training;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
