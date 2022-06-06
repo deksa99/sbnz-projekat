@@ -26,5 +26,5 @@ rule "Two consecutive misses"
         ConsecutiveMissesEvent consMisses = new ConsecutiveMissesEvent($id);
         consMisses.setMessage("Dva uzastopna promasaja");
         insert(consMisses);
-        System.out.println("Kreiran dogadjaj: Dva uzastopna promasaja | " + $b);
+        System.out.println("Kreiran dogadjaj: Dva uzastopna promasaja");
 end

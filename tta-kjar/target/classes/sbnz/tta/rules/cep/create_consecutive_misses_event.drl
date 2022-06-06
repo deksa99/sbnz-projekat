@@ -12,9 +12,8 @@ rule "Two consecutive misses"
 
     when
     	$tr: Training($id: id)
-        $b: Boolean(false)
     	$lastTwoMisses: List(size == 2) from accumulate (
-            $t: MissEvent(trainingId == $id, processed == $b) over window:length(2),
+            $t: MissEvent(trainingId == $id, processed == false) over window:length(2),
             collectList($t)
         )
     then
@@ -27,5 +26,5 @@ rule "Two consecutive misses"
         ConsecutiveMissesEvent consMisses = new ConsecutiveMissesEvent($id);
         consMisses.setMessage("Dva uzastopna promasaja");
         insert(consMisses);
-        System.out.println("Kreiran dogadjaj: Dva uzastopna promasaja | " + $b);
+        System.out.println("Kreiran dogadjaj: Dva uzastopna promasaja");
 end
