@@ -1,1 +1,31 @@
 package sbnz.tta.rules.cep;
+
+import java.util.List;
+
+import com.tta.app.model.events.HitEvent;
+import com.tta.app.model.events.ConsecutiveMissesEvent;
+import com.tta.app.model.events.BadSpeedEvent;
+import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.training.Training;
+
+rule "Two consecutive misses"
+
+    when
+    	$tr: Training($id: id)
+        $b: Boolean(false)
+    	$lastTwoMisses: List(size == 2) from accumulate (
+            $t: MissEvent(trainingId == $id, processed == $b) over window:length(2),
+            collectList($t)
+        )
+    then
+        for( Object $me: $lastTwoMisses) {
+            modify ((MissEvent)$me) {
+                setProcessed(true);
+            }
+        }
+
+        ConsecutiveMissesEvent consMisses = new ConsecutiveMissesEvent($id);
+        consMisses.setMessage("Dva uzastopna promasaja");
+        insert(consMisses);
+        System.out.println("Kreiran dogadjaj: Dva uzastopna promasaja | " + $b);
+end

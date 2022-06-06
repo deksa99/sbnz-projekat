@@ -6,10 +6,9 @@ import com.tta.app.model.enums.HitResult;
 import com.tta.app.model.training.Training;
 
 rule "Create miss event when hit result is not good"
-
     when
     	$tr: Training($id: id)
-    	$hit: HitEvent( trainingId == $id, missProcessed == false, hitResult != HitResult.GOOD)
+    	$hit: HitEvent(trainingId == $id, missProcessed == false, hitResult != HitResult.GOOD)
     then
         modify($hit) {
             setMissProcessed(true);
