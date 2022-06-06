@@ -2,8 +2,8 @@
 <kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule" 
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   
-     <kbase name="template-simple-KBase" packages="template-dtable">
-        <ksession name="templateSimpleKsession"/>
+    <kbase name="defaultKb" packages="sbnz.tta.rules.racket">
+        <ksession name="default"/>
     </kbase>
     
     <kbase name="cepTrainingKb" eventProcessingMode="stream" packages="sbnz.tta.rules.cep">

@@ -41,7 +41,7 @@ public class TtaAppService {
 	}
 	
 	public User test(User u) {
-		KieSession kieSession = kieContainer.newKieSession();
+		KieSession kieSession = kieContainer.newKieSession("default");
 		kieSession.insert(u);
 		kieSession.fireAllRules();
 		kieSession.dispose();
@@ -128,7 +128,7 @@ public class TtaAppService {
 	public RacketParams getRecommendation(RacketForm form) {
 		RacketParams rp = new RacketParams();
 		rp.setFormId(form.getId());
-		KieSession kieSession = kieContainer.newKieSession();
+		KieSession kieSession = kieContainer.newKieSession("default");
 		kieSession.insert(form);
 		kieSession.insert(rp);
 		kieSession.fireAllRules();
