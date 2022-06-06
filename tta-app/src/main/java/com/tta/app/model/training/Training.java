@@ -1,6 +1,7 @@
 package com.tta.app.model.training;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.tta.app.model.User;
 import com.tta.app.model.enums.RacketOrientation;
@@ -10,6 +11,8 @@ import com.tta.app.model.racket.Racket;
 
 public class Training {
 	
+	
+	private UUID id;
 	private RacketOrientation racketOrientation;
 	private HitType type;
 	private TrainingLevel level;
@@ -24,6 +27,7 @@ public class Training {
 	
 	public Training() {
 		super();
+		this.setId(UUID.randomUUID());
 	}
 
 	public RacketOrientation getRacketOrientation() {
@@ -96,6 +100,16 @@ public class Training {
 
 	public void setHits(List<Hit> hits) {
 		this.hits = hits;
+	}
+
+	public UUID getId() {
+		return id;
+		
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+		
 	}
 	
 	

@@ -4,15 +4,20 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.tta.app.model.User;
 import com.tta.app.model.enums.Grip;
 import com.tta.app.model.enums.GripType;
+import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.events.EndTrainingEvent;
+import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.racket.Blade;
 import com.tta.app.model.racket.RacketForm;
 import com.tta.app.model.racket.RacketParams;
 import com.tta.app.model.racket.Rubber;
+import com.tta.app.model.training.Training;
 
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -23,7 +28,6 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class TtaAppService {
@@ -130,5 +134,38 @@ public class TtaAppService {
 		kieSession.fireAllRules();
 		kieSession.dispose();
 		return rp;
+	}
+
+	public String simulation(List<HitEvent> hits) {
+		KieSession kieSession = kieContainer.newKieSession("cepTraining");
+
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+        		Training tr = new Training();
+        		tr.setLevel(TrainingLevel.EASY);
+        		kieSession.insert(tr);
+        		for (HitEvent hit: hits) {
+        			hit.setTimestamp(new Date());
+        			hit.setTrainingId(tr.getId());
+        			kieSession.insert(hit);
+        			try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                    	// do nothing
+                    }
+        		}
+                kieSession.insert(new EndTrainingEvent());
+            }
+        };
+        t.setDaemon(true);
+        t.start();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            //do nothing
+        }
+        kieSession.fireUntilHalt();
+		return "OK";
 	}
 }

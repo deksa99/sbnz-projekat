@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule" 
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
+  
+     <kbase name="template-simple-KBase" packages="template-dtable">
+        <ksession name="templateSimpleKsession"/>
+    </kbase>
+    
+    <kbase name="cepTrainingKb" eventProcessingMode="stream" packages="sbnz.tta.rules.cep">
+        <ksession name="cepTraining" clockType="realtime"/>
+    </kbase>
+    
 </kmodule>

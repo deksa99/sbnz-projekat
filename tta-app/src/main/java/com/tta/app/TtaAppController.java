@@ -1,13 +1,16 @@
 package com.tta.app;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.tta.app.model.User;
+import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.racket.Blade;
 import com.tta.app.model.racket.Racket;
 import com.tta.app.model.racket.RacketForm;
 import com.tta.app.model.racket.RacketParams;
 import com.tta.app.model.racket.Rubber;
+import com.tta.app.model.training.Training;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,10 +52,11 @@ public class TtaAppController {
 		Racket r = new Racket();
 		return ResponseEntity.ok(r);
 	}
-	
-	@RequestMapping(value = "/hit", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<String> addHit(@RequestBody(required = true) RacketForm form) {
-		return ResponseEntity.ok("OPAA");
+
+	@RequestMapping(value = "/simulation", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<String> simulation(@RequestBody(required = true) List<HitEvent> hits) {
+		String response = appService.simulation(hits);
+		return ResponseEntity.ok(response);
 	}
 	
 	@RequestMapping(value = "/blades", method = RequestMethod.GET, produces = "application/json")

@@ -2,6 +2,7 @@ package com.tta.app.model.events;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 import com.tta.app.model.enums.HitResult;
 
@@ -19,19 +20,24 @@ public class HitEvent implements Serializable {
 
 	private Date timestamp;
 	private double angleDelta;
-	private double speedDeta;
+	private double speedDelta;
 	private HitResult hitResult;
-	private Long trainingId;
+	private UUID trainingId;
+	
+	// Pomocni atributi
+	private boolean badAngleProcessed = false;
+	private boolean badSpeedProcessed = false;
 	
 	public HitEvent() {
 		super();
+		this.timestamp = new Date();
 	}
 	
-	public HitEvent(Date timestamp, double angleDelta, double speedDeta, HitResult hitResult, Long trainingId) {
+	public HitEvent(Date timestamp, double angleDelta, double speedDelta, HitResult hitResult, UUID trainingId) {
 		super();
 		this.timestamp = timestamp;
 		this.angleDelta = angleDelta;
-		this.speedDeta = speedDeta;
+		this.speedDelta = speedDelta;
 		this.hitResult = hitResult;
 		this.trainingId = trainingId;
 	}
@@ -48,11 +54,11 @@ public class HitEvent implements Serializable {
 	public void setAngleDelta(double angleDelta) {
 		this.angleDelta = angleDelta;
 	}
-	public double getSpeedDeta() {
-		return speedDeta;
+	public double getSpeedDelta() {
+		return speedDelta;
 	}
-	public void setSpeedDeta(double speedDeta) {
-		this.speedDeta = speedDeta;
+	public void setSpeedDelta(double speedDelta) {
+		this.speedDelta = speedDelta;
 	}
 	public HitResult getHitResult() {
 		return hitResult;
@@ -60,11 +66,24 @@ public class HitEvent implements Serializable {
 	public void setHitResult(HitResult hitResult) {
 		this.hitResult = hitResult;
 	}
-	public Long getTrainingId() {
+	public UUID getTrainingId() {
 		return trainingId;
 	}
-	public void setTrainingId(Long trainingId) {
+	public void setTrainingId(UUID trainingId) {
 		this.trainingId = trainingId;
+	}
+
+	public boolean isBadAngleProcessed() {
+		return badAngleProcessed;
+	}
+	public void setBadAngleProcessed(boolean badAngleProcessed) {
+		this.badAngleProcessed = badAngleProcessed;
+	}
+	public boolean isBadSpeedProcessed() {
+		return badSpeedProcessed;
+	}
+	public void setBadSpeedProcessed(boolean badSpeedProcessed) {
+		this.badSpeedProcessed = badSpeedProcessed;
 	}
 	
 }
