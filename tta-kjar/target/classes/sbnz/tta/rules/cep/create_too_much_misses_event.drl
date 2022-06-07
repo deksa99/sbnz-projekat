@@ -2,6 +2,7 @@ package sbnz.tta.rules.cep;
 
 import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.events.ConsecutiveMissesEvent;
+import com.tta.app.model.events.TooMuchMissesEvent;
 import com.tta.app.model.events.BadSpeedEvent;
 import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.training.Training;
@@ -20,10 +21,10 @@ rule "4 consecutive consecutive misses | EASY"
             }
         }
 
-        ConsecutiveMissesEvent consMisses = new ConsecutiveMissesEvent($id);
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
         consMisses.setMessage("5 uzastopnih vezanih promasaja");
         insert(consMisses);
-        System.out.println("Kreiran dogadjaj: EASY | Pet uzastopnih vezanih promasaja");
+        System.out.println("Kreiran dogadjaj:               EASY | Previse promasaja [4]");
 end
 
 rule "3 consecutive consecutive misses | MEDIUM"
@@ -40,10 +41,10 @@ rule "3 consecutive consecutive misses | MEDIUM"
             }
         }
 
-        ConsecutiveMissesEvent consMisses = new ConsecutiveMissesEvent($id);
-        consMisses.setMessage("5 uzastopnih vezanih promasaja");
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
+        consMisses.setMessage("3 uzastopna vezana promasaja");
         insert(consMisses);
-        System.out.println("Kreiran dogadjaj: MEDIUM | Pet uzastopnih vezanih promasaja");
+        System.out.println("Kreiran dogadjaj:               MEDIUM | Previse promasaja  [3]");
 end
 
 rule "2 consecutive consecutive misses | HARD"
@@ -60,8 +61,8 @@ rule "2 consecutive consecutive misses | HARD"
             }
         }
 
-        ConsecutiveMissesEvent consMisses = new ConsecutiveMissesEvent($id);
-        consMisses.setMessage("5 uzastopnih vezanih promasaja");
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
+        consMisses.setMessage("2 uzastopna vezana promasaja");
         insert(consMisses);
-        System.out.println("Kreiran dogadjaj: HARD | Pet uzastopnih vezanih promasaja");
+        System.out.println("Kreiran dogadjaj:               HARD | Previse promasaja [2]");
 end

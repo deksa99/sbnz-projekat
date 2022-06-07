@@ -12,6 +12,7 @@ public class TooMuchMissesEvent implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String message;
+	private boolean processed = false;
 	private UUID trainingId;
 	
 	public TooMuchMissesEvent(UUID trainingId) {
@@ -30,5 +31,15 @@ public class TooMuchMissesEvent implements Serializable {
 	}
 	public void setTrainingId(UUID trainingId) {
 		this.trainingId = trainingId;
+	}
+
+	public boolean isProcessed() {
+		return processed;
+		
+	}
+
+	public void setProcessed(boolean processed) {
+		this.processed = processed;
+		
 	}
 }

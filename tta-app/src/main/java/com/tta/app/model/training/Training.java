@@ -25,6 +25,8 @@ public class Training {
 	private Racket racket;
 	private List<Hit> hits;
 	
+	private Boolean successful = null;
+	
 	public Training() {
 		super();
 		this.setId(UUID.randomUUID());
@@ -109,6 +111,16 @@ public class Training {
 
 	public void setId(UUID id) {
 		this.id = id;
+		
+	}
+
+	public Boolean getSuccessful() {
+		return successful;
+		
+	}
+
+	public void setSuccessful(Boolean successful) {
+		this.successful = successful;
 		
 	}
 	

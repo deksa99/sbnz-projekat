@@ -16,5 +16,5 @@ rule "Two bad speeds"
     };
     FixSpeedEvent fSpeed = new FixSpeedEvent($tId);
     insert(fSpeed);
-    System.out.println("Kreiran dogadjaj: Popravi brzinu reketa!");
+    System.out.println("Kreiran dogadjaj:       Popravi brzinu reketa!");
 end

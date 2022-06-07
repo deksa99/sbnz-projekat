@@ -8,13 +8,13 @@ rule "Two bad angles"
         $e1: BadAngleEvent(processed == false, $tId: trainingId)
         $e2: BadAngleEvent(processed == false, trainingId == $tId, this after [200ms, 2200ms] $e1)
     then
-    modify ($e1) {
-        setProcessed(true);
-    };
-    modify ($e2) {
-        setProcessed(true);
-    };
-    FixAngleEvent fAngle = new FixAngleEvent($tId);
-    insert(fAngle);
-    System.out.println("Kreiran dogadjaj: Popravi ugao reketa!");
+        modify ($e1) {
+            setProcessed(true);
+        };
+        modify ($e2) {
+            setProcessed(true);
+        };
+        FixAngleEvent fAngle = new FixAngleEvent($tId);
+        insert(fAngle);
+        System.out.println("Kreiran dogadjaj:       Popravi ugao reketa!");
 end
