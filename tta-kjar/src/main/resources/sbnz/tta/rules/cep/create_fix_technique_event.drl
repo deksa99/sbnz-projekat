@@ -7,57 +7,34 @@ import com.tta.app.model.events.FixSpeedEvent;
 import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.training.Training;
 
-rule "Fix Technique | misses"
+rule "Fix Technique | angle"
     when
     	$tr: Training($id: id)
-    	$consMiss: ConsecutiveMissesEvent(processed == false, trainingId == $id)
-        not FixAngleEvent(processed == false, trainingId == $id)
+    	$fixAngle: FixAngleEvent(processed == false, trainingId == $id)
         not FixSpeedEvent(processed == false, trainingId == $id)
     then
-        modify ($consMiss) {
-            setProcessed(true);
-        }
-
-        FixTechniqueEvent fixTech = new FixTechniqueEvent($id);
-        fixTech.setMessage("Popravi tehniku [misses]");
-        insert(fixTech);
-        System.out.println("Kreiran dogadjaj:           Popravi tehniku [misses]");
-end
-
-rule "Fix Technique | misses + angle"
-    when
-    	$tr: Training($id: id)
-    	$consMiss: ConsecutiveMissesEvent(processed == false, trainingId == $id)
-        $fixAngle: FixAngleEvent(processed == false, trainingId == $id)
-    then
-        modify ($consMiss) {
-            setProcessed(true);
-        }
         modify ($fixAngle) {
             setProcessed(true);
         }
         FixTechniqueEvent fixTech = new FixTechniqueEvent($id);
-        fixTech.setMessage("Popravi tehniku [misses + angle]");
+        fixTech.setMessage("Popravi tehniku [angle]");
         insert(fixTech);
-        System.out.println("Kreiran dogadjaj:           Popravi tehniku [misses + angle]");
+        System.out.println("Kreiran dogadjaj:           Popravi tehniku [angle]");
 end
 
-rule "Fix Technique | misses + speed"
+rule "Fix Technique | speed"
     when
     	$tr: Training($id: id)
-    	$consMiss: ConsecutiveMissesEvent(processed == false, trainingId == $id)
+    	not FixAngleEvent(processed == false, trainingId == $id)
         $fixSpeed: FixSpeedEvent(processed == false, trainingId == $id)
     then
-        modify ($consMiss) {
-            setProcessed(true);
-        }
         modify ($fixSpeed) {
             setProcessed(true);
         }
         FixTechniqueEvent fixTech = new FixTechniqueEvent($id);
-        fixTech.setMessage("Popravi tehniku [misses + speed]");
+        fixTech.setMessage("Popravi tehniku [speed]");
         insert(fixTech);
-        System.out.println("Kreiran dogadjaj:           Popravi tehniku [misses + speed]");
+        System.out.println("Kreiran dogadjaj:           Popravi tehniku [speed]");
 end
 
 rule "Fix Technique | angle + speed"

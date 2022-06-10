@@ -1,1 +1,37 @@
 package sbnz.tta.rules.cep;
+
+import com.tta.app.model.events.TooMuchMissesEvent;
+import com.tta.app.model.events.CreateGradeEvent;
+import com.tta.app.model.training.Training;
+
+rule "Unsuccessfull training [misses]"
+    when
+    	$tr: Training($id: id)
+        $gr: CreateGradeEvent(processed == false, trainingId == $id)
+    	exists (TooMuchMissesEvent(trainingId == $id))
+    then
+        modify($gr) {
+            setProcessed(true);
+        };
+        modify($tr) {
+            setSuccessful(false);
+        };
+        System.out.println("Losa ocena");
+        drools.halt();
+end
+
+rule "Successful training [misses]"
+    when
+    	$tr: Training($id: id)
+        $gr: CreateGradeEvent(processed == false, trainingId == $id)
+    	// not TooMuchMissesEvent(training == $id)
+    then
+        modify($gr) {
+            setProcessed(true);
+        };
+        modify($tr) {
+            setSuccessful(true);
+        };
+        System.out.println("Dobra ocena");
+        drools.halt();
+end

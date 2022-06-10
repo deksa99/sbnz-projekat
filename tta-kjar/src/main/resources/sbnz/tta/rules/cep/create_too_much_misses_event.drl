@@ -22,7 +22,7 @@ rule "4 consecutive consecutive misses | EASY"
         }
 
         TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
-        consMisses.setMessage("5 uzastopnih vezanih promasaja");
+        consMisses.setMessage("4 uzastopna vezana promasaja");
         insert(consMisses);
         System.out.println("Kreiran dogadjaj:               EASY | Previse promasaja [4]");
 end

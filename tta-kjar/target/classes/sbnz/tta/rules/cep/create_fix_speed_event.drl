@@ -8,13 +8,13 @@ rule "Two bad speeds"
         $e1: BadSpeedEvent(processed == false, $tId: trainingId)
         $e2: BadSpeedEvent(processed == false, trainingId == $tId, this after [200ms, 2200ms] $e1)
     then
-    modify ($e1) {
-        setProcessed(true);
-    };
-    modify ($e2) {
-        setProcessed(true);
-    };
-    FixSpeedEvent fSpeed = new FixSpeedEvent($tId);
-    insert(fSpeed);
-    System.out.println("Kreiran dogadjaj:       Popravi brzinu reketa!");
+	    modify ($e1) {
+	        setProcessed(true);
+	    };
+	    modify ($e2) {
+	        setProcessed(true);
+	    };
+	    FixSpeedEvent fSpeed = new FixSpeedEvent($tId);
+	    insert(fSpeed);
+	    System.out.println("Kreiran dogadjaj:       Popravi brzinu reketa!");
 end

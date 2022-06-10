@@ -4,7 +4,7 @@ import com.tta.app.model.events.EndTrainingEvent;
 import com.tta.app.model.events.CreateGradeEvent;
 import com.tta.app.model.training.Training;
 
-rule "Halt drools when training is over"
+rule "Create grade when training is over"
     when
 		$tr: Training($id: id)
        	$endTr: EndTrainingEvent(processed == false)
