@@ -73,4 +73,5 @@ public class Racket {
 	public void setControl(Double control) {
 		this.control = control;
 	}
+	
 }
