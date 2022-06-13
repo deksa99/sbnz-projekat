@@ -1,5 +1,6 @@
 package com.tta.app.model;
 
+import com.tta.app.model.enums.HealthCondition;
 import com.tta.app.model.enums.Playstyle;
 import com.tta.app.model.enums.TrainingExperience;
 
@@ -9,6 +10,7 @@ public class User {
 	private String password;
 	private TrainingExperience experience;
 	private Playstyle playstyle;
+	private HealthCondition healthCondition;
 	private Double budget;
 	
 	public User() {
@@ -53,6 +55,16 @@ public class User {
 
 	public void setBudget(Double budget) {
 		this.budget = budget;
+	}
+
+	public HealthCondition getHealthCondition() {
+		return healthCondition;
+		
+	}
+
+	public void setHealthCondition(HealthCondition healthCondition) {
+		this.healthCondition = healthCondition;
+		
 	}
 	
 	

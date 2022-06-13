@@ -128,7 +128,7 @@ public class TtaAppService {
 	public RacketParams getRecommendation(RacketForm form) {
 		RacketParams rp = new RacketParams();
 		rp.setFormId(form.getId());
-		KieSession kieSession = kieContainer.newKieSession("default");
+		KieSession kieSession = kieContainer.newKieSession();
 		kieSession.insert(form);
 		kieSession.insert(rp);
 		kieSession.fireAllRules();

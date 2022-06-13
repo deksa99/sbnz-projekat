@@ -9,6 +9,7 @@ public class Hit {
 	private Double speed;
 	private Double startPosition;
 	private Double endPosition;
+	private Training training;
 	
 	private HitResult result;
 	
@@ -63,6 +64,16 @@ public class Hit {
 
 	public void setTrainingId(Long trainingId) {
 		this.trainingId = trainingId;
+		
+	}
+
+	public Training getTraining() {
+		return training;
+		
+	}
+
+	public void setTraining(Training training) {
+		this.training = training;
 		
 	}
 	

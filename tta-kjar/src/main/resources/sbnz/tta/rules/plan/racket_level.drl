@@ -8,9 +8,11 @@ no-loop
 	when
 		$r: Racket($bl: blade, $frb: fhRubber, $brb: bhRubber)
 	then
+		Double speed = ($bl.speed + $frb.speed + $bl.speed + $brb.speed) / 4
 		modify($r) {
-			setSpeed(($bl.speed + $frb.speed + $bl.speed + $brb.speed) / 4);
+			setSpeed(speed);
 		}
+		System.out.println("Izracunata brzina reketa: " + speed);
 end
 
 rule "Calculate racket spin"
@@ -18,9 +20,11 @@ no-loop
 	when
 		$r: Racket($bl: blade, $frb: fhRubber, $brb: bhRubber)
 	then
+		Double spin = (20 - ($bl.hardness + $bl.stiffness + $bl.hardness + $bl.stiffness) / 6 + $frb.spin + $brb.spin) / 4
 		modify($r) {
-			setSpin((20 - ($bl.hardness + $bl.stiffness + $bl.hardness + $bl.stiffness) / 6 + $frb.spin + $brb.spin) / 4);
+			setSpin(spin);
 		}
+		System.out.println("Izracunat spin reketa: " + spin);
 end
 
 rule "Calculate racket control"
@@ -28,43 +32,48 @@ no-loop
 	when
 		$r: Racket($bl: blade, $frb: fhRubber, $brb: bhRubber)
 	then
+		Double control = ($bl.control + $frb.control + $bl.control + $brb.control) / 4
 		modify($r) {
-			setControl(($bl.control + $frb.control + $bl.control + $brb.control) / 4);
+			setControl(control);
 		}
+		System.out.println("Izracunata kontrola reketa: " + control);
 end
 
 // PRO
 rule "Calculate racket level - PRO (speed >= 8, spin >= 8)"
 no-loop
-salience 30
+salience 0
 	when
 		$r: Racket(speed >= 8, spin >= 8)
 	then
 		modify($r) {
 			setRacketLevel(RacketLevel.PRO);
 		}
+		System.out.println("Reket je - PRO (speed >= 8, spin >= 8)");
 end
 
 rule "Calculate racket level - PRO (speed >= 7, spin >= 9)"
 no-loop
-salience 30
+salience 0
 	when
 		$r: Racket(speed >= 7, spin >= 9)
 	then
 		modify($r) {
 			setRacketLevel(RacketLevel.PRO);
 		}
+		System.out.println("Reket je - PRO (speed >= 7, spin >= 9)");
 end
 
 rule "Calculate racket level - PRO (speed >= 9, spin >= 7)"
 no-loop
-salience 30
+salience 0
 	when
 		$r: Racket(speed >= 9, spin >= 7)
 	then
 		modify($r) {
 			setRacketLevel(RacketLevel.PRO);
 		}
+		System.out.println("Reket je - PRO (speed >= 9, spin >= 7)");
 end
 
 
@@ -78,6 +87,7 @@ salience 10
 		modify($r) {
 			setRacketLevel(RacketLevel.ADVANCED);
 		}
+		System.out.println("Reket je - ADVANCED (speed >= 7, spin >= 7)");
 end
 
 rule "Calculate racket level - ADVANCED (speed >= 8, spin >= 6)"
@@ -89,6 +99,7 @@ salience 10
 		modify($r) {
 			setRacketLevel(RacketLevel.ADVANCED);
 		}
+		System.out.println("Reket je - ADVANCED (speed >= 8, spin >= 6)");
 end
 
 rule "Calculate racket level - ADVANCED (speed >= 6, spin >= 8)"
@@ -100,16 +111,18 @@ salience 10
 		modify($r) {
 			setRacketLevel(RacketLevel.ADVANCED);
 		}
+		System.out.println("Reket je - ADVANCED (speed >= 6, spin >= 8)");
 end
 
 // BEGINNER
 rule "Calculate racket level - BEGINNER"
 no-loop
-salience 0
+salience 30
 	when
 		$r: Racket()
 	then
 		modify($r) {
 			setRacketLevel(RacketLevel.BEGINNER);
 		}
+		System.out.println("Reket je - BEGINNER");
 end
