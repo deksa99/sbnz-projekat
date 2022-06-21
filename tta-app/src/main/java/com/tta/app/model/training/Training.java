@@ -1,5 +1,6 @@
 package com.tta.app.model.training;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ public class Training {
 	private RacketOrientation racketOrientation;
 	private HitType type;
 	private TrainingLevel level;
+	private LocalDateTime date;
 	
 	private String ballType;
 	private Double expectedAngle;
@@ -121,6 +123,16 @@ public class Training {
 
 	public void setSuccessful(Boolean successful) {
 		this.successful = successful;
+		
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+		
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
 		
 	}
 	

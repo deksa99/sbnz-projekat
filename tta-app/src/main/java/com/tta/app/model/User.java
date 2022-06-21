@@ -1,11 +1,14 @@
 package com.tta.app.model;
 
+import java.util.UUID;
+
 import com.tta.app.model.enums.HealthCondition;
 import com.tta.app.model.enums.Playstyle;
 import com.tta.app.model.enums.TrainingExperience;
 
 public class User {
 	
+	private UUID id;
 	private String email;
 	private String password;
 	private TrainingExperience experience;
@@ -64,6 +67,16 @@ public class User {
 
 	public void setHealthCondition(HealthCondition healthCondition) {
 		this.healthCondition = healthCondition;
+		
+	}
+
+	public UUID getId() {
+		return id;
+		
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
 		
 	}
 	

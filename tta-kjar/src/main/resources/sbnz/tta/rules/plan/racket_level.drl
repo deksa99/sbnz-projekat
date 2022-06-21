@@ -1,6 +1,5 @@
 package sbnz.tta.rules.plan;
 
-import com.tta.app.model..HitEvent;
 import com.tta.app.model.enums.RacketLevel;
 
 rule "Calculate racket speed"
