@@ -4,16 +4,19 @@ import java.lang.System;
 import java.util.List;
 
 import com.tta.app.model.training.Training;
+import com.tta.app.model.training.TrainingRequest;
 import com.tta.app.model.User;
 import com.tta.app.model.enums.HealthCondition;
+
+// TODO Test and refactor remaining
 
 rule "Set health condition to GOOD - at least 2 trainings in the past 4 days"
 no-loop
 salience 0
 	when
-		$u: User($id: id);
+		$tr: TrainingRequest($u: user);
         List(size >= 2) from collect (
-            Training(date > System.currentTimeMillis() - 4*24*60*60*1000, user.id == $id)
+            Training(date > System.currentTimeMillis() - 4*24*60*60*1000) from $u.trainHistory
         )
 	then
 		modify($u) {
@@ -39,7 +42,7 @@ end
 
 rule "Default health condition - BAD"
 no-loop
-salience 10
+salience 100
 	when
 		$u: User($id: id);
 	then

@@ -1,1 +1,75 @@
 package sbnz.tta.rules.plan;
+
+import com.tta.app.model.User;
+import com.tta.app.model.enums.UserSkill;
+import com.tta.app.model.enums.TrainingLevel;
+
+// TODO dodaj novi enum (menja easy, med, hard) kad dodas template 
+
+rule "Set skill - BEGINNER"
+no-loop
+salience 100
+	when
+		$tr: TrainingRequest($u: user);
+	then
+		modify($u) {
+			setUserSkill(UserSkill.BEGINNER);
+		}
+		System.out.println("Vestina korisnika" + $u.getId() + " postavljena na BEGINNER");
+end
+
+rule "Set skill - INTERMEDIATE, last two were successful and EASY"
+no-loop
+salience 90
+	when
+        $tr: TrainingRequest($u: user);
+        $last: Training(level == TrainingLevel.EASY, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 1);
+        $beforeLast: Training(level == TrainingLevel.EASY, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 2);
+	then
+		modify($u) {
+			setUserSkill(UserSkill.INTERMEDIATE);
+		}
+		System.out.println("Vestina korisnika" + $u.getId() + " postavljena na INTERMEDIATE - dva uspesna");
+end
+
+rule "Set skill - INTERMEDIATE, last one was MEDIUM"
+no-loop
+salience 80
+	when
+		$tr: TrainingRequest($u: user);
+        $lastTr: Training() from $u.trainHistory;
+        not Training(date > $lastTr.date, level == TrainingLevel.MEDIUM) from $u.trainHistory;
+	then
+		modify($u) {
+			setUserSkill(UserSkill.INTERMEDIATE);
+		}
+		System.out.println("Vestina korisnika" + $u.getId() + " postavljena na INTERMEDIATE - poslednji srednji");
+end
+
+rule "Set skill - PRO, last two were successful and MEDIUM"
+no-loop
+salience 70
+	when
+        $tr: TrainingRequest($u: user);
+        $last: Training(level == TrainingLevel.MEDIUM, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 1);
+        $beforeLast: Training(level == TrainingLevel.MEDIUM, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 2);
+	then
+		modify($u) {
+			setUserSkill(UserSkill.PRO);
+		}
+		System.out.println("Vestina korisnika" + $u.getId() + " postavljena na PRO - dva uspesna");
+end
+
+rule "Set skill - PRO, last one was HARD"
+no-loop
+salience 60
+	when
+		$tr: TrainingRequest($u: user);
+        $lastTr: Training() from $u.trainHistory;
+        not Training(date > $lastTr.date, level == TrainingLevel.HARD) from $u.trainHistory;
+	then
+		modify($u) {
+			setUserSkill(UserSkill.PRO);
+		}
+		System.out.println("Vestina korisnika" + $u.getId() + " postavljena na PRO - poslednji je tezak");
+end

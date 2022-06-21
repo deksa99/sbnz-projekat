@@ -1,10 +1,13 @@
 package com.tta.app.model;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.tta.app.model.enums.HealthCondition;
 import com.tta.app.model.enums.Playstyle;
 import com.tta.app.model.enums.TrainingExperience;
+import com.tta.app.model.enums.UserSkill;
+import com.tta.app.model.training.Training;
 
 public class User {
 	
@@ -14,6 +17,8 @@ public class User {
 	private TrainingExperience experience;
 	private Playstyle playstyle;
 	private HealthCondition healthCondition;
+	private UserSkill userSkill;
+	private List<Training> trainHistory;
 	private Double budget;
 	
 	public User() {
@@ -78,6 +83,22 @@ public class User {
 	public void setId(UUID id) {
 		this.id = id;
 		
+	}
+
+	public UserSkill getUserSkill() {
+		return userSkill;
+	}
+
+	public void setUserSkill(UserSkill userSkill) {
+		this.userSkill = userSkill;
+	}
+
+	public List<Training> getTrainHistory() {
+		return trainHistory;
+	}
+
+	public void setTrainHistory(List<Training> trainHistory) {
+		this.trainHistory = trainHistory;
 	}
 	
 	
