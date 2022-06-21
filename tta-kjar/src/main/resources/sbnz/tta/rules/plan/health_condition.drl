@@ -1,37 +1,40 @@
 package sbnz.tta.rules.plan;
 
-import java.time.LocalDateTime;
+import java.lang.System;
+import java.util.List;
+
+import com.tta.app.model.training.Training;
 import com.tta.app.model.User;
 import com.tta.app.model.enums.HealthCondition;
 
-rule "Set health condition to GOOD - at least 2 trainings in the past 4 days "
+rule "Set health condition to GOOD - at least 2 trainings in the past 4 days"
 no-loop
 salience 0
 	when
 		$u: User($id: id);
         List(size >= 2) from collect (
-            Training(date.plusDays(4).compareTo(LocalDateTime.now()) > 0, user.id == $id)
+            Training(date > System.currentTimeMillis() - 4*24*60*60*1000, user.id == $id)
         )
 	then
 		modify($u) {
 			setHealthCondition(HealthCondition.GOOD);
 		}
-		System.out.println("Zdravlje korisnika: " + uname + " DOBRO - Bar dva treninga u prethodna 4 dana");
+		System.out.println("Zdravlje korisnika: DOBRO - Bar dva treninga u prethodna 4 dana");
 end
 
-rule "Set health condition to GOOD - at least 3 trainings in the past 7 days "
+rule "Set health condition to GOOD - at least 3 trainings in the past 7 days"
 no-loop
 salience 0
 	when
 		$u: User($id: id);
         List(size >= 3) from collect (
-            Training(date.plusDays(7).compareTo(LocalDateTime.now()) > 0, user.id == $id)
+            Training(date > System.currentTimeMillis() - 7*24*60*60*1000, user.id == $id)
         )
 	then
 		modify($u) {
 			setHealthCondition(HealthCondition.GOOD);
 		}
-		System.out.println("Zdravlje korisnika: " + uname + " DOBRO - Bar tri treninga u prethodnih 7 dana");
+		System.out.println("Zdravlje korisnika: DOBRO - Bar tri treninga u prethodnih 7 dana");
 end
 
 rule "Default health condition - BAD"
@@ -43,5 +46,5 @@ salience 10
 		modify($u) {
 			setHealthCondition(HealthCondition.BAD);
 		}
-		System.out.println("Zdravlje korisnika: " + uname + " LOSE");
+		System.out.println("Zdravlje korisnika: LOSE");
 end

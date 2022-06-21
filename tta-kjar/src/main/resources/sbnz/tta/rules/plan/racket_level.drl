@@ -1,13 +1,14 @@
 package sbnz.tta.rules.plan;
 
 import com.tta.app.model.enums.RacketLevel;
+import com.tta.app.model.racket.Racket;
 
 rule "Calculate racket speed"
 no-loop
 	when
 		$r: Racket($bl: blade, $frb: fhRubber, $brb: bhRubber)
 	then
-		Double speed = ($bl.speed + $frb.speed + $bl.speed + $brb.speed) / 4
+		Double speed = ($bl.getSpeed() + $frb.getSpeed() + $bl.getSpeed() + $brb.getSpeed()) / 4;
 		modify($r) {
 			setSpeed(speed);
 		}
@@ -19,7 +20,7 @@ no-loop
 	when
 		$r: Racket($bl: blade, $frb: fhRubber, $brb: bhRubber)
 	then
-		Double spin = (20 - ($bl.hardness + $bl.stiffness + $bl.hardness + $bl.stiffness) / 6 + $frb.spin + $brb.spin) / 4
+		Double spin = (20 - ($bl.getHardness() + $bl.getStiffness() + $bl.getHardness() + $bl.getStiffness()) / 6 + $frb.getSpin() + $brb.getSpin()) / 4;
 		modify($r) {
 			setSpin(spin);
 		}
@@ -31,7 +32,7 @@ no-loop
 	when
 		$r: Racket($bl: blade, $frb: fhRubber, $brb: bhRubber)
 	then
-		Double control = ($bl.control + $frb.control + $bl.control + $brb.control) / 4
+		Double control = ($bl.getControl() + $frb.getControl() + $bl.getControl() + $brb.getControl()) / 4;
 		modify($r) {
 			setControl(control);
 		}
