@@ -1,0 +1,59 @@
+package sbnz.tta.rules.history;
+
+import com.tta.app.model.racket.NewRacketRecommendation;
+import com.tta.app.model.enums.RacketRecommendation;
+
+rule "New racket - NOTHING - 1"
+no-loop
+	when
+		$nrr: NewRacketRecommendation(highAccuracy == null, highDiversity == null);
+	then
+		modify($nrr) {
+			setRecommendation(RacketRecommendation.NOTHING);
+		}
+		System.out.println("Ne menjati reket - 1");
+end
+
+rule "New racket - NOTHING - 2"
+no-loop
+	when
+		$nrr: NewRacketRecommendation(highAccuracy == true, highDiversity == false);
+	then
+		modify($nrr) {
+			setRecommendation(RacketRecommendation.NOTHING);
+		}
+		System.out.println("Ne menjati reket - 2");
+end
+
+rule "New racket - NOTHING - 3"
+no-loop
+	when
+		$nrr: NewRacketRecommendation(highAccuracy == false, highDiversity == true);
+	then
+		modify($nrr) {
+			setRecommendation(RacketRecommendation.NOTHING);
+		}
+		System.out.println("Ne menjati reket - 3");
+end
+
+rule "New racket - DOWNGRADE"
+no-loop
+	when
+		$nrr: NewRacketRecommendation(highAccuracy == false, highDiversity == false);
+	then
+		modify($nrr) {
+			setRecommendation(RacketRecommendation.DOWNGRADE);
+		}
+		System.out.println("Probati reket pogodniji za pocetnike");
+end
+
+rule "New racket - UPGRADE"
+no-loop
+	when
+		$nrr: NewRacketRecommendation(highAccuracy == true, highDiversity == true);
+	then
+		modify($nrr) {
+			setRecommendation(RacketRecommendation.UPGRADE);
+		}
+		System.out.println("Probati napredniji reket");
+end
