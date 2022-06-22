@@ -1,10 +1,13 @@
 package com.tta.app.model.training;
 
+import java.util.UUID;
+
 import com.tta.app.model.User;
 import com.tta.app.model.racket.Racket;
 
 public class TrainingRequest {
 
+	private UUID id;
 	private User user;
 	private Racket racket;
 	
@@ -26,6 +29,16 @@ public class TrainingRequest {
 
 	public void setUser(User user) {
 		this.user = user;
+		
+	}
+
+	public UUID getId() {
+		return id;
+		
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
 		
 	}
 	

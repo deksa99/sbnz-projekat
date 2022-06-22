@@ -1,0 +1,74 @@
+package sbnz.tta.rules.plan;
+
+import com.tta.app.model.training.Training;
+import com.tta.app.model.training.TrainingRequest;
+import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.enums.RacketLevel;
+import com.tta.app.model.enums.UserSkill;
+
+rule "Set training level - EASY"
+no-loop
+salience 100
+	when
+		$tr: TrainingRequest($id: id);
+        $t: Training(trainingRequest.id == $id, finished == false);
+	then
+		modify($t) {
+			setLevel(TrainingLevel.EASY);
+		}
+		System.out.println("Trening postavljen na nivo EASY");
+end
+
+rule "Set training level - MEDIUM - 1"
+no-loop
+salience 90
+	when
+		$tr: TrainingRequest(
+                            $id: id, 
+                            user!.healthCondition == HealthCondition.GOOD, 
+                            racket!.racketLevel == RacketLevel.ADVANCED,
+                            user!.userSkill == UserSkill.INTERMEDIATE
+                            );
+        $t: Training(trainingRequest.id == $id, finished == false);
+	then
+		modify($t) {
+			setLevel(TrainingLevel.MEDIUM);
+		}
+		System.out.println("Trening postavljen na nivo MEDIUM - 1");
+end
+
+rule "Set training level - MEDIUM - 2"
+no-loop
+salience 80
+	when
+		$tr: TrainingRequest(
+                            $id: id, 
+                            user!.healthCondition == HealthCondition.GOOD, 
+                            racket!.racketLevel == RacketLevel.PRO,
+                            user!.userSkill == UserSkill.INTERMEDIATE
+                            );
+        $t: Training(trainingRequest.id == $id, finished == false);
+	then
+		modify($t) {
+			setLevel(TrainingLevel.MEDIUM);
+		}
+		System.out.println("Trening postavljen na nivo MEDIUM - 2");
+end
+
+rule "Set training level - HARD"
+no-loop
+salience 70
+	when
+		$tr: TrainingRequest(
+                            $id: id, 
+                            user!.healthCondition == HealthCondition.GOOD, 
+                            racket!.racketLevel == RacketLevel.PRO,
+                            user!.userSkill == UserSkill.PRO
+                            );
+        $t: Training(trainingRequest.id == $id, finished == false);
+	then
+		modify($t) {
+			setLevel(TrainingLevel.HARD);
+		}
+		System.out.println("Trening postavljen na nivo HARD");
+end

@@ -11,7 +11,6 @@ import com.tta.app.model.racket.Racket;
 
 public class Training {
 	
-	
 	private UUID id;
 	private RacketOrientation racketOrientation;
 	private HitType type;
@@ -23,10 +22,12 @@ public class Training {
 	private Double expectedSpeed;
 	
 	private User user;
+	private TrainingRequest trainingRequest;
 	private Racket racket;
 	private List<Hit> hits;
 	
 	private Boolean successful = null;
+	private Boolean finished = false;
 	
 	public Training() {
 		super();
@@ -132,6 +133,26 @@ public class Training {
 
 	public void setDate(Long date) {
 		this.date = date;
+		
+	}
+
+	public TrainingRequest getTrainingRequest() {
+		return trainingRequest;
+		
+	}
+
+	public void setTrainingRequest(TrainingRequest trainingRequest) {
+		this.trainingRequest = trainingRequest;
+		
+	}
+
+	public Boolean getFinished() {
+		return finished;
+		
+	}
+
+	public void setFinished(Boolean finished) {
+		this.finished = finished;
 		
 	}
 	
