@@ -1,1 +1,40 @@
 package sbnz.tta.rules.history;
+
+import java.lang.System;
+import java.util.Set;
+
+import com.tta.app.model.training.Training;
+import com.tta.app.model.racket.NewRacketRecommendation;
+
+rule "Set low hit diversity - Default"
+no-loop
+salience 100
+	when
+		$nrr: NewRacketRecommendation(highDiversity == null);
+	then
+		modify($nrr) {
+			setHighDiversity(false);
+		}
+		System.out.println("Probati napredniji reket");
+end
+
+rule "Set high hit diversity - Every training in past 30 days"
+no-loop
+salience 90
+	when
+		$nrr: NewRacketRecommendation($u: user);
+        Set(size >= 6) from accumulate (
+            Training(
+                date > System.currentTimeMillis() - 30*24*60*60*1000,
+                successful == true,
+                finished == true,
+                $type: type
+                ) from $u.trainHistory,
+            collectSet($type)
+        )
+	then
+		modify($nrr) {
+			setHighDiversity(true);
+		}
+		System.out.println("Probati napredniji reket");
+end
