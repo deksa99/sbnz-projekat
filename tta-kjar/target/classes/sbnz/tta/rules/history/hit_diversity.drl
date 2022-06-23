@@ -15,7 +15,7 @@ salience 100
 		modify($nrr) {
 			setHighDiversity(false);
 		}
-		System.out.println("Probati napredniji reket");
+		System.out.println("Niska raznolikost udaraca");
 end
 
 rule "Set high hit diversity - Every training in past 30 days"
@@ -36,5 +36,5 @@ salience 90
 		modify($nrr) {
 			setHighDiversity(true);
 		}
-		System.out.println("Probati napredniji reket");
+		System.out.println("Visoka raznolikost udaraca");
 end

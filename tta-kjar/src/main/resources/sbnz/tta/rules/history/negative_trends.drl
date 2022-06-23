@@ -1,1 +1,70 @@
 package sbnz.tta.rules.history;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.tta.app.model.racket.NewRacketRecommendation;
+import com.tta.app.model.training.Hit;
+import com.tta.app.model.enums.HitResult;
+
+
+rule "Set high hit accuracy - Default"
+no-loop
+salience 100
+	when
+		$nrr: NewRacketRecommendation(highAccuracy == null);
+	then
+		modify($nrr) {
+			setHighAccuracy(true);
+		}
+		System.out.println("Niska preciznost");
+end
+
+rule "Set low hit accuracy - FRONT OUT"
+no-loop
+salience 90
+	when
+		$nrr: NewRacketRecommendation($u: user);
+        $total_hits: Number(intValue > 0) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            sum($hits.size())
+        )
+        $unsucc: Number(intValue > $total_hits * 0.20) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init(int count = 0;),
+            action(
+                // $not_good: List() from collect (
+                //     Hit(result != HitResult.GOOD) from $hits
+                // );
+                // count += $not_good.size();
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() != HitResult.GOOD).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+        $err: Number(intValue > $unsucc * 0.25) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init (int count = 0;),
+            action(
+                // $unsucc_h: List() from collect (
+                //     Hit(result == HitResult.FRONT_OUT) from $hits
+                // );
+                // count += $unsucc_h.size();
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() == HitResult.FRONT_OUT).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+	then
+		modify($nrr) {
+			setHighAccuracy(false);
+		}
+		System.out.println("Niska preciznost - FRONT OUT | Total hits: " + $total_hits + " Unsuccessful: " + $unsucc + " Errors: " + $err);
+end
