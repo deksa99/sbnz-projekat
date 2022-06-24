@@ -7,6 +7,7 @@ public class TrainingLevelTemplate {
 	private boolean tooMuchMisses = true;
 	private double angleDelta;
 	private double speedDelta;
+	private String name;
 	
 	public TrainingLevelTemplate() {
 		super();
@@ -51,6 +52,16 @@ public class TrainingLevelTemplate {
 
 	public void setSpeedDelta(double speedDelta) {
 		this.speedDelta = speedDelta;
+	}
+
+	public String getName() {
+		return name;
+		
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		
 	}
 	
 }

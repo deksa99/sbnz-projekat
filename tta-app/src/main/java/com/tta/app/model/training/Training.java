@@ -15,6 +15,7 @@ public class Training {
 	private RacketOrientation racketOrientation;
 	private HitType type;
 	private TrainingLevel level;
+	private String name;
 	private Long date;
 	
 	private String ballType;
@@ -153,6 +154,16 @@ public class Training {
 
 	public void setFinished(Boolean finished) {
 		this.finished = finished;
+		
+	}
+
+	public String getName() {
+		return name;
+		
+	}
+
+	public void setName(String name) {
+		this.name = name;
 		
 	}
 	

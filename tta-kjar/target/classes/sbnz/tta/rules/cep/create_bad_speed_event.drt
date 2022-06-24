@@ -1,0 +1,28 @@
+template header
+name
+angleDelta
+
+import com.tta.app.model.events.HitEvent;
+import com.tta.app.model.events.BadAngleEvent;
+import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.training.Training;
+
+template 'bad-angle-template'
+
+rule "Bad speed event for @{name} | delta = @{angleDelta}"
+
+    when
+    	$tr: Training(name == @{name}, $id: id)
+    	$lastHit: HitEvent( trainingId == $id && (speedDelta >= @{angleDelta} || <= -1 * @{angleDelta}) && badSpeedProcessed == false, $delta: speedDelta)
+    then
+        modify($lastHit) {
+            setBadSpeedProcessed(true);
+        }
+
+        BadSpeedEvent badSpeedEvent = new BadSpeedEvent($id);
+        badSpeedEvent.setSpeed($delta);
+        insert(badSpeedEvent);
+        System.out.println("Kreiran dogadjaj: @{name} | LOSA BRZINA");
+end
+
+end template
