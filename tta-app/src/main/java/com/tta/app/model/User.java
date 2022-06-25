@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import com.tta.app.model.enums.HealthCondition;
 import com.tta.app.model.enums.Playstyle;
+import com.tta.app.model.enums.Role;
 import com.tta.app.model.enums.TrainingExperience;
 import com.tta.app.model.enums.UserSkill;
 import com.tta.app.model.training.Training;
@@ -46,6 +47,9 @@ public class User implements Serializable {
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Training> trainHistory;
 	private Double budget;
+	
+	@Enumerated(EnumType.STRING)
+	private Role role;
 	
 	public User() {
 		super();
@@ -141,6 +145,16 @@ public class User implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Role getRole() {
+		return role;
+		
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+		
 	}
 
 }
