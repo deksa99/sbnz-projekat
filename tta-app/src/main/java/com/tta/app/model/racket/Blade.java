@@ -1,10 +1,24 @@
 package com.tta.app.model.racket;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.tta.app.model.enums.Grip;
 import com.tta.app.model.enums.GripType;
 
+@Entity
+@Table(name = "blade")
 public class Blade {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 	private String name;
 	private Double speed;
 	private Double control;
@@ -13,7 +27,9 @@ public class Blade {
 	private Double consistency;
 	private Double weight;
 	private Double price;
+	@Enumerated(EnumType.STRING)
 	private Grip grip;
+	@Enumerated(EnumType.STRING)
 	private GripType gripType;
 	
 	public Blade() {
@@ -34,7 +50,13 @@ public class Blade {
 		this.gripType = gripType;
 	}
 
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Double getSpeed() {
 		return speed;

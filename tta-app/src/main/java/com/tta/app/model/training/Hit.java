@@ -1,20 +1,45 @@
 package com.tta.app.model.training;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.tta.app.model.enums.HitResult;
 
+@Entity
+@Table(name = "hit")
 public class Hit {
 	
-	private Long trainingId;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false)
 	private Double angle;
+	@Column(nullable = false)
 	private Double speed;
 	private Double startPosition;
 	private Double endPosition;
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Training training;
 	
 	private HitResult result;
 	
 	public Hit() {
 		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Double getAngle() {
@@ -55,16 +80,6 @@ public class Hit {
 
 	public void setResult(HitResult result) {
 		this.result = result;
-	}
-
-	public Long getTrainingId() {
-		return trainingId;
-		
-	}
-
-	public void setTrainingId(Long trainingId) {
-		this.trainingId = trainingId;
-		
 	}
 
 	public Training getTraining() {

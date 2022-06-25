@@ -1,7 +1,19 @@
 package com.tta.app.model.training;
 
 import java.util.List;
-import java.util.UUID;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.tta.app.model.User;
 import com.tta.app.model.enums.RacketOrientation;
@@ -9,11 +21,18 @@ import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.enums.HitType;
 import com.tta.app.model.racket.Racket;
 
+@Entity
+@Table(name = "training")
 public class Training {
 	
-	private UUID id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Enumerated(EnumType.STRING)
 	private RacketOrientation racketOrientation;
+	@Enumerated(EnumType.STRING)
 	private HitType type;
+	@Enumerated(EnumType.STRING)
 	private TrainingLevel level;
 	private String name;
 	private Long date;
@@ -22,9 +41,13 @@ public class Training {
 	private Double expectedAngle;
 	private Double expectedSpeed;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
+	@Transient
 	private TrainingRequest trainingRequest;
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Racket racket;
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Hit> hits;
 	
 	private Boolean successful = null;
@@ -32,7 +55,6 @@ public class Training {
 	
 	public Training() {
 		super();
-		this.setId(UUID.randomUUID());
 	}
 
 	public RacketOrientation getRacketOrientation() {
@@ -107,12 +129,12 @@ public class Training {
 		this.hits = hits;
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 		
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 		
 	}

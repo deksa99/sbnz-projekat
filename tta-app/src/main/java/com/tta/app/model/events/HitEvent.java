@@ -2,7 +2,6 @@ package com.tta.app.model.events;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 import com.tta.app.model.enums.HitResult;
 
@@ -22,7 +21,7 @@ public class HitEvent implements Serializable {
 	private double angleDelta;
 	private double speedDelta;
 	private HitResult hitResult;
-	private UUID trainingId;
+	private Long trainingId;
 	
 	// Pomocni atributi
 	private boolean badAngleProcessed = false;
@@ -34,7 +33,7 @@ public class HitEvent implements Serializable {
 		this.timestamp = new Date();
 	}
 	
-	public HitEvent(Date timestamp, double angleDelta, double speedDelta, HitResult hitResult, UUID trainingId) {
+	public HitEvent(Date timestamp, double angleDelta, double speedDelta, HitResult hitResult, Long trainingId) {
 		super();
 		this.timestamp = timestamp;
 		this.angleDelta = angleDelta;
@@ -67,10 +66,10 @@ public class HitEvent implements Serializable {
 	public void setHitResult(HitResult hitResult) {
 		this.hitResult = hitResult;
 	}
-	public UUID getTrainingId() {
+	public Long getTrainingId() {
 		return trainingId;
 	}
-	public void setTrainingId(UUID trainingId) {
+	public void setTrainingId(Long trainingId) {
 		this.trainingId = trainingId;
 	}
 

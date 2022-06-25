@@ -1,7 +1,19 @@
 package com.tta.app.model;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.UUID;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.tta.app.model.enums.HealthCondition;
 import com.tta.app.model.enums.Playstyle;
@@ -9,15 +21,29 @@ import com.tta.app.model.enums.TrainingExperience;
 import com.tta.app.model.enums.UserSkill;
 import com.tta.app.model.training.Training;
 
-public class User {
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-	private UUID id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
+	private String firstName;
+	private String lastName;
+	@Enumerated(EnumType.STRING)
 	private TrainingExperience experience;
+	@Enumerated(EnumType.STRING)
 	private Playstyle playstyle;
+	@Enumerated(EnumType.STRING)
 	private HealthCondition healthCondition;
+	@Enumerated(EnumType.STRING)
 	private UserSkill userSkill;
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Training> trainHistory;
 	private Double budget;
 	
@@ -75,12 +101,12 @@ public class User {
 		
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 		
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 		
 	}
@@ -100,7 +126,21 @@ public class User {
 	public void setTrainHistory(List<Training> trainHistory) {
 		this.trainHistory = trainHistory;
 	}
-	
-	
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
 }
