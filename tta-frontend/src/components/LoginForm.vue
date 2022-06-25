@@ -22,8 +22,10 @@
 </template>
 
 <script>
+import AuthenticationService from '@/service/AuthenticationService.js';
 
 export default {
+
     name: "LoginForm",
 
     data() {
@@ -43,7 +45,9 @@ export default {
             this.resetInvalidStates();
 
             if (this.validate()) {
-                console.log("success");
+                AuthenticationService.login(this.user)
+                .then(res => console.log(res.data))
+                .catch(err => console.log(err))
             }
             return;
         },
