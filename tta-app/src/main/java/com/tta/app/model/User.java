@@ -44,7 +44,7 @@ public class User implements Serializable {
 	private HealthCondition healthCondition;
 	@Enumerated(EnumType.STRING)
 	private UserSkill userSkill;
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Training> trainHistory;
 	private Double budget;
 	
@@ -53,6 +53,23 @@ public class User implements Serializable {
 	
 	public User() {
 		super();
+	}
+
+	public User(String email, String password, String firstName, String lastName, TrainingExperience experience,
+			Playstyle playstyle, HealthCondition healthCondition, UserSkill userSkill, List<Training> trainHistory,
+			Double budget, Role role) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.experience = experience;
+		this.playstyle = playstyle;
+		this.healthCondition = healthCondition;
+		this.userSkill = userSkill;
+		this.trainHistory = trainHistory;
+		this.budget = budget;
+		this.role = role;
 	}
 
 	public String getEmail() {

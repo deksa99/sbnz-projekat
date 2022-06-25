@@ -10,7 +10,6 @@ import java.util.List;
 import com.tta.app.model.User;
 import com.tta.app.model.enums.Grip;
 import com.tta.app.model.enums.GripType;
-import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.events.EndTrainingEvent;
 import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.racket.Blade;
@@ -143,7 +142,8 @@ public class TtaAppService {
             @Override
             public void run() {
         		Training tr = new Training();
-        		tr.setLevel(TrainingLevel.EASY);
+        		// TODO update level
+        		//tr.setLevel(TrainingLevel.EASY);
         		kieSession.insert(tr);
         		for (HitEvent hit: hits) {
         			hit.setTimestamp(new Date());

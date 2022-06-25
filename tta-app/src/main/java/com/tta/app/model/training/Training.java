@@ -17,7 +17,7 @@ import javax.persistence.Transient;
 
 import com.tta.app.model.User;
 import com.tta.app.model.enums.RacketOrientation;
-import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.enums.Spin;
 import com.tta.app.model.enums.HitType;
 import com.tta.app.model.racket.Racket;
 
@@ -32,12 +32,13 @@ public class Training {
 	private RacketOrientation racketOrientation;
 	@Enumerated(EnumType.STRING)
 	private HitType type;
-	@Enumerated(EnumType.STRING)
-	private TrainingLevel level;
-	private String name;
+
 	private Long date;
 	
-	private String ballType;
+	@ManyToOne
+	private TrainingLevelParams level;
+	
+	private Spin spin;
 	private Double expectedAngle;
 	private Double expectedSpeed;
 	
@@ -47,7 +48,7 @@ public class Training {
 	private TrainingRequest trainingRequest;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Racket racket;
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "training")
 	private List<Hit> hits;
 	
 	private Boolean successful = null;
@@ -56,6 +57,26 @@ public class Training {
 	public Training() {
 		super();
 	}
+
+	public Training(RacketOrientation racketOrientation, HitType type, TrainingLevelParams level, Long date,
+			Spin spin, Double expectedAngle, Double expectedSpeed, User user,
+			Racket racket, List<Hit> hits, Boolean successful, Boolean finished) {
+		super();
+		this.racketOrientation = racketOrientation;
+		this.type = type;
+		this.level = level;
+		this.date = date;
+		this.spin = spin;
+		this.expectedAngle = expectedAngle;
+		this.expectedSpeed = expectedSpeed;
+		this.user = user;
+		this.racket = racket;
+		this.hits = hits;
+		this.successful = successful;
+		this.finished = finished;
+	}
+
+
 
 	public RacketOrientation getRacketOrientation() {
 		return racketOrientation;
@@ -73,20 +94,20 @@ public class Training {
 		this.type = type;
 	}
 
-	public TrainingLevel getLevel() {
+	public TrainingLevelParams getLevel() {
 		return level;
 	}
 
-	public void setLevel(TrainingLevel level) {
+	public void setLevel(TrainingLevelParams level) {
 		this.level = level;
 	}
 
-	public String getBallType() {
-		return ballType;
+	public Spin getBallType() {
+		return spin;
 	}
 
-	public void setBallType(String ballType) {
-		this.ballType = ballType;
+	public void setBallType(Spin spin) {
+		this.spin = spin;
 	}
 
 	public Double getExpectedAngle() {
@@ -178,16 +199,5 @@ public class Training {
 		this.finished = finished;
 		
 	}
-
-	public String getName() {
-		return name;
-		
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		
-	}
-	
 	
 }

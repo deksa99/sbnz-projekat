@@ -4,12 +4,10 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -21,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tta.app.security.utils.JwtUtil;
+import com.tta.app.service.AuthService;
 
 import java.io.IOException;
 
@@ -33,12 +32,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Value("${jwt.token.prefix}")
     public String tokenPrefix;
 
-    private final UserDetailsService userService;
+    private final AuthService authService;
     private final JwtUtil jwtUtil;
 
     @Autowired
-    public JwtRequestFilter(@Qualifier("authService") UserDetailsService userService, JwtUtil jwtUtil) {
-        this.userService = userService;
+    public JwtRequestFilter(AuthService authService, JwtUtil jwtUtil) {
+        this.authService = authService;
         this.jwtUtil = jwtUtil;
     }
 
@@ -61,7 +60,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails;
             try {
-                userDetails = userService.loadUserByUsername(username);
+                userDetails = authService.loadUserByUsername(username);
 
                 if (Boolean.TRUE.equals(jwtUtil.validateToken(jwt, userDetails))) {
                     UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =

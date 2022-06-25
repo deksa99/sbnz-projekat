@@ -2,9 +2,9 @@ package com.tta.app.security;
 
 import com.tta.app.security.filters.JwtRequestFilter;
 import com.tta.app.security.utils.RestAuthenticationEntryPoint;
+import com.tta.app.service.AuthService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -23,21 +22,21 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userService;
+    private final AuthService authService;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
     private final JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    public WebSecurityConfig(@Qualifier("authService") UserDetailsService userService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
+    public WebSecurityConfig(AuthService authService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
                              JwtRequestFilter jwtRequestFilter) {
-        this.userService = userService;
+        this.authService = authService;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService);
+        auth.userDetailsService(authService);
     }
 
     @Override

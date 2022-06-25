@@ -2,6 +2,8 @@ package com.tta.app.model.training;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,12 +29,23 @@ public class Hit {
 	private Double endPosition;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Training training;
-	
+	@Enumerated(EnumType.STRING)
 	private HitResult result;
 	
 	public Hit() {
 		super();
 	}
+	
+
+	public Hit(Double angle, Double speed, Training training, HitResult result) {
+		super();
+		this.angle = angle;
+		this.speed = speed;
+		this.training = training;
+		this.result = result;
+	}
+
+
 
 	public Long getId() {
 		return id;

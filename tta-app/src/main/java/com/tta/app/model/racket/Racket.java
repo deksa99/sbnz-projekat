@@ -35,6 +35,13 @@ public class Racket {
 	public Racket() {
 		super();
 	}
+	
+	public Racket(Blade blade, Rubber fhRubber, Rubber bhRubber) {
+		super();
+		this.blade = blade;
+		this.fhRubber = fhRubber;
+		this.bhRubber = bhRubber;
+	}
 
 	public Blade getBlade() {
 		return blade;
