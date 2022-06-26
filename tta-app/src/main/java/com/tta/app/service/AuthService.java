@@ -1,9 +1,8 @@
 package com.tta.app.service;
 
-import com.tta.app.model.User;
+import com.tta.app.dto.AuthResponse;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+public interface AuthService {
 
-public interface AuthService extends UserDetailsService {
-	public User findByEmail(String email);
+	public AuthResponse authenticate(String username, String password);
 }

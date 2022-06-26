@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,6 +21,7 @@ import com.tta.app.model.enums.Playstyle;
 import com.tta.app.model.enums.Role;
 import com.tta.app.model.enums.TrainingExperience;
 import com.tta.app.model.enums.UserSkill;
+import com.tta.app.model.racket.Racket;
 import com.tta.app.model.training.Training;
 
 @Entity
@@ -46,6 +48,8 @@ public class User implements Serializable {
 	private UserSkill userSkill;
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Training> trainHistory;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Racket currentRacket;
 	private Double budget;
 	
 	@Enumerated(EnumType.STRING)
@@ -57,7 +61,7 @@ public class User implements Serializable {
 
 	public User(String email, String password, String firstName, String lastName, TrainingExperience experience,
 			Playstyle playstyle, HealthCondition healthCondition, UserSkill userSkill, List<Training> trainHistory,
-			Double budget, Role role) {
+			Racket currentRacket, Double budget, Role role) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -69,6 +73,7 @@ public class User implements Serializable {
 		this.userSkill = userSkill;
 		this.trainHistory = trainHistory;
 		this.budget = budget;
+		this.currentRacket = currentRacket;
 		this.role = role;
 	}
 
@@ -172,6 +177,14 @@ public class User implements Serializable {
 	public void setRole(Role role) {
 		this.role = role;
 		
+	}
+
+	public Racket getCurrentRacket() {
+		return currentRacket;
+	}
+
+	public void setCurrentRacket(Racket currentRacket) {
+		this.currentRacket = currentRacket;
 	}
 
 }

@@ -2,7 +2,7 @@ package com.tta.app.security;
 
 import com.tta.app.security.filters.JwtRequestFilter;
 import com.tta.app.security.utils.RestAuthenticationEntryPoint;
-import com.tta.app.service.AuthService;
+import com.tta.app.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,21 +22,21 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final AuthService authService;
+    private final UserService userService;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
     private final JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    public WebSecurityConfig(AuthService authService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
+    public WebSecurityConfig(UserService userService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
                              JwtRequestFilter jwtRequestFilter) {
-        this.authService = authService;
+        this.userService = userService;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(authService);
+        auth.userDetailsService(userService);
     }
 
     @Override
@@ -44,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/*").permitAll()
+                .antMatchers("/api/auth").permitAll()
                 .antMatchers("/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()

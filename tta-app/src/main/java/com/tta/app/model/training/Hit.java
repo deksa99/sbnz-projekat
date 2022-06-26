@@ -35,7 +35,6 @@ public class Hit {
 	public Hit() {
 		super();
 	}
-	
 
 	public Hit(Double angle, Double speed, Training training, HitResult result) {
 		super();
@@ -44,8 +43,6 @@ public class Hit {
 		this.training = training;
 		this.result = result;
 	}
-
-
 
 	public Long getId() {
 		return id;

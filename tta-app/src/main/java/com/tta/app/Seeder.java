@@ -74,50 +74,6 @@ public class Seeder implements ApplicationRunner {
 	@Transactional
 	public void run(ApplicationArguments args) throws Exception {
 		
-		// ################### User ###################
-		User admin = new User(
-				"admin@maildrop.cc",
-				"$2a$12$3l/btwDNxpZ.TaQAS3mTdOT9ZL79zoZdKD/hHhnLfyNBPrObbHMBC", 
-				"Admin",
-				"Trener",
-				null, 
-				null, 
-				null, 
-				null, 
-				null, 
-				null, 
-				Role.ADMIN);
-		
-		User nedja = new User(
-				"nedja@maildrop.cc",
-				"$2a$12$3l/btwDNxpZ.TaQAS3mTdOT9ZL79zoZdKD/hHhnLfyNBPrObbHMBC", 
-				"Nedeljko",
-				"Vignjevic",
-				TrainingExperience.HOBBYIST, 
-				Playstyle.DEFENSIVE, 
-				HealthCondition.GOOD, 
-				UserSkill.INTERMEDIATE, 
-				new ArrayList<Training>(), 
-				120.00, 
-				Role.PLAYER);
-		
-		User deki = new User(
-				"deki@maildrop.cc",
-				"$2a$12$3l/btwDNxpZ.TaQAS3mTdOT9ZL79zoZdKD/hHhnLfyNBPrObbHMBC", 
-				"Dejan",
-				"Todorovic",
-				TrainingExperience.INTERMEDIATE, 
-				Playstyle.OFFENSIVE, 
-				HealthCondition.GOOD, 
-				UserSkill.PRO, 
-				new ArrayList<Training>(), 
-				150.00, 
-				Role.PLAYER);
-		
-		userRepository.save(admin);
-		userRepository.save(nedja);
-		userRepository.save(deki);
-		
 		// ################### TrainingLevelParams ###################
 		TrainingLevelParams tlpEasy1 = new TrainingLevelParams(0.35, 10.5, 4.5, 4, "EASY - 1", TrainingLevel.EASY);
 		TrainingLevelParams tlpEasy2 = new TrainingLevelParams(0.30, 10.0, 4.0, 4, "EASY - 2", TrainingLevel.EASY);
@@ -202,6 +158,53 @@ public class Seeder implements ApplicationRunner {
 	    Racket racket = new Racket(blades.get(0), rubbers.get(10), rubbers.get(10));
 	    
 	    racketRepository.save(racket);
+	    
+		// ################### User ###################
+		User admin = new User(
+				"admin@maildrop.cc",
+				"$2a$12$3l/btwDNxpZ.TaQAS3mTdOT9ZL79zoZdKD/hHhnLfyNBPrObbHMBC", 
+				"Admin",
+				"Trener",
+				null, 
+				null, 
+				null, 
+				null, 
+				null, 
+				null,
+				null,
+				Role.ADMIN);
+		
+		User nedja = new User(
+				"nedja@maildrop.cc",
+				"$2a$12$3l/btwDNxpZ.TaQAS3mTdOT9ZL79zoZdKD/hHhnLfyNBPrObbHMBC", 
+				"Nedeljko",
+				"Vignjevic",
+				TrainingExperience.HOBBYIST, 
+				Playstyle.DEFENSIVE, 
+				HealthCondition.GOOD, 
+				UserSkill.INTERMEDIATE, 
+				new ArrayList<Training>(),
+				racket,
+				120.00, 
+				Role.PLAYER);
+		
+		User deki = new User(
+				"deki@maildrop.cc",
+				"$2a$12$3l/btwDNxpZ.TaQAS3mTdOT9ZL79zoZdKD/hHhnLfyNBPrObbHMBC", 
+				"Dejan",
+				"Todorovic",
+				TrainingExperience.INTERMEDIATE, 
+				Playstyle.OFFENSIVE, 
+				HealthCondition.GOOD, 
+				UserSkill.PRO, 
+				new ArrayList<Training>(),
+				racket,
+				150.00, 
+				Role.PLAYER);
+		
+		userRepository.save(admin);
+		userRepository.save(nedja);
+		userRepository.save(deki);
 				
 		// ################### Training ###################
 		Training tr1 = new Training(
