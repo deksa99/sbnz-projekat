@@ -3,11 +3,8 @@ package com.tta.app;
 import java.util.Date;
 import java.util.List;
 
-import com.tta.app.model.User;
 import com.tta.app.model.events.EndTrainingEvent;
 import com.tta.app.model.events.HitEvent;
-import com.tta.app.model.racket.RacketForm;
-import com.tta.app.model.racket.RacketParams;
 import com.tta.app.model.training.Training;
 
 import org.kie.api.runtime.KieContainer;
