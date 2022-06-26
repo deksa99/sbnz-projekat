@@ -51,10 +51,17 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import RacketService from "@/service/RacketService.js";
 
 export default {
     name: "ChooseRacketForm",
+
+    computed: {
+        ...mapState([
+            'user',
+        ])
+    },
 
     data() {
         return {
@@ -63,12 +70,11 @@ export default {
             bhRubber: {}
         }
     },
-    
 
 
     methods: {
         getRacket() {
-            RacketService.getRacketByTraining()
+            RacketService.getRacketByTraining(this.user.id)
             .then(response => {
                 this.fhRubber = response.data.fhRubber;
                 this.bhRubber = response.data.fhRubber;
