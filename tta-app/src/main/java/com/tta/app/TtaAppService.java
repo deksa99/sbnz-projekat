@@ -27,14 +27,6 @@ public class TtaAppService {
 		log.info("Initialising a new session.");
 		this.kieContainer = kieContainer;
 	}
-	
-	public User test(User u) {
-		KieSession kieSession = kieContainer.newKieSession("default");
-		kieSession.insert(u);
-		kieSession.fireAllRules();
-		kieSession.dispose();
-		return u;
-	}
 
 	public RacketParams getRecommendation(RacketForm form) {
 		RacketParams rp = new RacketParams();

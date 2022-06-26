@@ -2,7 +2,6 @@ package com.tta.app;
 
 import java.util.List;
 
-import com.tta.app.model.User;
 import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.racket.Racket;
 import com.tta.app.model.racket.RacketForm;
@@ -25,17 +24,7 @@ public class TtaAppController {
 	public TtaAppController(TtaAppService appService) {
 		this.appService = appService;
 	}
-	
-	@RequestMapping(value = "/test/{budget}", method = RequestMethod.GET, produces = "application/json")
-	public User test(@PathVariable(required = true) Double budget) {
-		User user = new User();
-		user.setBudget(budget);
-		
-		User updated = appService.test(user);
-		
-		return updated;
-	}
-	
+
 	// TODO change RacketParams to Racket
 	@RequestMapping(value = "/recommendation", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<RacketParams> getRecommendation(@RequestBody(required = true) RacketForm form) {
