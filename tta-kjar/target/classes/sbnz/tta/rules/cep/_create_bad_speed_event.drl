@@ -10,7 +10,7 @@ import com.tta.app.model.training.Training;
 rule "Bad speed event for EASY | delta = 4"
 
     when
-    	$tr: Training(level == TrainingLevel.EASY, $id: id)
+    	$tr: Training(level.getLevel() == TrainingLevel.EASY, $id: id)
     	$lastHit: HitEvent( trainingId == $id && (speedDelta >= 4.0 || <= -4.0) && badSpeedProcessed == false, $delta: speedDelta)
     then
         modify($lastHit) {
@@ -26,7 +26,7 @@ end
 rule "Bad speed event for MEDIUM | delta = 3"
 
     when
-    	$tr: Training(level == TrainingLevel.MEDIUM, $id: id)
+    	$tr: Training(level.getLevel() == TrainingLevel.MEDIUM, $id: id)
     	$lastHit: HitEvent( trainingId == $id && (speedDelta >= 3.0 || <= -3.0) && badSpeedProcessed == false, $delta: speedDelta)
     then
         modify($lastHit) {
@@ -42,7 +42,7 @@ end
 rule "Bad speed event for HARD | delta = 2"
 
     when
-    	$tr: Training(level == TrainingLevel.HARD, $id: id)
+    	$tr: Training(level.getLevel() == TrainingLevel.HARD, $id: id)
     	$lastHit: HitEvent( trainingId == $id && (speedDelta >= 2.0 || <= -2.0) && badSpeedProcessed == false, $delta: speedDelta)
     then
         modify($lastHit) {

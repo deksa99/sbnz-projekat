@@ -5,7 +5,6 @@ import com.tta.app.model.enums.UserSkill;
 import com.tta.app.model.enums.TrainingLevel;
 
 // TODO dodaj novi enum (menja easy, med, hard) kad dodas template 
-
 rule "Set skill - BEGINNER"
 no-loop
 salience 100
@@ -23,8 +22,8 @@ no-loop
 salience 90
 	when
         $tr: TrainingRequest($u: user);
-        $last: Training(level == TrainingLevel.EASY, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 1);
-        $beforeLast: Training(level == TrainingLevel.EASY, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 2);
+        $last: Training(level.getLevel() == TrainingLevel.EASY, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 1);
+        $beforeLast: Training(level.getLevel() == TrainingLevel.EASY, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 2);
 	then
 		modify($u) {
 			setUserSkill(UserSkill.INTERMEDIATE);
@@ -38,7 +37,7 @@ salience 80
 	when
 		$tr: TrainingRequest($u: user);
         $lastTr: Training() from $u.trainHistory;
-        not Training(date > $lastTr.date, level == TrainingLevel.MEDIUM) from $u.trainHistory;
+        not Training(date > $lastTr.date, level.getLevel() == TrainingLevel.MEDIUM) from $u.trainHistory;
 	then
 		modify($u) {
 			setUserSkill(UserSkill.INTERMEDIATE);
@@ -51,8 +50,8 @@ no-loop
 salience 70
 	when
         $tr: TrainingRequest($u: user);
-        $last: Training(level == TrainingLevel.MEDIUM, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 1);
-        $beforeLast: Training(level == TrainingLevel.MEDIUM, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 2);
+        $last: Training(level.getLevel() == TrainingLevel.MEDIUM, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 1);
+        $beforeLast: Training(level.getLevel() == TrainingLevel.MEDIUM, successful == true) from $u.trainHistory.get($u.trainHistory.size() - 2);
 	then
 		modify($u) {
 			setUserSkill(UserSkill.PRO);
@@ -66,7 +65,7 @@ salience 60
 	when
 		$tr: TrainingRequest($u: user);
         $lastTr: Training() from $u.trainHistory;
-        not Training(date > $lastTr.date, level == TrainingLevel.HARD) from $u.trainHistory;
+        not Training(date > $lastTr.date, level.getLevel() == TrainingLevel.HARD) from $u.trainHistory;
 	then
 		modify($u) {
 			setUserSkill(UserSkill.PRO);

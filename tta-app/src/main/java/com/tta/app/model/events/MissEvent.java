@@ -12,9 +12,9 @@ public class MissEvent {
 
 	private Boolean processed = false;
 	private Date timestamp;
-	private UUID trainingId;
+	private Long trainingId;
     
-    public MissEvent(UUID trainingId) {
+    public MissEvent(Long trainingId) {
         this.processed = false;
         this.timestamp = new Date();
         this.trainingId = trainingId;
@@ -36,11 +36,11 @@ public class MissEvent {
 		this.timestamp = timestamp;
 	}
 
-	public UUID getTrainingId() {
+	public Long getTrainingId() {
 		return trainingId;
 	}
 
-	public void setTrainingId(UUID trainingId) {
+	public void setTrainingId(Long trainingId) {
 		this.trainingId = trainingId;
 	}
     

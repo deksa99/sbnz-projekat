@@ -2,7 +2,6 @@ package com.tta.app.model.events;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 import org.kie.api.definition.type.PropertyReactive;
 import org.kie.api.definition.type.Role;
@@ -20,9 +19,9 @@ public class BadAngleEvent implements Serializable {
 	private String message;
 	private Double angle;
 	private Boolean processed = false;
-	private UUID trainingId;
+	private Long trainingId;
 	
-	public BadAngleEvent(UUID trainingId) {
+	public BadAngleEvent(Long trainingId) {
 		super();
 		this.trainingId = trainingId;
 		this.timestamp = new Date();
@@ -46,10 +45,10 @@ public class BadAngleEvent implements Serializable {
 	public void setProcessed(Boolean processed) {
 		this.processed = processed;
 	}
-	public UUID getTrainingId() {
+	public Long getTrainingId() {
 		return trainingId;
 	}
-	public void setTrainingId(UUID trainingId) {
+	public void setTrainingId(Long trainingId) {
 		this.trainingId = trainingId;
 	}
 

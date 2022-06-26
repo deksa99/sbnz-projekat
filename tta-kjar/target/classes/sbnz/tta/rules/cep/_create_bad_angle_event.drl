@@ -5,50 +5,50 @@ import com.tta.app.model.events.BadAngleEvent;
 import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.training.Training;
 
-// rule "Bad angle event for EASY | delta = 10"
+rule "Bad angle event for EASY | delta = 10"
 
-//     when
-//     	$tr: Training(level == TrainingLevel.EASY, $id: id)
-//     	$lastHit: HitEvent( trainingId == $id && (angleDelta >= 10.0 || <= -10.0) && badAngleProcessed == false, $delta: angleDelta)
-//     then
-//         modify($lastHit) {
-//             setBadAngleProcessed(true);
-//         }
+    when
+    	$tr: Training(level.getLevel() == TrainingLevel.EASY, $id: id)
+    	$lastHit: HitEvent( trainingId == $id && (angleDelta >= 10.0 || <= -10.0) && badAngleProcessed == false, $delta: angleDelta)
+    then
+        modify($lastHit) {
+            setBadAngleProcessed(true);
+        }
 
-//         BadAngleEvent badAngleEvent = new BadAngleEvent($id);
-//         badAngleEvent.setAngle($delta);
-//         insert(badAngleEvent);
-//         System.out.println("Kreiran dogadjaj: EASY | LOS UGAO");
-// end
+        BadAngleEvent badAngleEvent = new BadAngleEvent($id);
+        badAngleEvent.setAngle($delta);
+        insert(badAngleEvent);
+        System.out.println("Kreiran dogadjaj: EASY | LOS UGAO");
+end
 
-// rule "Bad angle event for MEDIUM | delta = 5"
+rule "Bad angle event for MEDIUM | delta = 5"
 
-//     when
-//     	$tr: Training(level == TrainingLevel.MEDIUM, $id: id)
-//     	$lastHit: HitEvent( trainingId == $id && (angleDelta >= 5.0 || <= -5.0) && badAngleProcessed == false, $delta: angleDelta)
-//     then
-//         modify($lastHit) {
-//             setBadAngleProcessed(true);
-//         }
+    when
+    	$tr: Training(level.getLevel() == TrainingLevel.MEDIUM, $id: id)
+    	$lastHit: HitEvent( trainingId == $id && (angleDelta >= 5.0 || <= -5.0) && badAngleProcessed == false, $delta: angleDelta)
+    then
+        modify($lastHit) {
+            setBadAngleProcessed(true);
+        }
 
-//         BadAngleEvent badAngleEvent = new BadAngleEvent($id);
-//         badAngleEvent.setAngle($delta);
-//         insert(badAngleEvent);
-//         System.out.println("Kreiran dogadjaj: MEDIUM | LOS UGAO");
-// end
+        BadAngleEvent badAngleEvent = new BadAngleEvent($id);
+        badAngleEvent.setAngle($delta);
+        insert(badAngleEvent);
+        System.out.println("Kreiran dogadjaj: MEDIUM | LOS UGAO");
+end
 
-// rule "Bad angle event for HARD | delta = 2"
+rule "Bad angle event for HARD | delta = 2"
 
-//     when
-//     	$tr: Training(level == TrainingLevel.HARD, $id: id)
-//     	$lastHit: HitEvent( trainingId == $id && (angleDelta >= 2.0 || <= -2.0) && badAngleProcessed == false, $delta: angleDelta)
-//     then
-//         modify($lastHit) {
-//             setBadAngleProcessed(true);
-//         }
+    when
+    	$tr: Training(level.getLevel() == TrainingLevel.HARD, $id: id)
+    	$lastHit: HitEvent( trainingId == $id && (angleDelta >= 2.0 || <= -2.0) && badAngleProcessed == false, $delta: angleDelta)
+    then
+        modify($lastHit) {
+            setBadAngleProcessed(true);
+        }
 
-//         BadAngleEvent badAngleEvent = new BadAngleEvent($id);
-//         badAngleEvent.setAngle($delta);
-//         insert(badAngleEvent);
-//         System.out.println("Kreiran dogadjaj: HARD | LOS UGAO");
-// end
+        BadAngleEvent badAngleEvent = new BadAngleEvent($id);
+        badAngleEvent.setAngle($delta);
+        insert(badAngleEvent);
+        System.out.println("Kreiran dogadjaj: HARD | LOS UGAO");
+end
