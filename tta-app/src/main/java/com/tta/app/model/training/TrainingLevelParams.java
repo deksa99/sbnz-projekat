@@ -87,5 +87,13 @@ public class TrainingLevelParams {
 	public void setConsecuctiveMisses(int consecuctiveMisses) {
 		this.consecuctiveMisses = consecuctiveMisses;
 	}
+
+	public TrainingLevel getLevel() {
+		return level;
+	}
+
+	public void setLevel(TrainingLevel level) {
+		this.level = level;
+	}
 	
 }

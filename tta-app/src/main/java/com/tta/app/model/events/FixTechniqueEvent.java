@@ -12,9 +12,9 @@ public class FixTechniqueEvent implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String message;
-	private UUID trainingId;
+	private Long trainingId;
 	
-	public FixTechniqueEvent(UUID trainingId) {
+	public FixTechniqueEvent(Long trainingId) {
 		super();
 		this.trainingId = trainingId;
 	}
@@ -25,10 +25,10 @@ public class FixTechniqueEvent implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public UUID getTrainingId() {
+	public Long getTrainingId() {
 		return trainingId;
 	}
-	public void setTrainingId(UUID trainingId) {
+	public void setTrainingId(Long trainingId) {
 		this.trainingId = trainingId;
 	}
 }

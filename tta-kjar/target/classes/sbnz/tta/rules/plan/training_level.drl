@@ -11,9 +11,9 @@ no-loop
 salience 100
 	when
 		$tr: TrainingRequest($id: id);
-        $t: Training(trainingRequest.id == $id, finished == false);
+        $t: Training($l: level, trainingRequest.id == $id, finished == false);
 	then
-		modify($t) {
+		modify($l) {
 			setLevel(TrainingLevel.EASY);
 		}
 		System.out.println("Trening postavljen na nivo EASY");
@@ -24,14 +24,14 @@ no-loop
 salience 90
 	when
 		$tr: TrainingRequest(
-                            $id: id, 
+                            $id: id,
                             user!.healthCondition == HealthCondition.GOOD, 
                             racket!.racketLevel == RacketLevel.ADVANCED,
                             user!.userSkill == UserSkill.INTERMEDIATE
                             );
-        $t: Training(trainingRequest.id == $id, finished == false);
+        $t: Training($l: level, trainingRequest.id == $id, finished == false);
 	then
-		modify($t) {
+		modify($l) {
 			setLevel(TrainingLevel.MEDIUM);
 		}
 		System.out.println("Trening postavljen na nivo MEDIUM - 1");
@@ -42,14 +42,14 @@ no-loop
 salience 80
 	when
 		$tr: TrainingRequest(
-                            $id: id, 
+                            $id: id,
                             user!.healthCondition == HealthCondition.GOOD, 
                             racket!.racketLevel == RacketLevel.PRO,
                             user!.userSkill == UserSkill.INTERMEDIATE
                             );
-        $t: Training(trainingRequest.id == $id, finished == false);
+        $t: Training($l: level, trainingRequest.id == $id, finished == false);
 	then
-		modify($t) {
+		modify($l) {
 			setLevel(TrainingLevel.MEDIUM);
 		}
 		System.out.println("Trening postavljen na nivo MEDIUM - 2");
@@ -60,14 +60,14 @@ no-loop
 salience 70
 	when
 		$tr: TrainingRequest(
-                            $id: id, 
+                            $id: id,
                             user!.healthCondition == HealthCondition.GOOD, 
                             racket!.racketLevel == RacketLevel.PRO,
                             user!.userSkill == UserSkill.PRO
                             );
-        $t: Training(trainingRequest.id == $id, finished == false);
+        $t: Training($l: level, trainingRequest.id == $id, finished == false);
 	then
-		modify($t) {
+		modify($l) {
 			setLevel(TrainingLevel.HARD);
 		}
 		System.out.println("Trening postavljen na nivo HARD");

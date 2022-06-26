@@ -199,5 +199,13 @@ public class Training {
 		this.finished = finished;
 		
 	}
+
+	public Spin getSpin() {
+		return spin;
+	}
+
+	public void setSpin(Spin spin) {
+		this.spin = spin;
+	}
 	
 }

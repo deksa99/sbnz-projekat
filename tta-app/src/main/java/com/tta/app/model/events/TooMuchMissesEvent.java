@@ -1,7 +1,6 @@
 package com.tta.app.model.events;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 import org.kie.api.definition.type.Role;
 import org.kie.api.definition.type.Role.Type;
@@ -13,9 +12,9 @@ public class TooMuchMissesEvent implements Serializable {
 	
 	private String message;
 	private boolean processed = false;
-	private UUID trainingId;
+	private Long trainingId;
 	
-	public TooMuchMissesEvent(UUID trainingId) {
+	public TooMuchMissesEvent(Long trainingId) {
 		super();
 		this.trainingId = trainingId;
 	}
@@ -26,10 +25,10 @@ public class TooMuchMissesEvent implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public UUID getTrainingId() {
+	public Long getTrainingId() {
 		return trainingId;
 	}
-	public void setTrainingId(UUID trainingId) {
+	public void setTrainingId(Long trainingId) {
 		this.trainingId = trainingId;
 	}
 
