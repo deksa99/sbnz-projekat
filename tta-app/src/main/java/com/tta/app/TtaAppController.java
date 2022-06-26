@@ -57,11 +57,6 @@ public class TtaAppController {
 		return ResponseEntity.ok(response);
 	}
 	
-	@RequestMapping(value = "/blades", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<List<Blade>> getBlades() {
-		return ResponseEntity.ok(appService.loadBlades());
-	}
-	
 	@RequestMapping(value = "/rubbers", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Rubber>> getRubbers() {
 		return ResponseEntity.ok(appService.loadRubbers());

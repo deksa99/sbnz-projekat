@@ -47,45 +47,6 @@ public class TtaAppService {
 		return u;
 	}
 	
-	public List<Blade> loadBlades() {
-		List<Blade> blades = new ArrayList<Blade>();
-		
-		ResourceLoader resourceLoader = new DefaultResourceLoader();
-		Resource bladeData = resourceLoader.getResource("classpath:" + "blade_data.csv");
-	    String line = "";
-	    String splitBy = ",";
-	    try {
-	      BufferedReader br = new BufferedReader(new FileReader(bladeData.getFile()));
-	      while ((line = br.readLine()) != null)
-	      {
-	    	  try 
-	    	  {
-		          String[] blade = line.split(splitBy);
-		          Blade b = new Blade();
-		          b.setName(blade[0]);
-		          b.setPrice(Double.parseDouble(blade[1]));
-		          b.setSpeed(Double.parseDouble(blade[2]));
-		          b.setControl(Double.parseDouble(blade[3]));
-		          b.setStiffness(Double.parseDouble(blade[4]));
-		          b.setWeight(Double.parseDouble(blade[5]));
-		          b.setHardness(Double.parseDouble(blade[6]));
-		          b.setConsistency(Double.parseDouble(blade[7]));
-		          b.setGrip(Grip.valueOf(blade[8]));
-		          b.setGripType(!blade[9].isEmpty() ? GripType.valueOf(blade[9]) : null);
-		        
-		          blades.add(b);
-	    	  } catch(Exception e) 
-	    	  {
-	    	  }
-
-	      }
-	    }
-	    catch(IOException e) {
-	      e.printStackTrace();
-	    }
-		return blades;
-	}
-	
 	public List<Rubber> loadRubbers() {
 		List<Rubber> rubbers = new ArrayList<Rubber>();
 		

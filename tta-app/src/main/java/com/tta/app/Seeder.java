@@ -112,11 +112,13 @@ public class Seeder implements ApplicationRunner {
 		          b.setHardness(Double.parseDouble(blade[6]));
 		          b.setConsistency(Double.parseDouble(blade[7]));
 		          b.setGrip(Grip.valueOf(blade[8]));
-		          b.setGripType(!blade[9].isEmpty() ? GripType.valueOf(blade[9]) : null);
+		          b.setGripType(blade.length == 10 ? GripType.valueOf(blade[9]) : null);
 		        
 		          blades.add(b);
 		          bladeRepository.save(b);
-	    	  } catch(Exception e) {}
+	    	  } catch(Exception e) {
+	    		  e.printStackTrace();
+	    	  }
 	      }
 	    }
 	    catch(IOException e) {
