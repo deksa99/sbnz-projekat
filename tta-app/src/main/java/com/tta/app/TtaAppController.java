@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.racket.Racket;
-import com.tta.app.model.racket.RacketForm;
-import com.tta.app.model.racket.RacketParams;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

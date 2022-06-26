@@ -25,8 +25,6 @@ public class Hit {
 	private Double angle;
 	@Column(nullable = false)
 	private Double speed;
-	private Double startPosition;
-	private Double endPosition;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Training training;
 	@Enumerated(EnumType.STRING)
@@ -66,22 +64,6 @@ public class Hit {
 
 	public void setSpeed(Double speed) {
 		this.speed = speed;
-	}
-
-	public Double getStartPosition() {
-		return startPosition;
-	}
-
-	public void setStartPosition(Double startPosition) {
-		this.startPosition = startPosition;
-	}
-
-	public Double getEndPosition() {
-		return endPosition;
-	}
-
-	public void setEndPosition(Double endPosition) {
-		this.endPosition = endPosition;
 	}
 
 	public HitResult getResult() {

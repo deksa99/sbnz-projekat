@@ -16,6 +16,9 @@ rule "Unsuccessfull training [misses]"
         modify($tr) {
             setSuccessful(false);
         };
+        modify($tr) {
+            setFinished(true);
+        };
         System.out.println("Losa ocena");
         drools.halt();
 end
@@ -31,6 +34,9 @@ rule "Successful training [misses]"
         };
         modify($tr) {
             setSuccessful(true);
+        };
+        modify($tr) {
+            setFinished(true);
         };
         System.out.println("Dobra ocena");
         drools.halt();

@@ -23,4 +23,9 @@ public class KieServiceImpl implements KieService {
 		return kieContainer.newKieSession("default");
 	}
 
+	@Override
+	public KieSession getCepKieSession() {
+		return kieContainer.newKieSession("cepTraining");
+	}
+
 }

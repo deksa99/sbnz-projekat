@@ -210,22 +210,26 @@ public class Seeder implements ApplicationRunner {
 				
 		// ################### Training ###################
 		Training tr1 = new Training(
-				RacketOrientation.FOREHAND, HitType.LOOP, tlpEasy1, parseDate("15-07-2022 15:00:00"), 
+				RacketOrientation.FOREHAND, HitType.LOOP, tlpEasy1, parseDate("22-06-2022 15:00:00"), 
 				Spin.TOP, 35.00, 3.55, deki, racket, new ArrayList<Hit>(), true, true);
 		Training tr2 = new Training(
-				RacketOrientation.FOREHAND, HitType.LOOP, tlpMedium1, parseDate("16-07-2022 15:00:00"), 
+				RacketOrientation.FOREHAND, HitType.LOOP, tlpMedium1, parseDate("23-06-2022 15:00:00"), 
 				Spin.TOP, 35.00, 3.55, deki, racket, new ArrayList<Hit>(), false, true);
 		Training tr3 = new Training(
-				RacketOrientation.BACKHAND, HitType.CHOP, tlpEasy2, parseDate("17-07-2022 15:00:00"), 
+				RacketOrientation.BACKHAND, HitType.CHOP, tlpEasy2, parseDate("24-06-2022 15:00:00"), 
 				Spin.TOP, 35.00, 3.55, deki, racket, new ArrayList<Hit>(), true, true);
 		Training tr4 = new Training(
-				RacketOrientation.BACKHAND, HitType.CHOP, tlpEasy2, parseDate("18-07-2022 15:00:00"), 
+				RacketOrientation.BACKHAND, HitType.CHOP, tlpEasy2, parseDate("25-06-2022 15:00:00"), 
 				Spin.TOP, 35.00, 3.55, deki, racket, new ArrayList<Hit>(), true, true);
+		Training tr5 = new Training(
+				RacketOrientation.BACKHAND, HitType.CHOP, tlpMedium1, parseDate("26-06-2022 15:00:00"), 
+				Spin.TOP, 35.00, 3.55, deki, racket, new ArrayList<Hit>(), null, false);
 
 		trainingRepository.save(tr1);
 		trainingRepository.save(tr2);
 		trainingRepository.save(tr3);
 		trainingRepository.save(tr4);
+		trainingRepository.save(tr5);
 		
 		// ################### Hit ###################
 		this.addHit(36.00, 3.60, HitResult.GOOD, tr1);

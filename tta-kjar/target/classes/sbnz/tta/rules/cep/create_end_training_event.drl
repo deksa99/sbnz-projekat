@@ -7,10 +7,10 @@ import com.tta.app.model.training.Training;
 rule "Create grade when training is over"
     when
 		$tr: Training($id: id)
-       	$endTr: EndTrainingEvent(processed == false)
+       	$endTr: EndTrainingEvent(trainingId == $id, processed == false)
     then
     	modify ($endTr) {
-    	setProcessed(true);
+    		setProcessed(true);
     	};
 		insert(new CreateGradeEvent($id));
     	System.out.println("Trening je završen");

@@ -1,11 +1,13 @@
 package com.tta.app.service.impl;
 
 import com.tta.app.dto.AuthResponse;
+import com.tta.app.dto.UserInfoDTO;
 import com.tta.app.model.User;
 import com.tta.app.security.utils.JwtUtil;
 import com.tta.app.service.AuthService;
 import com.tta.app.service.UserService;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,17 +18,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthServiceImpl implements AuthService {
 	
-	private AuthenticationManager authenticationManager;
-	private JwtUtil jwtUtil;
+	private final AuthenticationManager authenticationManager;
+	private final ModelMapper mapper;
+	private final JwtUtil jwtUtil;
 	
 	private final UserService userService;
 	
 	@Autowired
     public AuthServiceImpl(AuthenticationManager authenticationManager, JwtUtil jwtUtil,
-    		UserService userService) {
+    		UserService userService, ModelMapper mapper) {
 		this.authenticationManager = authenticationManager;
 		this.jwtUtil = jwtUtil;
         this.userService = userService;
+        this.mapper = mapper;
     }
 
 	
@@ -41,7 +45,7 @@ public class AuthServiceImpl implements AuthService {
             jwt = generateJwt(username, password, null);
         }
 
-        return new AuthResponse(jwt);
+        return new AuthResponse(mapper.map(user, UserInfoDTO.class), jwt);
     }
 
     private String generateJwt(String username, String password, String accountId) {
