@@ -4,11 +4,9 @@ import java.util.List;
 
 import com.tta.app.model.User;
 import com.tta.app.model.events.HitEvent;
-import com.tta.app.model.racket.Blade;
 import com.tta.app.model.racket.Racket;
 import com.tta.app.model.racket.RacketForm;
 import com.tta.app.model.racket.RacketParams;
-import com.tta.app.model.racket.Rubber;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,9 +54,5 @@ public class TtaAppController {
 		String response = appService.simulation(hits);
 		return ResponseEntity.ok(response);
 	}
-	
-	@RequestMapping(value = "/rubbers", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<List<Rubber>> getRubbers() {
-		return ResponseEntity.ok(appService.loadRubbers());
-	}
+
 }
