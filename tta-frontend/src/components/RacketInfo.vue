@@ -1,16 +1,15 @@
 <template>
 <div class="card">
-    <img class="card-img-top" src="@/assets/logo.png" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title">Informacije o reketu</h5>
+        <h5 class="card-title">На основу историје тренинга изабран је следећи рекет:</h5>
 
     </div>
     <figure>
-        <figcaption>Drška</figcaption>
+        <figcaption>Дршка</figcaption>
         <ul>
-            <li>Naziv: {{ blade.name }}</li>
-            <li>Brzina: {{ blade.speed }}</li>
-            <li>Kontrola: {{ blade.control }}</li>
+            <li>Назив: {{ blade.name }}</li>
+            <li>Брзина: {{ blade.speed }}</li>
+            <li>Контрола: {{ blade.control }}</li>
             <li>{{ blade.stiffness }}</li>
             <li>{{ blade.hardness }}</li>
             <li>{{ blade.consistency }}</li>
@@ -21,11 +20,11 @@
         </ul>
     </figure>
     <figure>
-        <figcaption>Forehand Guma</figcaption>
+        <figcaption>Форхенд Гума</figcaption>
         <ul>
-            <li>Naziv: {{ fhRubber.name }}</li>
-            <li>Brzina: {{ fhRubber.speed }}</li>
-            <li>Kontrola: {{ fhRubber.control }}</li>
+            <li>Назив: {{ fhRubber.name }}</li>
+            <li>Брзина: {{ fhRubber.speed }}</li>
+            <li>Контрола: {{ fhRubber.control }}</li>
             <li>{{ fhRubber.tackiness }}</li>
             <li>{{ fhRubber.weight }}</li>
             <li>{{ fhRubber.hardness }}</li>
@@ -34,11 +33,11 @@
         </ul>
     </figure>
     <figure>
-        <figcaption>Backend Guma</figcaption>
+        <figcaption>Бекенд Гума</figcaption>
         <ul>
-            <li>Naziv: {{ bhRubber.name }}</li>
-            <li>Brzina: {{ bhRubber.speed }}</li>
-            <li>Kontrola: {{ bhRubber.control }}</li>
+            <li>Назив: {{ bhRubber.name }}</li>
+            <li>Брзина: {{ bhRubber.speed }}</li>
+            <li>Контрола: {{ bhRubber.control }}</li>
             <li>{{ bhRubber.tackiness }}</li>
             <li>{{ bhRubber.weight }}</li>
             <li>{{ bhRubber.hardness }}</li>

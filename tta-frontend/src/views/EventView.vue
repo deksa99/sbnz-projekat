@@ -28,13 +28,18 @@
                     </div>                
                 </div>
                 <div class="col-sm">
-                    <div class="card" style="width: 18rem;">
+                    <div v-for="hit in hits" :key="hit.id" class="card" style="width: 18rem;">
                         <div class="card-header">
-                            Ударци
+                            Ударац
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Датум: {{ date }}</li>
-                            <li class="list-group-item">Тип тренинга: {{ type }}</li>
+                            <li class="list-group-item">Стартна позиција: {{ hit.startPosition }}</li>
+
+                            <li class="list-group-item">Крајња позиција: {{ hit.endPosition }}</li>
+
+                            <li class="list-group-item">Угао: {{ hit.angle }}</li>
+                            <li class="list-group-item">Брзина: {{ hit.speed }}</li>
+                            <li class="list-group-item">Резултат: {{ hit.result }}</li>
                         </ul>
                     </div>
                 </div>
@@ -60,6 +65,22 @@ export default {
             spin: "",
             expectedAngle: "",
             expectedSpeed: "",
+            hits: [
+                {
+                    angle: 20,
+                    speed: 100,
+                    startPosition: 20,
+                    endPosition: 20,
+                    result: "win"
+                },
+                {
+                    angle: 20,
+                    speed: 100,
+                    startPosition: 20,
+                    endPosition: 30,
+                    result: "win"
+                }
+            ]
         }
     }
 };
