@@ -28,17 +28,6 @@ public class TtaAppService {
 		this.kieContainer = kieContainer;
 	}
 
-	public RacketParams getRecommendation(RacketForm form) {
-		RacketParams rp = new RacketParams();
-		rp.setFormId(form.getId());
-		KieSession kieSession = kieContainer.newKieSession();
-		kieSession.insert(form);
-		kieSession.insert(rp);
-		kieSession.fireAllRules();
-		kieSession.dispose();
-		return rp;
-	}
-
 	public String simulation(List<HitEvent> hits) {
 		KieSession kieSession = kieContainer.newKieSession("cepTraining");
 

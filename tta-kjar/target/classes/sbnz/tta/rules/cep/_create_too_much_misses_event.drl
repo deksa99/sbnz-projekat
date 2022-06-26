@@ -1,0 +1,68 @@
+package sbnz.tta.rules.cep;
+
+import com.tta.app.model.events.HitEvent;
+import com.tta.app.model.events.ConsecutiveMissesEvent;
+import com.tta.app.model.events.TooMuchMissesEvent;
+import com.tta.app.model.events.BadSpeedEvent;
+import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.training.Training;
+
+rule "4 consecutive consecutive misses | EASY"
+    when
+    	$tr: Training(level == TrainingLevel.EASY, $id: id)
+    	$lastFiveConsecutiveMisses: List(size == 4) from accumulate (
+            $t: ConsecutiveMissesEvent(trainingId == $id, processed == false) over window:length(4),
+            collectList($t)
+        )
+    then
+        for(Object $cme: $lastFiveConsecutiveMisses) {
+            modify ((ConsecutiveMissesEvent)$cme) {
+                setProcessed(true);
+            }
+        }
+
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
+        consMisses.setMessage("4 uzastopna vezana promasaja");
+        insert(consMisses);
+        System.out.println("Kreiran dogadjaj:               EASY | Previse promasaja [4]");
+end
+
+rule "3 consecutive consecutive misses | MEDIUM"
+    when
+    	$tr: Training(level == TrainingLevel.MEDIUM, $id: id)
+    	$lastFiveConsecutiveMisses: List(size == 3) from accumulate (
+            $t: ConsecutiveMissesEvent(trainingId == $id, processed == false) over window:length(3),
+            collectList($t)
+        )
+    then
+        for(Object $cme: $lastFiveConsecutiveMisses) {
+            modify ((ConsecutiveMissesEvent)$cme) {
+                setProcessed(true);
+            }
+        }
+
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
+        consMisses.setMessage("3 uzastopna vezana promasaja");
+        insert(consMisses);
+        System.out.println("Kreiran dogadjaj:               MEDIUM | Previse promasaja  [3]");
+end
+
+rule "2 consecutive consecutive misses | HARD"
+    when
+    	$tr: Training(level == TrainingLevel.HARD, $id: id)
+    	$lastFiveConsecutiveMisses: List(size == 2) from accumulate (
+            $t: ConsecutiveMissesEvent(trainingId == $id, processed == false) over window:length(2),
+            collectList($t)
+        )
+    then
+        for(Object $cme: $lastFiveConsecutiveMisses) {
+            modify ((ConsecutiveMissesEvent)$cme) {
+                setProcessed(true);
+            }
+        }
+
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
+        consMisses.setMessage("2 uzastopna vezana promasaja");
+        insert(consMisses);
+        System.out.println("Kreiran dogadjaj:               HARD | Previse promasaja [2]");
+end

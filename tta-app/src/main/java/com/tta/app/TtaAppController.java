@@ -25,13 +25,6 @@ public class TtaAppController {
 		this.appService = appService;
 	}
 
-	// TODO change RacketParams to Racket
-	@RequestMapping(value = "/recommendation", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<RacketParams> getRecommendation(@RequestBody(required = true) RacketForm form) {
-		RacketParams rp = appService.getRecommendation(form);
-		return ResponseEntity.ok(rp);
-	}
-	
 	@RequestMapping(value = "/history-recommendation/{userId}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Racket> getHistoryRecommendation(@PathVariable(required = true) Long userId) {
 		Racket r = new Racket();
