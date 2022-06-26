@@ -12,6 +12,14 @@ class UserService {
         });
     }
 
+    register(data) {
+        return axios({
+            method: 'POST',
+            url: `${API_URL}/register`,
+            data: data,
+        });
+    }
+
 }
 
 export default new UserService();

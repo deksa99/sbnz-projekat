@@ -22,9 +22,6 @@ export default {
             }
             return Promise.reject(error);
         });
-    },
-    created() {
-        this.$store.dispatch('loadAuthorizedUser');
-    },
+    }
 }
 </script>
