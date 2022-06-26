@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -22,12 +23,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserService userService;
+    private final UserDetailsService userService;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
     private final JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    public WebSecurityConfig(UserService userService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
+    public WebSecurityConfig(UserDetailsService userService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
                              JwtRequestFilter jwtRequestFilter) {
         this.userService = userService;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;

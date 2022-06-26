@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -33,11 +34,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Value("${jwt.token.prefix}")
     public String tokenPrefix;
 
-    private final UserService userService;
+    private final UserDetailsService userService;
     private final JwtUtil jwtUtil;
 
     @Autowired
-    public JwtRequestFilter(UserService userService, JwtUtil jwtUtil) {
+    public JwtRequestFilter(UserDetailsService userService, JwtUtil jwtUtil) {
         this.userService = userService;
         this.jwtUtil = jwtUtil;
     }

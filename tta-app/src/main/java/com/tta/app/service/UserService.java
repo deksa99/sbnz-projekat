@@ -2,10 +2,10 @@ package com.tta.app.service;
 
 import com.tta.app.model.User;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
-
-public interface UserService extends UserDetailsService {
+public interface UserService {
 	
 	public User findByEmail(String email);
+	
+	public User registraion(String email, String password, String firstName, String lastName);
 	
 }
