@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <router-link :to="{ name: 'Home'}" class="nav-link">Почетна</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'Training'}" class="nav-link">Тренинг</router-link>
+                </li>
             </ul>
             <form class="d-flex justify-content-end">
                 <router-link v-if="$store.getters.rola == undefined" :to="{ name: 'Login'}" class="nav-link">Пријава</router-link>
