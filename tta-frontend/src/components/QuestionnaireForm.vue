@@ -313,6 +313,9 @@
             </div>
         </div>
     </div>
+    <div class="card">
+    <button class="btn btn-outline-primary" type="submit">Потврди</button>
+    </div>
 </form>
 </template>
 
@@ -338,6 +341,12 @@ export default {
             thirdImgRacketOrientation: "",
             thirdImgHit: ""
         }
+    },
+
+    methods: {
+        confirm() {
+            console.log("posalji ga");
+        }
     }
 
 };
@@ -345,7 +354,6 @@ export default {
 
 
 <style scoped>
-
 .card {
     border-radius: 1rem;
     margin: 1rem;
