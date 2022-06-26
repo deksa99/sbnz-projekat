@@ -1,0 +1,32 @@
+template header
+name
+fixTechniqueLimit
+
+import com.tta.app.model.events.HitEvent;
+import com.tta.app.model.events.ConsecutiveMissesEvent;
+import com.tta.app.model.events.TooMuchMissesEvent;
+import com.tta.app.model.events.BadSpeedEvent;
+import com.tta.app.model.enums.TrainingLevel;
+import com.tta.app.model.training.Training;
+
+rule "@{fixTechniqueLimit} consecutive consecutive misses | @{name}"
+    when
+    	$tr: Training(name == @{name}, $id: id)
+    	$lastFiveConsecutiveMisses: List(size == @{fixTechniqueLimit}) from accumulate (
+            $t: ConsecutiveMissesEvent(trainingId == $id, processed == false) over window:length(@{fixTechniqueLimit}),
+            collectList($t)
+        )
+    then
+        for(Object $cme: $lastFiveConsecutiveMisses) {
+            modify ((ConsecutiveMissesEvent)$cme) {
+                setProcessed(true);
+            }
+        }
+
+        TooMuchMissesEvent consMisses = new TooMuchMissesEvent($id);
+        consMisses.setMessage("@{fixTechniqueLimit} uzastopna/ih vezana/ih promasaja");
+        insert(consMisses);
+        System.out.println("Kreiran dogadjaj:               @{name} | Previse promasaja [@{fixTechniqueLimit}]");
+end
+
+end template
