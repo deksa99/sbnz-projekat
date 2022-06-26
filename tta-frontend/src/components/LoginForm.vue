@@ -22,9 +22,17 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import AuthenticationService from "@/service/AuthenticationService.js";
 
 export default {
     name: "LoginForm",
+
+    computed: {
+        ...mapState([
+            'store',
+        ])
+    },
 
     data() {
         return {
@@ -43,7 +51,12 @@ export default {
             this.resetInvalidStates();
 
             if (this.validate()) {
-                console.log("success");
+                AuthenticationService.login(this.user)
+                .then(response => {
+                    console.log(response.data);
+                    localStorage.setItem('token', JSON.stringify(response.data.jwt));
+                    this.store.commit('SET_AUTHORIZED_USER', response.data.user); 
+                })
             }
             return;
         },

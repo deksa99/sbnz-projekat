@@ -12,14 +12,6 @@ class AuthenticationService {
         });
     }
 
-    register(data) {
-        return axios({
-            method: 'POST',
-            url: `${API_URL}/register`,
-            data: data,
-        });
-    }
-
     login(data) {
         return axios({
             method: 'POST',

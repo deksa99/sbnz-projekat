@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import UserService from "@/service/UserService.js";
 
 export default {
     name: "RegistrationForm",
@@ -58,7 +59,9 @@ export default {
             this.resetInvalidStates();
 
             if (this.validate()) {
-                console.log("regsitration success");
+                UserService.register(this.user)
+                .then(response => console.log("Uspesno registrovan!", response.data))
+                .catch(error => console.log("Greska pri registraciji!", error))
             }
         },
 
