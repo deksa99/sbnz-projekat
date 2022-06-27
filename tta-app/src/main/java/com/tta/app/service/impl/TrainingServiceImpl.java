@@ -11,7 +11,6 @@ import com.tta.app.model.User;
 import com.tta.app.model.enums.HitType;
 import com.tta.app.model.enums.RacketOrientation;
 import com.tta.app.model.enums.Spin;
-import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.events.EndTrainingEvent;
 import com.tta.app.model.events.HitEvent;
 import com.tta.app.model.racket.Racket;
@@ -20,6 +19,7 @@ import com.tta.app.model.training.Training;
 import com.tta.app.model.training.TrainingLevelParams;
 import com.tta.app.model.training.TrainingRequest;
 import com.tta.app.repository.HitRepository;
+import com.tta.app.repository.TrainingLevelParamsRepository;
 import com.tta.app.repository.TrainingRepository;
 import com.tta.app.repository.UserRepository;
 import com.tta.app.service.KieService;
@@ -35,6 +35,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TrainingServiceImpl implements TrainingService {
 	
 	private final TrainingRepository trainingRepository;
+	private final TrainingLevelParamsRepository trainingLevelParamsRepository;
 	private final UserRepository userRepository;
 	private final HitRepository hitRepository;
 	
@@ -42,12 +43,13 @@ public class TrainingServiceImpl implements TrainingService {
 	
 	@Autowired
 	public TrainingServiceImpl(KieService kieService, TrainingRepository trainingRepository, 
-			HitRepository hitRepository, UserRepository userRepository) {
+			HitRepository hitRepository, UserRepository userRepository, TrainingLevelParamsRepository trainingLevelParamsRepository) {
 		super();
 		this.kieService = kieService;
 		this.trainingRepository = trainingRepository;
 		this.hitRepository = hitRepository;
 		this.userRepository = userRepository;
+		this.trainingLevelParamsRepository = trainingLevelParamsRepository;
 	}
 
 	@Override
@@ -103,7 +105,7 @@ public class TrainingServiceImpl implements TrainingService {
 	}
 
 	@Override
-	public TrainingLevel initTraining(Long userId, RacketOrientation racketOrientation, HitType hitType, Spin spin) {
+	public Training initTraining(Long userId, RacketOrientation racketOrientation, HitType hitType, Spin spin) {
 		Optional<User> u = userRepository.findById(userId);
 		if (!u.isPresent()) {
 			throw new EntityNotFoundException("User not found");
@@ -141,9 +143,17 @@ public class TrainingServiceImpl implements TrainingService {
 		kieSession.insert(tr);
 		kieSession.fireAllRules();
 		
-		System.out.println(t.getLevel().getLevel());
-		// TODO get get random level and create DTO
-		return t.getLevel().getLevel();
+		List<TrainingLevelParams> tlpList = trainingLevelParamsRepository.findOneByLevel(t.getLevel().getLevel());
+		
+		if (tlpList.size() == 0) {
+			throw new EntityNotFoundException("Training Level Params not found for level: " + t.getLevel().getLevel());
+		}
+		
+		t.setLevel(tlpList.get(0));
+		
+		trainingRepository.save(t);
+		
+		return t;
 	}
 	
 	private Double getExpectedAngle() {

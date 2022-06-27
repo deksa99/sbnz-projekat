@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.tta.app.dto.HitDTO;
+import com.tta.app.dto.TrainingBasicInfoDTO;
 import com.tta.app.dto.TrainingRequestDTO;
-import com.tta.app.model.enums.TrainingLevel;
 import com.tta.app.model.training.Hit;
+import com.tta.app.model.training.Training;
 import com.tta.app.service.TrainingService;
 
 import org.modelmapper.ModelMapper;
@@ -38,8 +39,8 @@ public class TrainingController {
 	}
 	
 	@PostMapping(value = "/request")
-	public ResponseEntity<TrainingLevel> requestTraining(@RequestBody TrainingRequestDTO req) {
-		TrainingLevel t = trainingService.initTraining(req.getUserId(), req.getRacketOrientation(), req.getHitType(), req.getSpin());
-		return ResponseEntity.ok(t);
+	public ResponseEntity<TrainingBasicInfoDTO> requestTraining(@RequestBody TrainingRequestDTO req) {
+		Training t = trainingService.initTraining(req.getUserId(), req.getRacketOrientation(), req.getHitType(), req.getSpin());
+		return ResponseEntity.ok(mapper.map(t, TrainingBasicInfoDTO.class));
 	}
 }
