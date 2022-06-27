@@ -4,9 +4,8 @@ import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import Registration from "@/views/Registration.vue";
 import Login from "@/views/Login.vue";
-import EventView from "@/views/EventView.vue";
+import Training from "@/views/Training.vue";
 import Template from "@/views/Template.vue";
-import StartTraining from "@/views/Training.vue";
 
 Vue.use(VueRouter);
 
@@ -29,18 +28,10 @@ const routes = [
         name: 'Login',
         component: Login,
     }, 
-    {
-        path: encodeURI('/start-training'),
-        name: 'StartTraining',
-        component: StartTraining,
-        meta: {
-            authorize: ['PLAYER']
-        }
-    },
     {        
         path: encodeURI('/training'),
         name: 'Training',
-        component: EventView,
+        component: Training,
         meta: {
             authorize: ['PLAYER']
         }

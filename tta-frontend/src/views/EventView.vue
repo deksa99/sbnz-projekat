@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <div class="container">
             <div class="row">
                 <div class="col-sm">
@@ -9,12 +8,12 @@
                             Trening informacije
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Датум: {{ date }}</li>
-                            <li class="list-group-item">Тип тренинга: {{ type }}</li>
-                            <li class="list-group-item">Орентација рекета: {{ racketOrientation }}</li>
-                            <li class="list-group-item">Спин: {{ spin }}</li>
-                            <li class="list-group-item">Очекивани угао: {{ expectedAngle }}</li>
-                            <li class="list-group-item">Очекивана брзина: {{ expectedSpeed }}</li>
+                            <li class="list-group-item">fixTechniqueLimit: {{ training.level.fixTechniqueLimit }}</li>
+                            <li class="list-group-item">angleDelta: {{ training.level.angleDelta }}</li>
+                            <li class="list-group-item">speedDelta: {{ training.level.speedDelta }}</li>
+                            <li class="list-group-item">consecuctiveMisses: {{ training.level.consecuctiveMisses }}</li>
+                            <li class="list-group-item">name: {{ training.level.name }}</li>
+                            <li class="list-group-item">level: {{ training.level.level }}</li>
                         </ul>
                     </div>
                 </div>
@@ -49,14 +48,12 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
 
 export default {
-    name: "Home",
-    components: {
-        Navbar,
+    name: "EventView",
+    props: {
+        training: Object
     },
-
     data() {
         return {
             racketOrientation: "",

@@ -96,18 +96,26 @@
                 </div>
             </div>
             </div>
-        <div class="card">
-            <button class="btn btn-outline-primary" type="submit">Потврди</button>
-        </div>
+            <div class="card">
+                <button class="btn btn-outline-primary" type="submit">Потврди</button>
+            </div>
         </form>
     </div>
 </div>
 </template>
 
 <script>
+import TrainingService from "@/service/TrainingService.js";
+import { mapState } from "vuex";
 
 export default {
-    name: "StartTraining.vue",
+    name: "StartTraining",
+
+    computed: {
+        ...mapState([
+            'user',
+        ])
+    },
 
     data() {
         return {
@@ -120,7 +128,15 @@ export default {
     },
 
     methods: {
-
+        confirm() {
+            this.startTrainingForm.userId = this.user.id;
+            console.log(this.startTrainingForm);
+            TrainingService.getTraining(this.startTrainingForm)
+            .then(response => {
+                console.log(response.data);
+                this.$emit('training-started', response.data)
+            })
+        }
     }
 
 };

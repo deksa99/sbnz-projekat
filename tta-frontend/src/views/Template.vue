@@ -32,16 +32,16 @@
                             <input type="number" class="form-control" v-model="template.consecuctiveMisses" placeholder="Број узастопних промашаја" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" v-model="template.name" placeholder="Назив" required>
+                            <input type="text" class="form-control" v-model="template.name" placeholder="Назив" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" v-model="template.level" placeholder="Ниво" required>
+                            <input type="text" class="form-control" v-model="template.level" placeholder="Ниво" required>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Затвори</button>
-                    <button type="button" class="btn btn-primary">Потврди</button>
+                    <button type="button" class="btn btn-primary" @click="createTrainingLevel">Потврди</button>
                 </div>
                 </div>
             </div>
@@ -77,7 +77,9 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Navbar from "@/components/Navbar.vue";
+import TrainingLevelServie from "@/service/TrainingLevelService.js";
 
 export default {
     name: "Template",
@@ -85,34 +87,44 @@ export default {
         Navbar,
     },
 
+    computed: {
+        ...mapState([
+            'user',
+        ])
+    },
+
     data() {
         return {
-            trainingLevels: [
-                {
-                    id: 1,
-                    fixTechniqueLimit: "20",
-                    angleDelta: 20,
-                    speedDelta:  20,
-                    consecuctiveMisses: 1,
-                    name: "marko",
-                    level: "nzm"
-                },
-                {
-                    id: 2,
-                    fixTechniqueLimit: "20",
-                    angleDelta: 20,
-                    speedDelta:  20,
-                    consecuctiveMisses: 1,
-                    name: "marko",
-                    level: "nzm"
-                },
-            ],
+            trainingLevels: [],
             template: {}
         }
     },
 
-    methods: {
+    created() {
+        this.loadTrainingLevels();
+    },
 
+    methods: {
+        loadTrainingLevels() {
+            TrainingLevelServie.getTrainingLevels()
+            .then(response => {
+                this.trainingLevels = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        },
+
+        createTrainingLevel() {
+            TrainingLevelServie.createTrainingLevel(this.template)
+            .then(response => {
+                console.log(response.data);
+                this.loadTrainingLevels();
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
     }
 };
 </script>
