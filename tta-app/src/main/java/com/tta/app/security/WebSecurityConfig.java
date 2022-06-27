@@ -1,11 +1,12 @@
 package com.tta.app.security;
 
+import com.google.common.collect.Lists;
 import com.tta.app.security.filters.JwtRequestFilter;
 import com.tta.app.security.utils.RestAuthenticationEntryPoint;
-import com.tta.app.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
 
 @SuppressWarnings("deprecation")
 @EnableWebSecurity
@@ -42,13 +44,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.cors().configurationSource(request -> {
+        	CorsConfiguration cors = new CorsConfiguration();
+            cors.setAllowedOrigins(Lists.newArrayList("*"));
+            cors.setAllowedMethods(Lists.newArrayList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+            cors.setAllowedHeaders(Lists.newArrayList("*"));
+            return cors;
+        }).and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/*").permitAll()
-                .antMatchers("/api/auth").permitAll()
-                .antMatchers("/**").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
-                .anyRequest().authenticated()
+	                .antMatchers("/api/*").permitAll()
+	                .antMatchers("/api/auth/login").permitAll()
+	                .antMatchers("/**").permitAll()
+	                .antMatchers("/h2-console/**").permitAll()
+	                .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

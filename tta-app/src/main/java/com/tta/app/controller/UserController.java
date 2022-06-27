@@ -32,7 +32,7 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@PostMapping
+	@PostMapping(value = "/register")
 	public ResponseEntity<UserInfoDTO> addUser(@Valid @RequestBody RegistrationRequest request) {
 		User user = userService.registraion(request.getEmail(), request.getPassword(), request.getFirstName(), request.getLastName());
 		

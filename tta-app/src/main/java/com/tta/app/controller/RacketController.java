@@ -1,7 +1,7 @@
 package com.tta.app.controller;
 
+import com.tta.app.model.racket.Racket;
 import com.tta.app.model.racket.RacketForm;
-import com.tta.app.model.racket.RacketParams;
 import com.tta.app.service.RacketService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "api/racket")
+@RequestMapping(value = "api/rackets")
 public class RacketController {
 	
 	private final RacketService racketService;
@@ -25,9 +25,9 @@ public class RacketController {
 
 	// TODO change RacketParams to Racket
 	@RequestMapping(value = "/recommendation", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<RacketParams> getRecommendation(@RequestBody(required = true) RacketForm form) {
-		RacketParams rp = racketService.getRecommendation(form);
-		return ResponseEntity.ok(rp);
+	public ResponseEntity<Racket> getRecommendation(@RequestBody(required = true) RacketForm form) {
+		Racket r = racketService.getRecommendation(form);
+		return ResponseEntity.ok(r);
 	}
 	
 	
