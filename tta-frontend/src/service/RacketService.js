@@ -1,7 +1,7 @@
    
 import axios from "axios";
 
-const API_URL = "http://192.168.0.102:8081/api/rackets/recommendation"
+const API_URL = "http://192.168.0.102:8081/api/rackets"
 
 class RacketService {
 
@@ -15,7 +15,7 @@ class RacketService {
     getRacketRecommendation(data) {
         return axios({
             method: 'POST',
-            url: `${API_URL}`,
+            url: `${API_URL}/recommendation`,
             data: data
         });
     }
