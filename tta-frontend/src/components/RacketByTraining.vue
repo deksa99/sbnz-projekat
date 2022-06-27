@@ -34,6 +34,7 @@ export default {
         getRacket() {
             RacketService.getRacketByTraining(this.user.id)
             .then(response => {
+                console.log(response.data);
                 this.racket = response.data;
             });
         },
