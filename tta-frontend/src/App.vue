@@ -17,7 +17,7 @@ export default {
             return response;
         }, function (error) {
             if (error.response.status === 401) {
-                console.log("usao");
+                console.log("ZABARANJEN PRISTUP");
                 this.$router.push({name: "Login"});
             }
             return Promise.reject(error);

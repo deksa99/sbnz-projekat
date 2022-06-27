@@ -30,7 +30,7 @@
 
     <QuestionnaireForm v-if="option === 'QUESTIONNARE'"></QuestionnaireForm>
     <Manual v-if="option === 'MANUAL'"></Manual>
-    <RacketInfo v-if="option === 'TRAINING'"> </RacketInfo>
+    <RacketByTraining v-if="option === 'TRAINING'"> </RacketByTraining>
 
 </form>
 </template>
@@ -38,14 +38,14 @@
 <script>
 import QuestionnaireForm from "@/components/QuestionnaireForm.vue";
 import Manual from "@/components/Manual.vue";
-import RacketInfo from "@/components/RacketInfo"
+import RacketByTraining from "@/components/RacketByTraining"
 
 export default {
     name: "ChooseRacketForm",
     components: {
         QuestionnaireForm,
         Manual,
-        RacketInfo
+        RacketByTraining
     },
 
     data() {
