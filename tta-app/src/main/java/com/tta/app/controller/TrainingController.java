@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.tta.app.dto.HitDTO;
+import com.tta.app.dto.TrainingBasicInfoDTO;
+import com.tta.app.dto.TrainingRequestDTO;
 import com.tta.app.model.training.Hit;
+import com.tta.app.model.training.Training;
 import com.tta.app.service.TrainingService;
 
 import org.modelmapper.ModelMapper;
@@ -33,5 +36,11 @@ public class TrainingController {
 		List<Hit> hitList = hits.stream().map(h -> mapper.map(h, Hit.class)).collect(Collectors.toList());
 		trainingService.simulation(trainingId, hitList);
 		return ResponseEntity.ok(true);
+	}
+	
+	@PostMapping(value = "/request")
+	public ResponseEntity<TrainingBasicInfoDTO> requestTraining(@RequestBody TrainingRequestDTO req) {
+		Training t = trainingService.initTraining(req.getUserId(), req.getRacketOrientation(), req.getHitType(), req.getSpin());
+		return ResponseEntity.ok(mapper.map(t, TrainingBasicInfoDTO.class));
 	}
 }

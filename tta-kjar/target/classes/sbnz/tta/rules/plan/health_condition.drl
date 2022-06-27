@@ -29,9 +29,9 @@ rule "Set health condition to GOOD - at least 3 trainings in the past 7 days"
 no-loop
 salience 0
 	when
-		$u: User($id: id);
+		$tr: TrainingRequest($u: user);
         List(size >= 3) from collect (
-            Training(date > System.currentTimeMillis() - 7*24*60*60*1000, user.id == $id)
+            Training(date > System.currentTimeMillis() - 7*24*60*60*1000, user.id == $u.id)
         )
 	then
 		modify($u) {
@@ -44,7 +44,7 @@ rule "Default health condition - BAD"
 no-loop
 salience 100
 	when
-		$u: User($id: id);
+		$tr: TrainingRequest($u: user);
 	then
 		modify($u) {
 			setHealthCondition(HealthCondition.BAD);

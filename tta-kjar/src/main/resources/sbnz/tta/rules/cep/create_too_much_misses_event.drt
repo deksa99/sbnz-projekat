@@ -11,7 +11,7 @@ import com.tta.app.model.training.Training;
 
 rule "@{fixTechniqueLimit} consecutive consecutive misses | @{name}"
     when
-    	$tr: Training(name == @{name}, $id: id)
+    	$tr: Training(level.getName() == @{name}, $id: id)
     	$lastFiveConsecutiveMisses: List(size == @{fixTechniqueLimit}) from accumulate (
             $t: ConsecutiveMissesEvent(trainingId == $id, processed == false) over window:length(@{fixTechniqueLimit}),
             collectList($t)

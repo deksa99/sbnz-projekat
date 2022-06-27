@@ -12,7 +12,7 @@ template 'bad-angle-template'
 rule "Bad angle event for @{name} | delta = @{angleDelta}"
 
     when
-    	$tr: Training(name == @{name}, $id: id)
+    	$tr: Training(level.getName() == @{name}, $id: id)
     	$lastHit: HitEvent( trainingId == $id && (angleDelta >= @{angleDelta} || <= -1 * @{angleDelta}) && badAngleProcessed == false, $delta: angleDelta)
     then
         modify($lastHit) {
