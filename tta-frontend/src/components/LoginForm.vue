@@ -5,7 +5,7 @@
         <form id="login-form" @submit.prevent="login">
             <div class="modal-body text-start">
                     <div class="form-group">
-                        <input type="text" class="form-control" v-model="user.email" v-bind:class="{'is-invalid': invalidEmail}" placeholder="Email" required>
+                        <input type="text" class="form-control" v-model="user.username" v-bind:class="{'is-invalid': invalidEmail}" placeholder="Email" required>
                         <div class="invalid-feedback">Invalid email.</div>
                     </div>
                     <div class="form-group">
@@ -37,7 +37,7 @@ export default {
     data() {
         return {
             user: {
-                email: "",
+                username: "",
                 password: "",
             },
 
@@ -55,7 +55,7 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     localStorage.setItem('token', JSON.stringify(response.data.jwt));
-                    this.store.commit('SET_AUTHORIZED_USER', response.data.user); 
+                    this.$store.commit('SET_AUTHORIZED_USER', response.data.user); 
                 })
             }
             return;
@@ -68,7 +68,7 @@ export default {
             if (!form.checkValidity())
                 return false;
 
-            if (!this.user.email.match('^(.+)@(.+)$')) {
+            if (!this.user.username.match('^(.+)@(.+)$')) {
                 this.invalidEmail = true;
                 return false;
             }
