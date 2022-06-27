@@ -6,6 +6,7 @@
 import { mapState } from "vuex";
 import RacketService from "@/service/RacketService.js";
 import RacketInfo from "@/components/RacketInfo.vue";
+import UserService from "@/service/UserService.js";
 
 export default {
     name: "RacketByTraining",
@@ -36,6 +37,20 @@ export default {
             .then(response => {
                 console.log(response.data);
                 this.racket = response.data;
+                let data = {
+                    "userId": this.user.id,
+                    "bladeId": this.racket.blade.id,
+                    "fhRubberId": this.racket.fhRubber.id,
+                    "bhRubberId": this.racket.bhRubber.id
+                }
+                console.log(data);
+                UserService.updateRacket(data)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
             });
         },
     },

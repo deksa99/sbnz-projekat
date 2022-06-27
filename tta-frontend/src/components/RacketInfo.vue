@@ -10,13 +10,13 @@
             <li>Назив: {{ racket.blade.name }}</li>
             <li>Брзина: {{ racket.blade.speed }}</li>
             <li>Контрола: {{ racket.blade.control }}</li>
-            <li>{{ racket.blade.stiffness }}</li>
-            <li>{{ racket.blade.hardness }}</li>
-            <li>{{ racket.blade.consistency }}</li>
-            <li>{{ racket.blade.weight }}</li>
-            <li>{{ racket.blade.price }}</li>
-            <li>{{ racket.blade.grip }}</li>
-            <li>{{ racket.blade.gripType }}</li>
+            <li>Мекоћа: {{ racket.blade.stiffness }}</li>
+            <li>Тврдоћа {{ racket.blade.hardness }}</li>
+            <li>Конзистентност: {{ racket.blade.consistency }}</li>
+            <li>Тежина: {{ racket.blade.weight }}</li>
+            <li>Цена: {{ racket.blade.price }}</li>
+            <li>Грип: {{ racket.blade.grip }}</li>
+            <li>Тип грипа: {{ racket.blade.gripType }}</li>
         </ul>
     </figure>
     <figure>
@@ -25,11 +25,11 @@
             <li>Назив: {{ racket.fhRubber.name }}</li>
             <li>Брзина: {{ racket.fhRubber.speed }}</li>
             <li>Контрола: {{ racket.fhRubber.control }}</li>
-            <li>{{ racket.fhRubber.tackiness }}</li>
-            <li>{{ racket.fhRubber.weight }}</li>
-            <li>{{ racket.fhRubber.hardness }}</li>
-            <li>{{ racket.fhRubber.consistency }}</li>
-            <li>{{ racket.fhRubber.price }}$</li>
+            <li>Тикнес: {{ racket.fhRubber.tackiness }}</li>
+            <li>Тежина: {{ racket.fhRubber.weight }}</li>
+            <li>Тврдоћа:  {{ racket.fhRubber.hardness }}</li>
+            <li>Конзистентност: {{ racket.fhRubber.consistency }}</li>
+            <li>Цена: {{ racket.fhRubber.price }}$</li>
         </ul>
     </figure>
     <figure>
@@ -38,11 +38,11 @@
             <li>Назив: {{ racket.bhRubber.name }}</li>
             <li>Брзина: {{ racket.bhRubber.speed }}</li>
             <li>Контрола: {{ racket.bhRubber.control }}</li>
-            <li>{{ racket.bhRubber.tackiness }}</li>
-            <li>{{ racket.bhRubber.weight }}</li>
-            <li>{{ racket.bhRubber.hardness }}</li>
-            <li>{{ racket.bhRubber.consistency }}</li>
-            <li>{{ racket.bhRubber.price }}$</li>
+            <li>Тацкинес: {{ racket.bhRubber.tackiness }}</li>
+            <li>Тежина: {{ racket.bhRubber.weight }}</li>
+            <li>Тврдоћа: {{ racket.bhRubber.hardness }}</li>
+            <li>Конзистентност: {{ racket.bhRubber.consistency }}</li>
+            <li>Цена: {{ racket.bhRubber.price }}$</li>
         </ul>
     </figure>
 </div>

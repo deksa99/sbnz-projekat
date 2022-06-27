@@ -6,9 +6,9 @@
             <div class="modal-body text-start">
                 <div class="card">
                 <div class="card-body">
+                            <h5> Изаберите начин тренинга: </h5>
                     <div class="form-group container-fluid">
                         <div class="row flex-row flex-nowrap overflow-auto">
-
                             <div class="col-sm-6">
                                 <div class="card">
                                     <div class="card-body">

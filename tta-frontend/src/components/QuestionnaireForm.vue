@@ -196,6 +196,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import UserService from "@/service/UserService.js";
 import RacketService from "@/service/RacketService.js";
 import RacketInfo from "@/components/RacketInfo.vue";
 
@@ -204,6 +206,13 @@ export default {
 
     components: {
         RacketInfo
+    },
+
+
+    computed: {
+        ...mapState([
+            'user',
+        ])
     },
 
     data() {
@@ -265,6 +274,21 @@ export default {
             RacketService.getRacketRecommendation(this.racketRecommendationForm)
             .then(response => {
                 this.selectedRacket = response.data;
+                let data = {
+                    "userId": this.user.id,
+                    "bladeId": this.selectedRacket.blade.id,
+                    "fhRubberId": this.selectedRacket.fhRubber.id,
+                    "bhRubberId": this.selectedRacket.bhRubber.id
+                }
+                console.log(data);
+                UserService.updateRacket(data)
+                .then(response => {
+                    this.selectedRacket = response.data.racket
+                    console.log(this.selectedRacket);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
             })
             .catch(error => {
                 console.log(error);
