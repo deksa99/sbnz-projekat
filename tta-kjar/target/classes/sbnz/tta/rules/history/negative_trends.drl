@@ -39,10 +39,6 @@ salience 90
             ) from $u.trainHistory,
             init(int count = 0;),
             action(
-                // $not_good: List() from collect (
-                //     Hit(result != HitResult.GOOD) from $hits
-                // );
-                // count += $not_good.size();
                 count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() != HitResult.GOOD).collect(Collectors.toList())).size();
                 ),
             result(count)
@@ -54,10 +50,6 @@ salience 90
             ) from $u.trainHistory,
             init (int count = 0;),
             action(
-                // $unsucc_h: List() from collect (
-                //     Hit(result == HitResult.FRONT_OUT) from $hits
-                // );
-                // count += $unsucc_h.size();
                 count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() == HitResult.FRONT_OUT).collect(Collectors.toList())).size();
                 ),
             result(count)
@@ -67,4 +59,127 @@ salience 90
 			setHighAccuracy(false);
 		}
 		System.out.println("Niska preciznost - FRONT OUT | Total hits: " + $total_hits + " Unsuccessful: " + $unsucc + " Errors: " + $err);
+end
+
+rule "Set low hit accuracy - LEFT_OUT"
+no-loop
+salience 90
+	when
+		$nrr: NewRacketRecommendation($u: user);
+        $total_hits: Number(intValue > 0) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            sum($hits.size())
+        )
+        $unsucc: Number((int)intValue > ($total_hits * 0.20)) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init(int count = 0;),
+            action(
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() != HitResult.GOOD).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+        $err: Number((int)intValue > ($unsucc * 0.25)) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init (int count = 0;),
+            action(
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() == HitResult.LEFT_OUT).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+	then
+		modify($nrr) {
+			setHighAccuracy(false);
+		}
+		System.out.println("Niska preciznost - LEFT_OUT | Total hits: " + $total_hits + " Unsuccessful: " + $unsucc + " Errors: " + $err);
+end
+
+rule "Set low hit accuracy - RIGHT_OUT"
+no-loop
+salience 90
+	when
+		$nrr: NewRacketRecommendation($u: user);
+        $total_hits: Number(intValue > 0) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            sum($hits.size())
+        )
+        $unsucc: Number((int)intValue > ($total_hits * 0.20)) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init(int count = 0;),
+            action(
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() != HitResult.GOOD).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+        $err: Number((int)intValue > ($unsucc * 0.25)) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init (int count = 0;),
+            action(
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() == HitResult.RIGHT_OUT).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+	then
+		modify($nrr) {
+			setHighAccuracy(false);
+		}
+		System.out.println("Niska preciznost - RIGHT_OUT | Total hits: " + $total_hits + " Unsuccessful: " + $unsucc + " Errors: " + $err);
+end
+
+rule "Set low hit accuracy - NET"
+no-loop
+salience 90
+	when
+		$nrr: NewRacketRecommendation($u: user);
+        $total_hits: Number(intValue > 0) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            sum($hits.size())
+        )
+        $unsucc: Number((int)intValue > ($total_hits * 0.20)) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init(int count = 0;),
+            action(
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() != HitResult.GOOD).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+        $err: Number((int)intValue > ($unsucc * 0.25)) from accumulate (
+            Training (
+                finished == true,
+                $hits: hits
+            ) from $u.trainHistory,
+            init (int count = 0;),
+            action(
+                count += ((List<Hit>)$hits.stream().filter(h -> ((Hit) h).getResult() == HitResult.NET).collect(Collectors.toList())).size();
+                ),
+            result(count)
+        )
+	then
+		modify($nrr) {
+			setHighAccuracy(false);
+		}
+		System.out.println("Niska preciznost - NET | Total hits: " + $total_hits + " Unsuccessful: " + $unsucc + " Errors: " + $err);
 end
