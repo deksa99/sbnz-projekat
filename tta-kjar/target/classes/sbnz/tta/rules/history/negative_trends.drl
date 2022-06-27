@@ -32,7 +32,7 @@ salience 90
             ) from $u.trainHistory,
             sum($hits.size())
         )
-        $unsucc: Number(intValue > $total_hits * 0.20) from accumulate (
+        $unsucc: Number((int)intValue > ($total_hits * 0.20)) from accumulate (
             Training (
                 finished == true,
                 $hits: hits
@@ -47,7 +47,7 @@ salience 90
                 ),
             result(count)
         )
-        $err: Number(intValue > $unsucc * 0.25) from accumulate (
+        $err: Number((int)intValue > ($unsucc * 0.25)) from accumulate (
             Training (
                 finished == true,
                 $hits: hits

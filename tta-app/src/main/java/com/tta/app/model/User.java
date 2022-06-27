@@ -48,7 +48,7 @@ public class User implements Serializable {
 	private UserSkill userSkill;
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Training> trainHistory;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Racket currentRacket;
 	private Double budget;
 	

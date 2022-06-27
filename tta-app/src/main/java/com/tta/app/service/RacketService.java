@@ -7,4 +7,6 @@ public interface RacketService {
 
 	public Racket getRecommendation(RacketForm form);
 
+	public Racket getHistoryRecommendation(Long userId);
+
 }
