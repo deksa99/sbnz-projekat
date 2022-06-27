@@ -18,9 +18,9 @@
                 </li>
             </ul>
             <form class="d-flex justify-content-end">
-                <router-link v-if="$store.getters.rola == undefined" :to="{ name: 'Login'}" class="nav-link">Пријава</router-link>
-                <router-link v-if="$store.getters.rola == undefined" :to="{ name: 'Registration'}" class="btn btn-outline-primary">Регистрација</router-link>
-                <button v-if="$store.getters.rola != undefined" :to="{ name: 'Registration'}" @click="logout" class="btn btn-outline-primary">Одјава</button>
+                <router-link v-if="$store.state.user.role === undefined" :to="{ name: 'Login'}" class="nav-link">Пријава</router-link>
+                <router-link v-if="$store.state.user.role === undefined" :to="{ name: 'Registration'}" class="btn btn-outline-primary">Регистрација</router-link>
+                <button v-if="$store.state.user.role !== undefined" :to="{ name: 'Registration'}" @click="logout" class="btn btn-outline-primary">Одјава</button>
             </form>
         </div>
     </div>
@@ -33,6 +33,7 @@ export default {
     methods: {
         logout() {
             localStorage.removeItem("token");
+            localStorage.removeItem("user");
             this.$router.push({ name: 'Home'});
             this.$router.go();
         },

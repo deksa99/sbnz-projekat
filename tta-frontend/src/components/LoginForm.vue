@@ -55,7 +55,9 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     localStorage.setItem('token', JSON.stringify(response.data.jwt));
+                    localStorage.setItem('user', JSON.stringify(response.data.user));
                     this.$store.commit('SET_AUTHORIZED_USER', response.data.user); 
+                    this.$router.push({ name: 'Home'});
                 })
             }
             return;
