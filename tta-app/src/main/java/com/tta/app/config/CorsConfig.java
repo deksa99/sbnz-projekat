@@ -11,9 +11,9 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        String vuePath = "http://localhost:8081";
+        String vuePath = "http://localhost:8080";
         registry.addMapping("/**")
-                .allowedOrigins(vuePath, "*", "http://192.168.0.113:8081")
+                .allowedOrigins(vuePath, "*")
                 .allowedMethods("GET", "PUT", "POST", "DELETE", "OPTIONS", "PATCH");
     }
 }
